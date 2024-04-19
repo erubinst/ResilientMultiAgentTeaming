@@ -1,0 +1,71 @@
+// --------------------------------------------------------------------------
+// Licensed Materials - Property of IBM
+//
+// 5725-A06 5725-A29 5724-Y48 5724-Y49 5724-Y54 5724-Y55
+// Copyright IBM Corporation 1998, 2022. All Rights Reserved.
+//
+// Note to U.S. Government Users Restricted Rights:
+// Use, duplication or disclosure restricted by GSA ADP Schedule
+// Contract with IBM Corp.
+// --------------------------------------------------------------------------
+H =  100;
+
+Workers = { "Joe", 
+            "Jack",
+            "Jim" 
+            };
+
+Tasks = { "masonry", 
+          "carpentry", 
+          "plumbing",
+          "roofing", 
+          "landscaping"
+          "joelunchbreak",
+          "jacklunchbreak",
+          "jimlunchbreak"
+          };
+
+Durations =  [
+  20,
+  30,
+  40,
+  10,
+  15,
+  10,
+  10,
+  10
+];
+
+EarliestStart = [
+  0,
+  0,
+  0,
+  0,
+  0,
+  30,
+  40,
+  40
+];
+
+LatestEnd = [
+ 100,
+ 100,
+ 100,
+ 100,
+ 100,
+ 40,
+ 50,
+ 50
+];
+
+Skills = {  
+ < "Joe",  "carpentry">
+ < "Joe", "plumbing">,
+ < "Jack", "masonry">,  
+ < "Jack", "roofing">,
+ < "Jack", "landscaping">,
+ < "Jim", "plumbing">,
+ < "Joe", "joelunchbreak">,
+ < "Jack", "jacklunchbreak">,
+ < "Jim", "jimlunchbreak">
+};
