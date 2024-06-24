@@ -8,64 +8,59 @@
 // Use, duplication or disclosure restricted by GSA ADP Schedule
 // Contract with IBM Corp.
 // --------------------------------------------------------------------------
-H =  100;
 
-Workers = { "Joe", 
-            "Jack",
-            "Jim" 
-            };
+H = 90;
 
-Tasks = { "masonry", 
-          "carpentry", 
-          "plumbing",
-          "roofing", 
-          "landscaping"
-          "joelunchbreak",
-          "jacklunchbreak",
-          "jimlunchbreak"
-          };
 
-Durations =  [
-  20,
-  30,
-  40,
-  10,
-  15,
-  10,
-  10,
-  10
-];
+Tasks = {"doctor",
+		 "groceries",
+		 "cleaning",
+		 "cooking",
+		 "dentist",
+		 "lawnmowing",
+		 "paperwork",
+		 "sonbreak",
+		 "daughterbreak",
+		 "neighborbreak",
+		 "sonbreak2",
+		 "sonEndBreak",
+		 "daughterEndBreak",
+		 "neighborEndBreak"};
+		 
+Durations = [10,20,15,10,15,10,5,10,30,20,10,10,10,10];
+		 
+TaskType = [0,0,0,0,0,0,0,1,1,1,1,1,1,1];
 
-EarliestStart = [
-  0,
-  0,
-  0,
-  0,
-  0,
-  30,
-  40,
-  40
-];
+EarliestStart = [50,0,0,0,10,0,0,30,0,60,10,80,80,80];
 
-LatestEnd = [
- 100,
- 100,
- 100,
- 100,
- 100,
- 40,
- 50,
- 50
-];
+LatestEnd = [60,80,80,80,25,80,80,40,30,80,20,90,90,90];
 
-Skills = {  
- < "Joe",  "carpentry">
- < "Joe", "plumbing">,
- < "Jack", "masonry">,  
- < "Jack", "roofing">,
- < "Jack", "landscaping">,
- < "Jim", "plumbing">,
- < "Joe", "joelunchbreak">,
- < "Jack", "jacklunchbreak">,
- < "Jim", "jimlunchbreak">
+Workers = {"Son", "Daughter", "Neighbor"};
+
+Skills = {
+	< "Son", "doctor" >,
+	< "Son", "groceries" >,
+	< "Son", "cleaning" >,
+	< "Son", "cooking" >,
+	< "Son", "dentist" >,
+	< "Son", "paperwork" >,
+	< "Son", "sonbreak" >,
+	< "Daughter", "doctor" >,
+	< "Daughter", "groceries" >,
+	< "Daughter", "cleaning" >,
+	< "Daughter", "cooking" >,
+	< "Daughter", "dentist" >,
+	< "Daughter", "lawnmowing" >,
+	< "Daughter", "paperwork" >,
+	< "Daughter", "daughterbreak" >,
+	< "Neighbor", "doctor" >,
+	< "Neighbor", "cleaning" >,
+	< "Neighbor", "cooking" >,
+	< "Neighbor", "dentist" >,
+	< "Neighbor", "lawnmowing" >,
+	< "Neighbor", "neighborbreak" >,
+	< "Son", "sonbreak2" >
+	< "Son", "sonEndBreak" >,
+	< "Daughter", "daughterEndBreak" >,
+	< "Neighbor", "neighborEndBreak" >
 };
