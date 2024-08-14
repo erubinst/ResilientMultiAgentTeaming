@@ -29,7 +29,11 @@ Run the files using IBM ILOG CPLEX Optimization Studio
 
 - **nextBreakStarts[s in Skills]** (integer) gives the start of the next break for wtasks[s] by grabbing the minimum value from the breakDifference array.  It will be 0 for any break tasks.
 
-- **trueLatestEndsInFront[s in Skills][sk in Skills]** (integer) grabs all the LatestEnd constraints for each
+- **trueLatestEndsInFront[s in Skills][sk in Skills]** (integer) grabs all the LatestEnd constraints for each task ahead of s.task and before nextBreakStarts[s].  There will be slots filled with horizon H for all Skills that don't exist in the schedule, aren't in that range, aren't for that worker, or are for a break task.
+
+- **slidingConstraint[s in Skills]** (integer) is the minimum of all the latest ends in front of s.task compared with the nextBreakStart[s].  That is, it takes either the minimum LatestEnd constraint of tasks in front or the start of the next break in front of a task (whichever is smaller)
+
+- **tasksInFront[s in Skills]**
 
 
 
