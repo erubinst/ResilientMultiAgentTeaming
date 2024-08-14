@@ -31,36 +31,34 @@ Durations = [10,20,15,10,15,10,5,10,30,20,10,10,10,10];
 		 
 TaskType = [0,0,0,0,0,0,0,1,1,1,1,1,1,1];
 
-EarliestStart = [50,0,0,0,10,0,0,30,0,60,10,80,80,80];
+EarliestStart = [50,0,0,0,10,0,0,30,0,60,0,80,80,80];
 
-LatestEnd = [60,80,80,80,25,80,80,40,30,80,20,90,90,90];
+LatestEnd = [60,80,80,80,25,80,80,40,30,80,10,90,90,90];
 
 Workers = {"Son", "Daughter", "Neighbor"};
 
 Skills = {
-	< "Son", "doctor" >,
-	< "Son", "groceries" >,
-	< "Son", "cleaning" >,
-	< "Son", "cooking" >,
-	< "Son", "dentist" >,
-	< "Son", "paperwork" >,
-	< "Son", "sonbreak" >,
-	< "Daughter", "doctor" >,
-	< "Daughter", "groceries" >,
-	< "Daughter", "cleaning" >,
-	< "Daughter", "cooking" >,
-	< "Daughter", "dentist" >,
-	< "Daughter", "lawnmowing" >,
-	< "Daughter", "paperwork" >,
-	< "Daughter", "daughterbreak" >,
-	< "Neighbor", "doctor" >,
-	< "Neighbor", "cleaning" >,
-	< "Neighbor", "cooking" >,
-	< "Neighbor", "dentist" >,
-	< "Neighbor", "lawnmowing" >,
-	< "Neighbor", "neighborbreak" >,
-	< "Son", "sonbreak2" >
-	< "Son", "sonEndBreak" >,
-	< "Daughter", "daughterEndBreak" >,
-	< "Neighbor", "neighborEndBreak" >
+	< "Son", "doctor", 10 >,
+	< "Son", "groceries", 10 >,
+	< "Son", "cleaning", 5 >,
+	< "Son", "cooking", 10 >,
+	< "Son", "dentist", 5 >,
+	< "Son", "paperwork", 10 >,
+	< "Son", "sonbreak", 0 >,
+	< "Daughter", "doctor", 5 >,
+	< "Daughter", "groceries", 10 >,
+	< "Daughter", "cleaning", 5 >,
+	< "Daughter", "cooking", 10 >,
+	< "Daughter", "dentist", 5 >,
+	< "Daughter", "lawnmowing", 5 >,
+	< "Daughter", "paperwork", 5 >,
+	< "Daughter", "daughterbreak", 0 >,
+	< "Neighbor", "cleaning", 10 >,
+	< "Neighbor", "cooking", 5 >,
+	< "Neighbor", "lawnmowing", 10 >,
+	< "Neighbor", "neighborbreak", 0 >,
+	< "Son", "sonbreak2", 0 >
+	< "Son", "sonEndBreak",0 >,
+	< "Daughter", "daughterEndBreak", 0 >,
+	< "Neighbor", "neighborEndBreak", 0 >
 };
