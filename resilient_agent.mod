@@ -37,6 +37,7 @@ int TaskType[Tasks] = ...;
 tuple Skill {
   string worker;
   string task; 
+  int level;
 };
 {Skill} Skills = ...;
 
@@ -92,7 +93,7 @@ dexpr int trueLatestEndsInFront[s in Skills][sk in Skills] =
 	* (s.worker == sk.worker))) * (H+1)
 	+ LatestEnd[sk.task])
 	* (TaskType[s.task] != 1);
-//	
+//	 
 dexpr int slidingConstraint[s in Skills] = presenceOf(wtasks[s])
 	* minl(nextBreakStarts[s],min(sk in Skills) minl(trueLatestEndsInFront[s][sk], LatestEnd[s.task]));
 	
@@ -105,8 +106,8 @@ dexpr int tasksInFront[s in Skills] = sum(sk in Skills: sk.worker == s.worker)
 	* (TaskType[s.task] != 1)
 	* (TaskType[sk.task] != 1)
 	* (s != sk)
-	* Durations[sk.task]);
-//	* (minl(slidingConstraint[s], endOf(wtasks[sk])) - startOf(wtasks[s])));
+//	* Durations[sk.task]);
+	* (minl(slidingConstraint[s], endOf(wtasks[sk])) - startOf(wtasks[sk])));
 	
 //dexpr int tasksInFrontToBreak[s in Skills] = sum(sk in Skills: sk.worker == s.worker) 
 //	 ((startOf(wtasks[sk]) >= startOf(wtasks[s]))
@@ -127,17 +128,17 @@ dexpr int individualSlotSlack[s in Skills][sk in Skills] = 	(((minl(nextInterval
 
 dexpr int slotSlack[s in Skills] = presenceOf(wtasks[s])* sum(ski in Skills: ski.task == s.task) sum(sk in Skills: sk.worker == ski.worker) individualSlotSlack[s][sk];  
 // Consider if we need to count before slack for first task for each worker
-// dexpr int swapSpace[s in Skills][sk in Skills] = (minl(nextIntervalStart[sk.worker][sk], LatestEnd[s.task]) - maxl(prevIntervalEnd[sk.worker][sk], EarliestStart[s.task]));
+dexpr int swapSpace[s in Skills][sk in Skills] = (minl(nextIntervalStart[sk.worker][sk], LatestEnd[s.task]) - maxl(prevIntervalEnd[sk.worker][sk], EarliestStart[s.task]));
 
-
+dexpr int totalNonSwapSlack[s in Skills] = slotSlack[s] + forwardSlack[s];
 //commented work for getting swap slack
 //Need a value that sums over any worker who can do a task so we can find the max slack task in the set of all workers who can do task
-//dexpr int tasksToDropSlack[s in Skills][sk in Skills] = (forwardSlack[sk]+slotSlack[sk])
-//	* (swapSpace[s][sk] >= Durations[s.task])
-//	* ((sum(ski in Skills: ski.task == s.task) (ski.worker == sk.worker)) >= 1)
-//	* presenceOf(wtasks[s])
-//	* (s != sk);
-//
+dexpr int tasksToDropSlack[s in Skills][sk in Skills] = (totalNonSwapSlack[s])
+	* (swapSpace[s][sk] >= Durations[s.task])
+	* ((sum(ski in Skills: ski.task == s.task) (ski.worker == sk.worker)) >= 1)
+	* presenceOf(wtasks[s])
+	* (s != sk);
+
 //dexpr int leftShiftWindow[s in Skills][sk in Skills] = minl(nextIntervalStart[sk.worker][sk], LatestEnd[sk.task])
 //	- maxl(EarliestStart[s.task], prevIntervalEnd[sk.worker][sk])
 //	+ Durations[s.task];
@@ -145,14 +146,19 @@ dexpr int slotSlack[s in Skills] = presenceOf(wtasks[s])* sum(ski in Skills: ski
 //dexpr int rightShiftWindow[s in Skills][sk in Skills] = minl(LatestEnd[s.task], nextIntervalStart[sk.worker][sk])
 //	- Durations[s.task]
 //	- maxl(EarliestStart[sk.task], prevIntervalEnd[sk.worker][sk]);
-//	
-//dexpr int taskToDrop[s in Skills] = sum(sk in Skills) ((max(ski in Skills) tasksToDropSlack[s][ski]) == totalSlack[sk])
-//	*swapSpace[s][sk]
-//	*((slotSlack[sk] > 0) || (leftShiftWindow[s][sk] >= Durations[sk.task]) || (rightShiftWindow[s][sk] >= Durations[sk.task]));
-//	
+	
+	
+dexpr int taskToDrop[s in Skills] = sum(sk in Skills) ((max(ski in Skills) tasksToDropSlack[s][ski]) == totalNonSwapSlack[sk])
+	*swapSpace[s][sk]
+	*((slotSlack[sk] > 0) || (forwardSlack[sk] >= Durations[s.task]));
+	
 
+//maximize sum(s in Skills) (totalNonSwapSlack[s]);// + taskToDrop[s]);
+//minimize max(s in Skills) ((TaskType[s.task] == 0)*endOf(wtasks[s]));
+dexpr int totalPreference = sum(s in Skills) presenceOf(wtasks[s])*s.level;
+dexpr int totalSlack = sum(s in Skills) totalNonSwapSlack[s];
+maximize staticLex(totalPreference, totalSlack);
 
-maximize sum(s in Skills) (slotSlack[s] + forwardSlack[s]);
 
 subject to {
   forall(t in Tasks) {
@@ -171,14 +177,21 @@ subject to {
       // constrain worker intervals to align with wtasks
       startOf(busyTime[w][s]) == startOf(wtasks[s]);
       endOf(busyTime[w][s]) == endOf(wtasks[s]);
+      presenceOf(wtasks[s]) == presenceOf(busyTime[w][s]); 
+      // add constraints for breaktasks
     }
+  }
+  
+  forall(s in Skills: TaskType[s.task] == 1) {
+    startOf(wtasks[s]) == EarliestStart[s.task];
+    endOf(wtasks[s]) == LatestEnd[s.task];
   } 
 
 };
 
 execute {
 		cp.param.FailLimit = 10000;
-		var f = new IloOplOutputFile("solution.csv");
+		var f = new IloOplOutputFile("solution_preference_resilient_more_ties.csv");
 		f.writeln("Worker,Task,TaskType,Start,End,Forward Slack,Slot Slack,Sliding Constraint");
 		for(s in Skills)
 			f.writeln(s.worker,",",s.task,",",TaskType[s.task],",",wtasks[s].start,",",wtasks[s].end,",",forwardSlack[s],",",slotSlack[s],",",slidingConstraint[s]);	
