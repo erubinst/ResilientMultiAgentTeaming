@@ -1,64 +1,213 @@
-// --------------------------------------------------------------------------
-// Licensed Materials - Property of IBM
-//
-// 5725-A06 5725-A29 5724-Y48 5724-Y49 5724-Y54 5724-Y55
-// Copyright IBM Corporation 1998, 2022. All Rights Reserved.
-//
-// Note to U.S. Government Users Restricted Rights:
-// Use, duplication or disclosure restricted by GSA ADP Schedule
-// Contract with IBM Corp.
-// --------------------------------------------------------------------------
+/*********************************************
+ * OPL 22.1.1.0 Data
+ * Author: esmerubinstein
+ * Creation Date: Oct 17, 2024 at 1:22:55 PM
+ *********************************************/
 
-H = 90;
+ 
+H = 100;
+//minAllowedPreference = 0;
+//slackWeight = 1;
+//preferenceWeight = 0;
+nLocations = 4;
 
-
-Tasks = {"doctor",
-		 "groceries",
-		 "cleaning",
-		 "cooking",
-		 "dentist",
-		 "lawnmowing",
-		 "paperwork",
-		 "sonbreak",
-		 "daughterbreak",
-		 "neighborbreak",
-		 "sonbreak2",
-		 "sonEndBreak",
-		 "daughterEndBreak",
-		 "neighborEndBreak"};
-		 
-Durations = [10,20,15,10,15,10,5,10,30,20,10,10,10,10];
-		 
-TaskType = [0,0,0,0,0,0,0,1,1,1,1,1,1,1];
-
-EarliestStart = [50,0,0,0,10,0,0,30,0,60,0,80,80,80];
-
-LatestEnd = [60,80,80,80,25,80,80,40,30,80,10,90,90,90];
-
-Workers = {"Son", "Daughter", "Neighbor"};
-
-Skills = {
-	< "Son", "doctor", 10 >,
-	< "Son", "groceries", 10 >,
-	< "Son", "cleaning", 5 >,
-	< "Son", "cooking", 10 >,
-	< "Son", "dentist", 5 >,
-	< "Son", "paperwork", 10 >,
-	< "Son", "sonbreak", 0 >,
-	< "Daughter", "doctor", 5 >,
-	< "Daughter", "groceries", 10 >,
-	< "Daughter", "cleaning", 5 >,
-	< "Daughter", "cooking", 10 >,
-	< "Daughter", "dentist", 5 >,
-	< "Daughter", "lawnmowing", 5 >,
-	< "Daughter", "paperwork", 5 >,
-	< "Daughter", "daughterbreak", 0 >,
-	< "Neighbor", "cleaning", 10 >,
-	< "Neighbor", "cooking", 5 >,
-	< "Neighbor", "lawnmowing", 10 >,
-	< "Neighbor", "neighborbreak", 0 >,
-	< "Son", "sonbreak2", 0 >
-	< "Son", "sonEndBreak",0 >,
-	< "Daughter", "daughterEndBreak", 0 >,
-	< "Neighbor", "neighborEndBreak", 0 >
+// worker id, worker
+Workers = {
+	< 1, "Son" >, 
+	< 2, "Daughter" >,
+	< 3, "Neighbor" >,
+	< 4, "OlderAdult" >
 };
+
+DrivingTimes = [[0,3,6,2],
+				[3,0,4,5],
+				[6,4,0,2],
+				[2,5,2,0]];	
+
+// id, task name, duration, start location, end location, est, lft
+Tasks = {
+	< 9, "doctor", 10, 1, 1, 60, 70 >,
+	< 1, "groceries", 20, 2, 2, 10, 84 >,
+	< 2, "cleaning", 15, 0, 0, 10, 90 >,
+	< 3, "cooking", 10, 0, 0, 10, 90 >,
+	< 4, "dentist", 15, 3, 3, 20, 35 >,
+	< 5, "lawnmowing", 10, 0, 0, 10, 90 >,
+	< 6, "paperwork", 5, 0, 0, 10, 90 >,
+	< 7, "return_groceries", 6, 2, 0, 14, 90 >,
+	< 8, "transport_to_doctor", 3, 0, 1, 57, 70 >,
+	< 10, "sonbreak1", 10, 0, 0, 0, 10 >,
+	< 11, "sonbreak2", 18, 0, 0, 40, 58 >,
+	< 13, "sonbreak4", 10, 0, 0, 90, 100 >,
+	< 14, "daughterbreak1", 20, 3, 3, 0, 20 >,
+	< 15, "daughterbreak2", 25, 3, 3, 75, 100 >,
+	< 16, "neighborbreak1", 10, 0, 0, 0, 10 >,
+	< 17, "neighborbreak2", 20, 0, 0, 80, 100 >,
+	< 18, "transport_from_doctor", 3, 1, 0, 70, 73 >,
+	< 19, "transport_to_dentist", 2, 0, 3, 18, 20 >,
+	< 20, "transport_from_dentist", 2, 3, 0, 35, 37 >,
+	< 21, "oabreak1", 10, 0, 0, 0, 10 >,
+	< 22, "oabreak2", 10, 0, 0, 90, 100 >
+};
+
+
+// request name, est, lft, start_location, end_location, duration
+Requests = {
+	< 1, "DoctorVisit" >,
+	< 2, "GetGroceries" >,
+	< 3, "CleanHouse" >,
+	< 4, "CookDinner" >,
+	< 5, "DentistVisit" >,
+	< 6, "MowLawn" >,
+	< 7, "Paperwork" >,
+	< 8, "SonBreak1" >,
+	< 9, "SonBreak2" >,
+	< 11, "SonBreak4" >,
+	< 12, "DaughterBreak1" >,
+	< 13, "DaughterBreak2" >,
+	< 14, "NeighborBreak1" >,
+	< 15, "NeighborBreak2" >,
+	< 16, "OABreak1" >,
+	< 17, "OABreak2" >
+};
+
+
+// request, task
+// request - [task 1, task2]
+Recipes = {
+	< "DoctorVisit", "doctor" >,
+	< "DoctorVisit", "transport_to_doctor">,
+	< "DoctorVisit", "transport_from_doctor">,
+	< "GetGroceries", "groceries" >,
+	< "GetGroceries", "return_groceries" >,
+	< "CleanHouse", "cleaning" >,
+	< "CookDinner", "cooking" >,
+	< "DentistVisit", "dentist" >,
+	< "DentistVisit", "transport_to_dentist" >,
+	< "DentistVisit", "transport_from_dentist" >,
+	< "MowLawn", "lawnmowing" >,
+	< "Paperwork", "paperwork" >,
+	< "SonBreak1", "sonbreak1" >,
+	< "SonBreak2", "sonbreak2" >,
+	< "SonBreak4", "sonbreak4" >,
+	< "DaughterBreak1", "daughterbreak1" >,
+	< "DaughterBreak2", "daughterbreak2" >,
+	< "NeighborBreak1", "neighborbreak1" >,
+	< "NeighborBreak2", "neighborbreak2" >,
+	< "OABreak1", "oabreak1" >,
+	< "OABreak2", "oabreak2" >
+};
+
+// request, task1, task2
+Dependencies = {
+	< "DoctorVisit", "transport_to_doctor", "doctor" >,
+	< "DoctorVisit", "doctor", "transport_from_doctor" >,
+	< "DentistVisit", "transport_to_dentist", "dentist" >,
+	< "DentistVisit", "dentist", "transport_from_dentist" >,
+	< "GetGroceries", "groceries", "return_groceries" >
+};
+
+// skill id, skill
+Skills = {
+	<1, "driver">,
+	<2, "medical_informant">,
+	<3, "shopper">,
+	<4, "cleaner">,
+	<5, "cook">,
+	<6, "lawnmower">,
+	<7, "oa_presence">,
+	<8, "sonbreak" >,
+	<9, "daughterbreak">,
+	<10, "neighborbreak">,
+	<11, "oabreak">
+};
+
+
+// worker id skill id
+
+WorkerSkillsRaw = {
+	< 1, 2 >,
+	< 1, 1 >,
+	< 1, 3 >,
+	< 1, 4 >,
+	< 1, 5 >,
+	< 1, 8 >,
+	< 2, 2 >,
+	< 2, 1 >,
+	< 2, 3 >,
+	< 2, 4 >,
+	< 2, 5 >,
+	< 2, 6 >,
+	< 2, 9 >,
+	< 3, 4 >,
+	< 3, 5 >,
+	< 3, 6 >,
+	< 3, 10 >,
+	< 4, 7 >,
+	< 4, 11 >
+};
+
+//task id, skill id
+RequirementsRaw = {
+	< 9, 2 >,
+	< 9, 7 >,
+	< 8, 1 >,
+	< 8, 7 >,
+	< 1, 3 >,
+	< 2, 4 >, 
+	< 3, 5 >,
+	< 4, 2 >,
+	< 4, 7 >, 
+	< 5, 6 >, 
+	< 6, 2 >,
+	< 7, 1 >,
+	< 10, 8 >,
+	< 11, 8 >,
+	< 13, 8 >,
+	< 14, 9 >,
+	< 15, 9 >,
+	< 16, 10 >,
+	< 17, 10 >,
+	< 18, 7 >,
+	< 18, 1 >,
+	< 19, 7 >,
+	< 19, 1 >,
+	< 20, 7 >,
+	< 20, 1 >,
+	< 21, 11 >,
+	< 22, 11 >
+};
+
+Breaks = #[
+  < 1, "Son" > : {
+     <0,10, 0>,
+  	 <40,50, 0>,
+     <90,100, 0>
+  },
+  < 2, "Daughter" > : {
+     <0,20, 0>,
+     <65,100, 0>
+  },
+  < 3, "Neighbor" > : {
+  	 <0,10, 0>,
+     <70,100, 0>
+  },
+  < 4, "OlderAdult" > : {
+  	 <0, 10, 0>,
+  	 <90, 100, 0>
+  }
+]#;
+
+ListedBreaks = {
+	<"Son", 0, 10, 0>,
+	<"Son", 40, 50, 0>,
+	<"Son", 90, 100, 0>,
+	<"Daughter", 0, 20, 0>,
+	<"Daughter", 65, 100, 0>,
+	<"Neighbor", 0, 10, 0>,
+	<"Neighbor", 70, 100, 0>
+};
+
+Precedences = {
+  <"GetGroceries", "CookDinner">,
+  <"Paperwork", "DoctorVisit">,
+ };
