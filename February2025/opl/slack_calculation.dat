@@ -1,0 +1,87 @@
+/*********************************************
+ * OPL 22.1.1.0 Data
+ * Author: esmerubinstein
+ * Creation Date: Aug 15, 2024 at 1:17:17 PM
+ *********************************************/
+
+H = 100;
+nTypes = 4;
+ 
+
+minAllowedPreference = 0;
+slackWeight = 1;
+preferenceWeight = 0;
+
+Tasks = {"doctor",
+		 "groceries",
+		 "cleaning",
+		 "cooking",
+		 "dentist",
+		 "lawnmowing",
+		 "paperwork"};
+		 
+Durations = [10,20,15,10,15,10,5];
+
+EarliestStart = [60,10,10,10,20,10,10];
+
+LatestEnd = [70,90,90,90,35,90,90];
+
+DrivingTimes = [[0,3,6,2],
+				[3,0,4,5],
+				[6,4,0,2],
+				[2,5,2,0]];				  
+				 
+
+Workers = {"Son", "Daughter", "Neighbor"};
+
+// resource, task, preference, location, hasOA
+
+Skills = {
+	< "Son", "doctor", 10, 1, 1 >,
+	< "Son", "groceries", 10, 2, 0 >,
+	< "Son", "cleaning", 5, 0, 0 >,
+	< "Son", "cooking", 5, 0, 0 >,
+	< "Son", "dentist", 5, 3, 1 >,
+	< "Son", "paperwork", 10, 0, 1 >,
+	< "Daughter", "doctor", 2, 1, 1 >,
+	< "Daughter", "groceries", 5, 2, 0 >,
+	< "Daughter", "cleaning", 10, 0, 0 >,
+	< "Daughter", "cooking", 10, 0, 0 >,
+	< "Daughter", "dentist", 10, 3, 1 >,
+	< "Daughter", "lawnmowing", 10, 0, 0 >,
+	< "Daughter", "paperwork", 5, 0, 1 >,
+	< "Neighbor", "cleaning", 10, 0, 0 >,
+	< "Neighbor", "cooking", 5, 0, 0 >,
+	< "Neighbor", "lawnmowing", 5, 0, 0 >
+};
+
+Breaks = #[
+  "Son" : {
+     <0,20>
+  	 <40,50>,
+     <90,100>
+  },
+  "Daughter" : {
+     <0,40>,
+     <90,100>
+  },
+  "Neighbor" : {
+  	 <0,10>,
+     <70,100>
+  }
+]#;
+
+ListedBreaks = {
+	<"Son", 0, 20>,
+	<"Son", 40, 50>,
+	<"Son", 90, 100>,
+	<"Daughter", 0, 40>,
+	<"Daughter", 90, 100>,
+	<"Neighbor", 0, 10>,
+	<"Neighbor", 70, 100>
+};
+
+Precedences = {
+  <"groceries", "cooking">,
+  <"paperwork", "doctor">,
+ };

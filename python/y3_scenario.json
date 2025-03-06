@@ -1,0 +1,705 @@
+{
+    "H": 100,
+    "nLocations": 4,
+    "Workers": [
+        {
+            "id": 1,
+            "name": "OA"
+        },
+        {
+            "id": 2,
+            "name": "FriendB"
+        },
+        {
+            "id": 3,
+            "name": "Neighbor"
+        },
+        {
+            "id": 4,
+            "name": "Son"
+        },
+        {
+            "id": 5,
+            "name": "FriendBHusband"
+        }
+    ],
+    "DrivingTimes": [
+        [
+            0,
+            3,
+            6,
+            2
+        ],
+        [
+            3,
+            0,
+            4,
+            5
+        ],
+        [
+            6,
+            4,
+            0,
+            2
+        ],
+        [
+            2,
+            5,
+            2,
+            0
+        ]
+    ],
+    "Tasks": [
+        {
+            "id": 1,
+            "name": "discuss_schedule",
+            "duration": 10,
+            "start_location": 1,
+            "end_location": 1,
+            "est": 10,
+            "lft": 40
+        },
+        {
+            "id": 2,
+            "name": "grocery_shopping",
+            "duration": 20,
+            "start_location": 2,
+            "end_location": 2,
+            "est": 10,
+            "lft": 90
+        },
+        {
+            "id": 3,
+            "name": "transport_to_grocery",
+            "duration": 0,
+            "start_location": 0,
+            "end_location": 0,
+            "est": 10,
+            "lft": 90
+        },
+        {
+            "id": 4,
+            "name": "transport_from_grocery",
+            "duration": 0,
+            "start_location": 0,
+            "end_location": 0,
+            "est": 10,
+            "lft": 90
+        },
+        {
+            "id": 5,
+            "name": "lunch",
+            "duration": 15,
+            "start_location": 3,
+            "end_location": 3,
+            "est": 30,
+            "lft": 55
+        },
+        {
+            "id": 6,
+            "name": "husband_doctor_appt",
+            "duration": 10,
+            "start_location": 0,
+            "end_location": 0,
+            "est": 50,
+            "lft": 60
+        },
+        {
+            "id": 7,
+            "name": "oa_doctor_appt",
+            "duration": 5,
+            "start_location": 0,
+            "end_location": 0,
+            "est": 60,
+            "lft": 65
+        },
+        {
+            "id": 8,
+            "name": "transport_to_doctor",
+            "duration": 0,
+            "start_location": 2,
+            "end_location": 0,
+            "est": 10,
+            "lft": 90
+        },
+        {
+            "id": 9,
+            "name": "transport_from_doctor",
+            "duration": 0,
+            "start_location": 0,
+            "end_location": 1,
+            "est": 10,
+            "lft": 90
+        },
+        {
+            "id": 10,
+            "name": "frendbbreak1",
+            "duration": 15,
+            "start_location": 0,
+            "end_location": 0,
+            "est": 50,
+            "lft": 65
+        },
+        {
+            "id": 11,
+            "name": "dinner",
+            "duration": 10,
+            "start_location": 0,
+            "end_location": 0,
+            "est": 70,
+            "lft": 90
+        },
+        {
+            "id": 12,
+            "name": "oabreak1",
+            "duration": 10,
+            "start_location": 0,
+            "end_location": 0,
+            "est": 0,
+            "lft": 10
+        },
+        {
+            "id": 13,
+            "name": "oabreak2",
+            "duration": 10,
+            "start_location": 0,
+            "end_location": 0,
+            "est": 90,
+            "lft": 100
+        },
+        {
+            "id": 14,
+            "name": "friendbbreak2",
+            "duration": 10,
+            "start_location": 0,
+            "end_location": 0,
+            "est": 0,
+            "lft": 10
+        },
+        {
+            "id": 15,
+            "name": "friendbreak3",
+            "duration": 10,
+            "start_location": 0,
+            "end_location": 0,
+            "est": 90,
+            "lft": 100
+        },
+        {
+            "id": 16,
+            "name": "drop_off_grocery",
+            "duration": 5,
+            "start_location": 0,
+            "end_location": 0,
+            "est": 10,
+            "lft": 40
+        },
+        {
+            "id": 17,
+            "name": "neighborbreak1",
+            "duration": 10,
+            "start_location": 0,
+            "end_location": 0,
+            "est": 0,
+            "lft": 10
+        },
+        {
+            "id": 18,
+            "name": "neighborbreak2",
+            "duration": 10,
+            "start_location": 0,
+            "end_location": 0,
+            "est": 90,
+            "lft": 100
+        },
+        {
+            "id": 19,
+            "name": "sonbreak1",
+            "duration": 10,
+            "start_location": 0,
+            "end_location": 0,
+            "est": 0,
+            "lft": 10
+        },
+        {
+            "id": 20,
+            "name": "sonbreak2",
+            "duration": 10,
+            "start_location": 0,
+            "end_location": 0,
+            "est": 90,
+            "lft": 100
+        },
+        {
+            "id": 21,
+            "name": "cleaning",
+            "duration": 5,
+            "start_location": 0,
+            "end_location": 0,
+            "est": 70,
+            "lft": 90
+        },
+        {
+            "id": 22,
+            "name": "friendbhusbandbreak1",
+            "duration": 10,
+            "start_location": 0,
+            "end_location": 0,
+            "est": 0,
+            "lft": 10
+        },
+        {
+            "id": 23,
+            "name": "friendbhusbandbreak2",
+            "duration": 10,
+            "start_location": 0,
+            "end_location": 0,
+            "est": 90,
+            "lft": 100
+        }
+    ],
+    "Requests": [
+        {
+            "id": 1,
+            "name": "DoctorVisit"
+        },
+        {
+            "id": 2,
+            "name": "GroceryShopping"
+        },
+        {
+            "id": 3,
+            "name": "CleanHouse"
+        },
+        {
+            "id": 4,
+            "name": "EatLunch"
+        },
+        {
+            "id": 5,
+            "name": "EatDinner"
+        },
+        {
+            "id": 6,
+            "name": "DropOffGrocery"
+        },
+        {
+            "id": 7,
+            "name": "SonBreak1"
+        },
+        {
+            "id": 8,
+            "name": "SonBreak2"
+        },
+        {
+            "id": 9,
+            "name": "OABreak1"
+        },
+        {
+            "id": 10,
+            "name": "OABreak2"
+        },
+        {
+            "id": 11,
+            "name": "NeighborBreak1"
+        },
+        {
+            "id": 12,
+            "name": "NeighborBreak2"
+        },
+        {
+            "id": 13,
+            "name": "FriendBBreak1"
+        },
+        {
+            "id": 14,
+            "name": "FriendBBreak2"
+        },
+        {
+            "id": 15,
+            "name": "FriendBBreak3"
+        },
+        {
+            "id": 16,
+            "name": "FriendBHusbandBreak1"
+        },
+        {
+            "id": 17,
+            "name": "FriendBHusbandBreak2"
+        },
+        {
+            "id": 18,
+            "name": "DiscussSchedule"
+        }
+
+    ],
+    "Recipes": [
+        {
+            "request": "DoctorVisit",
+            "task": "husband_doctor_appt"
+        },
+        {
+            "request": "DoctorVisit",
+            "task": "transport_to_doctor"
+        },
+        {
+            "request": "DoctorVisit",
+            "task": "transport_from_doctor"
+        },
+        {
+            "request": "DoctorVisit",
+            "task": "oa_doctor_appt"
+        },
+        {
+            "request": "DiscussSchedule",
+            "task": "discuss_schedule"
+        },
+        {
+            "request": "CleanHouse",
+            "task": "cleaning"
+        },
+        {
+            "request": "EatDinner",
+            "task": "dinner"
+        },
+        {
+            "request": "EatLunch",
+            "task": "lunch"
+        },
+        {
+            "request": "GroceryShopping",
+            "task": "transport_to_grocery"
+        },
+        {
+            "request": "GroceryShopping",
+            "task": "transport_from_grocery"
+        },
+        {
+            "request": "GroceryShopping",
+            "task": "grocery_shopping"
+        },
+        {
+            "request": "SonBreak1",
+            "task": "sonbreak1"
+        },
+        {
+            "request": "SonBreak2",
+            "task": "sonbreak2"
+        },
+        {
+            "request": "OABreak1",
+            "task": "oabreak1"
+        },
+        {
+            "request": "OABreak2",
+            "task": "oabreak2"
+        },
+        {
+            "request": "FriendBBreak1",
+            "task": "friendbbreak1"
+        },
+        {
+            "request": "FriendBBreak2",
+            "task": "friendbbreak2"
+        },
+        {
+            "request": "FriendBBreak3",
+            "task": "friendbbreak3"
+        },
+        {
+            "request": "FriendBHusbandBreak1",
+            "task": "friendbbreak1"
+        },
+        {
+            "request": "FriendBHusbandBreak2",
+            "task": "friendbbreak2"
+        },
+        {
+            "request": "NeighborBreak1",
+            "task": "neighborbreak1"
+        },
+        {
+            "request": "NeighborBreak2",
+            "task": "neighborbreak2"
+        },
+        {
+            "request": "DropOffGrocery",
+            "task": "drop_off_grocery"
+        }
+    ],
+    "Dependencies": [
+        {
+            "request": "DoctorVisit",
+            "task1": "transport_to_doctor",
+            "task2": "husband_doctor_appt"
+        },
+        {
+            "request": "DoctorVisit",
+            "task1": "husband_doctor_appt",
+            "task2": "oa_doctor_appt"
+        },
+        {
+            "request": "DoctorVisit",
+            "task1": "oa_doctor_appt",
+            "task2": "transport_from_doc"
+        },
+        {
+            "request": "GroceryShopping",
+            "task1": "transport_to_grocery",
+            "task2": "grocery_shopping"
+        },
+        {
+            "request": "GroceryShopping",
+            "task1": "grocery_shopping",
+            "task2": "transport_from_grocery"
+        }
+    ],
+    "Skills": [
+        {
+            "id": 1,
+            "name": "driver"
+        },
+        {
+            "id": 2,
+            "name": "watch"
+        },
+        {
+            "id": 3,
+            "name": "shopper"
+        },
+        {
+            "id": 4,
+            "name": "cleaner"
+        },
+        {
+            "id": 5,
+            "name": "cook"
+        },
+        {
+            "id": 6,
+            "name": "sonbreak"
+        },
+        {
+            "id": 7,
+            "name": "friendbbreak"
+        },
+        {
+            "id": 8,
+            "name": "neighborbreak"
+        },
+        {
+            "id": 9,
+            "name": "oabreak"
+        },
+        {
+            "id": 10,
+            "name": "friendbhusbandbreak"
+        },
+        {
+            "id": 11,
+            "name": "oa_presence"
+        },
+        {
+            "id": 12,
+            "name": "food_supplier"
+        }
+    ],
+    "WorkerSkillsRaw": [
+        {
+            "worker_id": 1,
+            "skill_id": 2
+        },
+        {
+            "worker_id": 1,
+            "skill_id": 1
+        },
+        {
+            "worker_id": 1,
+            "skill_id": 3
+        },
+        {
+            "worker_id": 1,
+            "skill_id": 4
+        },
+        {
+            "worker_id": 1,
+            "skill_id": 5
+        },
+        {
+            "worker_id": 1,
+            "skill_id": 8
+        },
+        {
+            "worker_id": 2,
+            "skill_id": 2
+        },
+        {
+            "worker_id": 2,
+            "skill_id": 1
+        },
+        {
+            "worker_id": 2,
+            "skill_id": 3
+        },
+        {
+            "worker_id": 2,
+            "skill_id": 4
+        },
+        {
+            "worker_id": 2,
+            "skill_id": 5
+        },
+        {
+            "worker_id": 2,
+            "skill_id": 6
+        },
+        {
+            "worker_id": 2,
+            "skill_id": 9
+        },
+        {
+            "worker_id": 3,
+            "skill_id": 4
+        },
+        {
+            "worker_id": 3,
+            "skill_id": 5
+        },
+        {
+            "worker_id": 3,
+            "skill_id": 6
+        },
+        {
+            "worker_id": 3,
+            "skill_id": 10
+        },
+        {
+            "worker_id": 4,
+            "skill_id": 7
+        },
+        {
+            "worker_id": 4,
+            "skill_id": 11
+        }
+    ],
+    "RequirementsRaw": [
+        {
+            "task_id": 9,
+            "skill_id": 2
+        },
+        {
+            "task_id": 9,
+            "skill_id": 7
+        },
+        {
+            "task_id": 8,
+            "skill_id": 1
+        },
+        {
+            "task_id": 8,
+            "skill_id": 7
+        },
+        {
+            "task_id": 1,
+            "skill_id": 3
+        },
+        {
+            "task_id": 2,
+            "skill_id": 4
+        },
+        {
+            "task_id": 3,
+            "skill_id": 5
+        },
+        {
+            "task_id": 4,
+            "skill_id": 2
+        },
+        {
+            "task_id": 4,
+            "skill_id": 7
+        },
+        {
+            "task_id": 5,
+            "skill_id": 6
+        },
+        {
+            "task_id": 6,
+            "skill_id": 2
+        },
+        {
+            "task_id": 7,
+            "skill_id": 1
+        },
+        {
+            "task_id": 10,
+            "skill_id": 8
+        },
+        {
+            "task_id": 11,
+            "skill_id": 8
+        },
+        {
+            "task_id": 13,
+            "skill_id": 8
+        },
+        {
+            "task_id": 14,
+            "skill_id": 9
+        },
+        {
+            "task_id": 15,
+            "skill_id": 9
+        },
+        {
+            "task_id": 16,
+            "skill_id": 10
+        },
+        {
+            "task_id": 17,
+            "skill_id": 10
+        },
+        {
+            "task_id": 18,
+            "skill_id": 7
+        },
+        {
+            "task_id": 18,
+            "skill_id": 1
+        },
+        {
+            "task_id": 19,
+            "skill_id": 7
+        },
+        {
+            "task_id": 19,
+            "skill_id": 1
+        },
+        {
+            "task_id": 20,
+            "skill_id": 7
+        },
+        {
+            "task_id": 20,
+            "skill_id": 1
+        },
+        {
+            "task_id": 21,
+            "skill_id": 11
+        },
+        {
+            "task_id": 22,
+            "skill_id": 11
+        }
+    ],
+    "Precedences": [
+        {
+            "request": "DropOffGrocery",
+            "task": "EatLunch"
+        },
+        {
+            "request": "GroceryShopping",
+            "task": "EatDinner"
+        }
+    ]
+}

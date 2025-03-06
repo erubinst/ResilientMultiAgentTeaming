@@ -2,16 +2,13 @@ import plotly.express as px
 import pandas as pd
 
 # Path to your CSV file
-solution_path = '/Users/esmerubinstein/SelfTrainingProjects/ResilientMultiAgentTeaming/output.csv'
+solution_path = '/Users/esmerubinstein/Desktop/ai_caring_updated2.csv'
 
 # Read the CSV file into a DataFrame
 df = pd.read_csv(solution_path)
 
 # Filter out rows where Start and End are 0 (if necessary)
 df = df[(df['Start'] != 0) | (df['End'] != 0)]
-# filer out rows where start or end are empty
-df = df.dropna(subset=['Start', 'End'])
-
 
 # Define an epoch date (example: 2020-01-01)
 epoch_date = pd.to_datetime('2020-01-01')
@@ -25,7 +22,7 @@ df['End_dt'] = epoch_date + pd.to_timedelta(df['End'], unit='s')
 # else set to 0
 df['Type'] = 0
 df.loc[df['Task'].str.contains('break'), 'Type'] = 1
-df.loc[df['Task'].str.contains('travel'), 'Type'] = 2
+df.loc[df['Task'] == 'travel', 'Type'] = 2
 df['Worker'] = df['Worker'].astype(str)  # Ensure Worker column is of type string
 df = df.sort_values('Worker')
 
