@@ -2,9 +2,10 @@ import plotly.express as px
 import pandas as pd
 
 # Path to your CSV file
-solution_path = '/Users/esmerubinstein/SelfTrainingProjects/ResilientMultiAgentTeaming/output.csv'
+solution_path = '/Users/esmerubinstein/Desktop/ICLL/ResilientMultiAgentTeaming/output.csv'
 
 # Read the CSV file into a DataFrame
+
 df = pd.read_csv(solution_path)
 
 # Filter out rows where Start and End are 0 (if necessary)
@@ -25,9 +26,11 @@ df['End_dt'] = epoch_date + pd.to_timedelta(df['End'], unit='s')
 # else set to 0
 df['Type'] = 0
 df.loc[df['Task'].str.contains('break'), 'Type'] = 1
+df.loc[df['Task'].str.contains('block'), 'Type'] = 1
 df.loc[df['Task'].str.contains('travel'), 'Type'] = 2
 df['Worker'] = df['Worker'].astype(str)  # Ensure Worker column is of type string
 df = df.sort_values('Worker')
+print(df[df['Request'] == "TRANSPORT"]['Worker'])
 
 # Plot with px.timeline
 fig = px.timeline(df, x_start="Start_dt", x_end="End_dt", y="Worker", color="Type", text = "Task",
