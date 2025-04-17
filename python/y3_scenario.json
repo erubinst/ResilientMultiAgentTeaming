@@ -27,7 +27,7 @@
         [
             0,
             3,
-            6,
+            4,
             2,
             0
         ],
@@ -39,7 +39,7 @@
             0
         ],
         [
-            6,
+            4,
             4,
             0,
             2,
@@ -64,17 +64,17 @@
         {
             "id": 1,
             "name": "discuss_schedule",
-            "duration": 10,
-            "start_location": 4,
-            "end_location": 4,
+            "duration": 5,
+            "start_location": 0,
+            "end_location": 0,
             "est": 10,
             "lft": 40
         },
         {
             "id": 2,
             "name": "grocery_shopping",
-            "duration": 10,
-            "start_location": 2,
+            "duration": 5,
+            "start_location": 3,
             "end_location": 2,
             "est": 10,
             "lft": 90
@@ -89,13 +89,31 @@
             "lft": 50
         },
         {
+            "id": 20,
+            "name": "pick_up_oa",
+            "duration": 2,
+            "start_location": 3,
+            "end_location": 0,
+            "est": 10,
+            "lft": 90
+        },
+        {
+            "id": 21,
+            "name": "transport_to_doctor",
+            "duration": 3,
+            "start_location": 0,
+            "end_location": 1,
+            "est": 10,
+            "lft": 90
+        },
+        {
             "id": 4,
             "name": "husband_doctor_appt",
             "duration": 10,
             "start_location": 1,
             "end_location": 1,
-            "est": 50,
-            "lft": 70
+            "est": 40,
+            "lft": 60
         },
         {
             "id": 5,
@@ -103,8 +121,8 @@
             "duration": 5,
             "start_location": 1,
             "end_location": 1,
-            "est": 50,
-            "lft": 70
+            "est": 45,
+            "lft": 65
         },
         {
             "id": 6,
@@ -112,8 +130,8 @@
             "duration": 5,
             "start_location": 1,
             "end_location": 3,
-            "est": 65,
-            "lft": 80
+            "est": 10,
+            "lft": 90
         },
         {
             "id": 7,
@@ -121,8 +139,8 @@
             "duration": 5,
             "start_location": 0,
             "end_location": 0,
-            "est": 70,
-            "lft": 90
+            "est": 60,
+            "lft": 100
         },
         {
             "id": 8,
@@ -200,8 +218,8 @@
             "id": 16,
             "name": "son_start_block",
             "duration": 10,
-            "start_location": 0,
-            "end_location": 0,
+            "start_location": 2,
+            "end_location": 2,
             "est": 0,
             "lft": 10
         },
@@ -209,8 +227,8 @@
             "id": 17,
             "name": "son_end_block",
             "duration": 10,
-            "start_location": 0,
-            "end_location": 0,
+            "start_location": 2,
+            "end_location": 2,
             "est": 90,
             "lft": 100
         },
@@ -240,67 +258,67 @@
         },
         {
             "id": 2,
-            "name": "GroceryShopping"
-        },
-        {
-            "id": 3,
             "name": "CleanHouse"
         },
         {
-            "id": 4,
+            "id": 3,
             "name": "EatLunch"
         },
         {
-            "id": 5,
+            "id": 4,
             "name": "EatDinner"
         },
         {
-            "id": 6,
+            "id": 5,
             "name": "GroceryDelivery"
         },
         {
-            "id": 7,
+            "id": 6,
             "name": "DiscussSchedule"
         },
         {
-            "id": 8,
+            "id": 7,
             "name": "OAStartBlock"
         },
         {
-            "id": 9,
+            "id": 8,
             "name": "OAEndBlock"
         },
         {
-            "id": 10,
+            "id": 9,
             "name": "FriendBStartBlock"
         },
         {
-            "id": 11,
+            "id": 10,
             "name": "FriendBEndBlock"
         },
         {
-            "id": 12,
+            "id": 11,
             "name": "NeighborStartBlock"
         },
         {
-            "id": 13,
+            "id": 12,
             "name": "NeighborEndBlock"
         },
         {
-            "id": 14,
+            "id": 13,
             "name": "SonStartBlock"
         },
         {
-            "id": 15,
+            "id": 14,
             "name": "SonEndBlock"
         },
         {
-            "id": 16,
+            "id": 15,
             "name": "FriendBHusbandStartBlock"
         },
         {
-            "id": 17,
+            "id": 16,
             "name": "FriendBHusbandEndBlock"
+        },
+        {
+            "id": 17,
+            "name": "GroceryShopping"
         }
     ],
     "Recipes": [
@@ -315,6 +333,14 @@
         {
             "request": "DoctorVisit",
             "task": "drop_off_husband"
+        },
+        {
+            "request": "DoctorVisit",
+            "task": "transport_to_doctor"
+        },
+        {
+            "request": "DoctorVisit",
+            "task": "pick_up_oa"
         },
         {
             "request": "DiscussSchedule",
@@ -384,6 +410,16 @@
     "Dependencies": [
         {
             "request": "DoctorVisit",
+            "task1": "pick_up_oa",
+            "task2": "transport_to_doctor"
+        },
+        {
+            "request": "DoctorVisit",
+            "task1": "transport_to_doctor",
+            "task2": "husband_doctor_appt"
+        },
+        {
+            "request": "DoctorVisit",
             "task1": "husband_doctor_appt",
             "task2": "oa_doctor_appt"
         },
@@ -412,7 +448,7 @@
         },
         {
             "id": 5,
-            "name": "planner"
+            "name": "oa_planning"
         },
         {
             "id": 6,
@@ -437,96 +473,123 @@
         {
             "id": 11,
             "name": "neighbor_presence"
+        },
+        {
+            "id": 12,
+            "name": "friendb_planning"
         }
     ],
     "WorkerSkillsRaw": [
         {
             "worker_id": 1,
+            "worker_name": "OA",
             "skill_id": 2,
+            "skill_name": "watch",
             "beneficiary_preference": 5,
             "worker_preference": 10
         },
         {
             "worker_id": 1,
+            "worker_name": "OA",
             "skill_id": 5,
+            "skill_name": "oa_planning",
             "beneficiary_preference": 5,
             "worker_preference": 5
         },
         {
             "worker_id": 1,
+            "worker_name": "OA",
             "skill_id": 8,
+            "skill_name": "oa_presence",
             "beneficiary_preference": 0,
             "worker_preference": 0
         },
         {
             "worker_id": 2,
+            "worker_name": "FriendB",
             "skill_id": 1,
+            "skill_name": "driver",
             "beneficiary_preference": 5,
             "worker_preference": 5
         },
         {
             "worker_id": 2,
+            "worker_name": "FriendB",
             "skill_id": 2,
+            "skill_name": "watch",
             "beneficiary_preference": 5,
             "worker_preference": 0
         },
         {
             "worker_id": 2,
-            "skill_id": 5,
+            "worker_name": "FriendB",
+            "skill_id": 12,
+            "skill_name": "friendb_planning",
             "beneficiary_preference": 5,
             "worker_preference": 5
         },
         {
             "worker_id": 2,
+            "worker_name": "FriendB",
             "skill_id": 9,
+            "skill_name": "friendb_presence",
             "beneficiary_preference": 0,
             "worker_preference": 0
         },
         {
             "worker_id": 3,
-            "skill_id": 4,
-            "beneficiary_preference": 1,
-            "worker_preference": 1
-        },
-        {
-            "worker_id": 3,
+            "worker_name": "Neighbor",
             "skill_id": 6,
+            "skill_name": "food_drop_off",
             "beneficiary_preference": 5,
             "worker_preference": 5
         },
         {
             "worker_id": 3,
+            "worker_name": "Neighbor",
             "skill_id": 11,
+            "skill_name": "neighbor_presence",
             "beneficiary_preference": 0,
             "worker_preference": 0
-        },
-        {
-            "worker_id": 4,
-            "skill_id": 4,
-            "beneficiary_preference": 5,
-            "worker_preference": 5
         },
         {
             "worker_id": 3,
-            "skill_id": 11,
+            "worker_name": "Neighbor",
+            "skill_id": 1,
+            "skill_name": "driver",
             "beneficiary_preference": 0,
             "worker_preference": 0
         },
+
         {
             "worker_id": 4,
+            "worker_name": "Son",
             "skill_id": 4,
+            "skill_name": "cleaner",
             "beneficiary_preference": 5,
             "worker_preference": 5
         },
         {
             "worker_id": 4,
+            "worker_name": "Son",
+            "skill_id": 1,
+            "skill_name": "driver",
+            "beneficiary_preference": 5,
+            "worker_preference": 5  
+        },
+        {
+            "worker_id": 4,
+            "worker_name": "Son",
             "skill_id": 10,
+            "skill_name": "son_presence",
             "beneficiary_preference": 0,
             "worker_preference": 0
         },
         {
             "worker_id": 5,
+            "worker_name": "FriendBHusband",
             "skill_id": 7,
+            "skill_name": "friendb_husband_presence",
             "beneficiary_preference": 0,
             "worker_preference": 0
         }
@@ -534,128 +597,251 @@
     "RequirementsRaw": [
         {
             "task_id": 1,
+            "task_name": "discuss_schedule",
             "skill_id": 5,
-            "beneficiary_id": 1
+            "skill_name": "oa_planning",
+            "beneficiary_id": 1,
+            "beneficiary_name": "OA"
         },
         {
             "task_id": 1,
-            "skill_id": 5,
-            "beneficiary_id": 2
+            "task_name": "discuss_schedule",
+            "skill_id": 12,
+            "skill_name": "friendb_planning",
+            "beneficiary_id": 2,
+            "beneficiary_name": "FriendB"
         },
         {
             "task_id": 2,
+            "task_name": "grocery_shopping",
             "skill_id": 8,
-            "beneficiary_id": 1
+            "skill_name": "oa_presence",
+            "beneficiary_id": 1,
+            "beneficiary_name": "OA"
         },
         {
             "task_id": 2,
+            "task_name": "grocery_shopping",
             "skill_id": 9,
-            "beneficiary_id": 2
+            "skill_name": "friendb_presence",
+            "beneficiary_id": 2,
+            "beneficiary_name": "FriendB"
         },
         {
             "task_id": 3,
+            "task_name": "lunch",
             "skill_id": 8,
-            "beneficiary_id": 1
+            "skill_name": "oa_presence",
+            "beneficiary_id": 1,
+            "beneficiary_name": "OA"
         },
         {
-            "task_id": 4,
-            "skill_id": 2,
-            "beneficiary_id": 2
-        },
-        {
-            "task_id": 4,
-            "skill_id": 7,
-            "beneficiary_id": 5
-        },
-        {
-            "task_id": 5,
-            "skill_id": 8,
-            "beneficiary_id": 1
-        },
-        {
-            "task_id": 5,
-            "skill_id": 7,
-            "beneficiary_id": 1
-        },
-        {
-            "task_id": 6,
+            "task_id": 20,
+            "task_name": "pick_up_oa",
             "skill_id": 1,
-            "beneficiary_id": 5
+            "skill_name": "driver",
+            "beneficiary_id": 1,
+            "beneficiary_name": "OA"
+        },
+        {
+            "task_id": 20,
+            "task_name": "pick_up_oa",
+            "skill_id": 7,
+            "skill_name": "friendb_husband_presence",
+            "beneficiary_id": 2,
+            "beneficiary_name": "FriendB"
+        },
+        {
+            "task_id": 21,
+            "task_name": "transport_to_doctor",
+            "skill_id": 1,
+            "skill_name": "driver",
+            "beneficiary_id": 1,
+            "beneficiary_name": "OA"
+        },
+        {
+            "task_id": 21,
+            "task_name": "transport_to_doctor",
+            "skill_id": 8,
+            "skill_name": "oa_presence",
+            "beneficiary_id": 1,
+            "beneficiary_name": "OA"
+        },
+        {
+            "task_id": 21,
+            "task_name": "transport_to_doctor",
+            "skill_id": 7,
+            "skill_name": "friendb_husband_presence",
+            "beneficiary_id": 2,
+            "beneficiary_name": "FriendB"
+        },
+        {
+            "task_id": 4,
+            "task_name": "husband_doctor_appt",
+            "skill_id": 2,
+            "skill_name": "watch",
+            "beneficiary_id": 2,
+            "beneficiary_name": "FriendB"
+        },
+        {
+            "task_id": 4,
+            "task_name": "husband_doctor_appt",
+            "skill_id": 7,
+            "skill_name": "friendb_husband_presence",
+            "beneficiary_id": 5,
+            "beneficiary_name": "FriendBHusband"
+        },
+        {
+            "task_id": 5,
+            "task_name": "oa_doctor_appt",
+            "skill_id": 8,
+            "skill_name": "oa_presence",
+            "beneficiary_id": 1,
+            "beneficiary_name": "OA"
+        },
+        {
+            "task_id": 5,
+            "task_name": "oa_doctor_appt",
+            "skill_id": 7,
+            "skill_name": "friendb_husband_presence",
+            "beneficiary_id": 5,
+            "beneficiary_name": "FriendBHusband"
         },
         {
             "task_id": 6,
+            "task_name": "drop_off_husband",
+            "skill_id": 1,
+            "skill_name": "driver",
+            "beneficiary_id": 5,
+            "beneficiary_name": "FriendBHusband"
+        },
+        {
+            "task_id": 6,
+            "task_name": "drop_off_husband",
+            "skill_id": 8,
+            "skill_name": "oa_presence",
+            "beneficiary_id": 1,
+            "beneficiary_name": "OA"
+        },
+        {
+            "task_id": 6,
+            "task_name": "drop_off_husband",
             "skill_id": 7,
-            "beneficiary_id": 5
+            "skill_name": "friendb_husband_presence",
+            "beneficiary_id": 5,
+            "beneficiary_name": "FriendBHusband"
         },
         {
             "task_id": 7,
+            "task_name": "dinner",
             "skill_id": 8,
-            "beneficiary_id": 1
+            "skill_name": "oa_presence",
+            "beneficiary_id": 1,
+            "beneficiary_name": "OA"
         },
         {
             "task_id": 8,
+            "task_name": "grocery_delivery",
             "skill_id": 8,
-            "beneficiary_id": 1
+            "skill_name": "oa_presence",
+            "beneficiary_id": 1,
+            "beneficiary_name": "OA"
         },
         {
             "task_id": 8,
+            "task_name": "grocery_delivery",
             "skill_id": 6,
-            "beneficiary_id": 1
+            "skill_name": "food_drop_off",
+            "beneficiary_id": 1,
+            "beneficiary_name": "OA"
         },
         {
             "task_id": 9,
+            "task_name": "cleaning",
             "skill_id": 4,
-            "beneficiary_id": 1
+            "skill_name": "cleaner",
+            "beneficiary_id": 1,
+            "beneficiary_name": "OA"
         },
         {
             "task_id": 10,
+            "task_name": "oa_start_block",
             "skill_id": 8,
-            "beneficiary_id": 1
+            "skill_name": "oa_presence",
+            "beneficiary_id": 1,
+            "beneficiary_name": "OA"
         },
         {
             "task_id": 11,
+            "task_name": "oa_end_block",
             "skill_id": 8,
-            "beneficiary_id": 1
+            "skill_name": "oa_presence",
+            "beneficiary_id": 1,
+            "beneficiary_name": "OA"
         },
         {
             "task_id": 12,
+            "task_name": "friendb_start_block",
             "skill_id": 9,
-            "beneficiary_id": 2
+            "skill_name": "friendb_presence",
+            "beneficiary_id": 2,
+            "beneficiary_name": "FriendB"
         },
         {
             "task_id": 13,
+            "task_name": "friendb_end_block",
             "skill_id": 9,
-            "beneficiary_id": 2
+            "skill_name": "friendb_presence",
+            "beneficiary_id": 2,
+            "beneficiary_name": "FriendB"
         },
         {
             "task_id": 14,
+            "task_name": "neighbor_start_block",
             "skill_id": 11,
-            "beneficiary_id": 3
+            "skill_name": "neighbor_presence",
+            "beneficiary_id": 3,
+            "beneficiary_name": "Neighbor"
         },
         {
             "task_id": 15,
+            "task_name": "neighbor_end_block",
             "skill_id": 11,
-            "beneficiary_id": 3
+            "skill_name": "neighbor_presence",
+            "beneficiary_id": 3,
+            "beneficiary_name": "Neighbor"
         },
         {
             "task_id": 16,
+            "task_name": "son_start_block",
             "skill_id": 10,
-            "beneficiary_id": 4
+            "skill_name": "son_presence",
+            "beneficiary_id": 4,
+            "beneficiary_name": "Son"
         },
         {
             "task_id": 17,
+            "task_name": "son_end_block",
             "skill_id": 10,
-            "beneficiary_id": 4
+            "skill_name": "son_presence",
+            "beneficiary_id": 4,
+            "beneficiary_name": "Son"
         },
         {
             "task_id": 18,
+            "task_name": "friendb_husband_start_block",
             "skill_id": 7,
-            "beneficiary_id": 5
+            "skill_name": "friendb_husband_presence",
+            "beneficiary_id": 5,
+            "beneficiary_name": "FriendBHusband"
         },
         {
             "task_id": 19,
+            "task_name": "friendb_husband_end_block",
             "skill_id": 7,
-            "beneficiary_id": 5
+            "skill_name": "friendb_husband_presence",
+            "beneficiary_id": 5,
+            "beneficiary_name": "FriendBHusband"
         }
     ],
     "Precedences": [
@@ -673,13 +859,12 @@
         }
     ],
     "Unavailabilities": [
-        {   
+        {
             "worker_id": 2,
+            "worker_name": "FriendB",
             "start": 50,
             "end": 65,
-            "permitted_skill_ids": [
-                
-            ]
+            "permitted_skill_ids": []
         }
     ]
 }

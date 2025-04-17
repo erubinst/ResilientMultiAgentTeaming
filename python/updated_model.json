@@ -695,5 +695,15 @@
             "pre": "Paperwork",
             "post": "DoctorVisit"
         }
+    ],
+    "Unavailabilities": [
+        {   
+            "worker_id": 2,
+            "start": 0,
+            "end": 65,
+            "permitted_skill_ids": [
+                
+            ]
+        }
     ]
 }

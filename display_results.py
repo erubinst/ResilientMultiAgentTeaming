@@ -15,11 +15,11 @@ df = df.dropna(subset=['Start', 'End'])
 
 
 # Define an epoch date (example: 2020-01-01)
-epoch_date = pd.to_datetime('2020-01-01')
+epoch_date = pd.to_datetime('2025-03-13')
 
 # # Convert integer days to datetime objects
-df['Start_dt'] = epoch_date + pd.to_timedelta(df['Start'], unit='s')
-df['End_dt'] = epoch_date + pd.to_timedelta(df['End'], unit='s')
+df['Start_dt'] = epoch_date + pd.to_timedelta(df['Start'], unit='h')
+df['End_dt'] = epoch_date + pd.to_timedelta(df['End'], unit='h')
 
 # if df['Task'] contains the word 'break' no caps, set new column type to 1
 # if df['Task'] == 'travel' set new column type to 2
@@ -28,9 +28,9 @@ df['Type'] = 0
 df.loc[df['Task'].str.contains('break'), 'Type'] = 1
 df.loc[df['Task'].str.contains('block'), 'Type'] = 1
 df.loc[df['Task'].str.contains('travel'), 'Type'] = 2
+df.loc[df['Task'].str.contains('transportation'), 'Type'] = 2
 df['Worker'] = df['Worker'].astype(str)  # Ensure Worker column is of type string
 df = df.sort_values('Worker')
-print(df[df['Request'] == "TRANSPORT"]['Worker'])
 
 # Plot with px.timeline
 fig = px.timeline(df, x_start="Start_dt", x_end="End_dt", y="Worker", color="Type", text = "Task",
@@ -83,4 +83,13 @@ for trace in fig.data:
 #     bgcolor="black",
 #     opacity=0.8
 # )
+
+fig.update_layout(
+    title="Schedule",
+    xaxis_title="Time",
+    xaxis=dict(
+        tickformat="%M:%S"  # Show only minutes, hiding the date
+    )
+)
+
 fig.show()

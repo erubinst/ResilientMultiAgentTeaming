@@ -1,0 +1,783 @@
+{
+    "resourceTypes": [
+        {
+            "name": "OA",
+            "id": 1,
+            "type": "reusable",
+            "capabilities": [
+                "watch",
+                "oa_planning",
+                "oa_presence"
+            ],
+            "capability_ids": [
+                2,
+                5,
+                8
+            ]
+        },
+        {
+            "name": "FriendB",
+            "type": "reusable",
+            "id": 2,
+            "capabilities": [
+                "driver",
+                "watch",
+                "friendb_planning",
+                "friendb_presence"
+            ],
+            "capability_ids": [
+                1,
+                2,
+                12,
+                9
+            ]
+        },
+        {
+            "name": "Neighbor",
+            "id": 3,
+            "type": "reusable",
+            "capabilities": [
+                "food_drop_off",
+                "neighbor_presence",
+                "driver"
+            ],
+            "capability_ids": [
+                6,
+                11,
+                1
+            ]
+        },
+        {
+            "name": "Son",
+            "id": 4,
+            "type": "reusable",
+            "capabilities": [
+                "driver",
+                "cleaner",
+                "son_presence"
+            ],
+            "capability_ids": [
+                1,
+                4,
+                10
+            ]
+        },
+        {
+            "name": "FriendBHusband",
+            "id": 5,
+            "type": "reusable",
+            "capabilities": [
+                "friendb_husband_presence"
+            ],
+            "capability_ids": [
+                7
+            ]
+        }
+    ],
+    "resources": [
+        {
+            "name": "OA",
+            "type": "OA",
+            "location": "Location0",
+            "downtimes": [
+            ]
+        },
+        {
+            "name": "FriendB",
+            "type": "FriendB",
+            "location": "Location3",
+            "downtimes": [
+                {
+                    "startTime": 50,
+                    "endTime": 65,
+                    "duration": 15,
+                    "location": "no location"
+                }
+            ]
+        },
+        {
+            "name": "Neighbor",
+            "type": "Neighbor",
+            "location": "Location0",
+            "downtimes": [
+            ]
+        },
+        {
+            "name": "Son",
+            "type": "Son",
+            "location": "Location2",
+            "downtimes": [
+            ]
+        },
+        {
+            "name": "FriendBHusband",
+            "type": "FriendBHusband",
+            "location": "Location3",
+            "downtimes": [
+            ]
+        }
+    ],
+    "templates": [
+        {
+            "name": "DoctorVisit",
+            "id": 1,
+            "type": "meets",
+            "requiredCapabilities": [],
+            "subtasks": [
+                {
+                    "taskName": "pick_up_oa",
+                    "id": 20,
+                    "type": "executable",
+                    "requiredCapabilities": [
+                        "driver",
+                        "friendb_husband_presence"
+                    ],
+                    "requiredCapabilityIds": [
+                        1,
+                        7
+                    ],
+                    "duration": 2,
+                    "start_location": "Location3",
+                    "end_location": "Location0"
+                },
+                {
+                    "taskName": "transport_to_doctor",
+                    "id": 21,
+                    "type": "executable",
+                    "requiredCapabilities": [
+                        "driver",
+                        "oa_presence",
+                        "friendb_husband_presence"
+                    ],
+                    "requiredCapabilityIds": [
+                        1,
+                        8,
+                        7
+                    ],
+                    "duration": 3,
+                    "start_location": "Location0",
+                    "end_location": "Location1"
+                },
+                {
+                    "taskName": "husband_doctor_appt",
+                    "id": 4,
+                    "type": "executable",
+                    "requiredCapabilities": [
+                        "watch",
+                        "friendb_husband_presence"
+                    ],
+                    "requiredCapabilityIds": [
+                        2,
+                        7
+                    ],
+                    "duration": 10,
+                    "start_location": "Location1",
+                    "end_location": "Locaation1"
+                },
+                {
+                    "taskName": "oa_doctor_appt",
+                    "id": 5,
+                    "type": "executable",
+                    "requiredCapabilities": [
+                        "oa_presence",
+                        "friendb_husband_presence"
+                    ],
+                    "requiredCapabilityIds": [
+                        8,
+                        7
+                    ],
+                    "duration": 5,
+                    "start_location": "Location1",
+                    "end_location": "Location1"
+                },
+                {
+                    "taskName": "drop_off_husband",
+                    "id": 6,
+                    "type": "executable",
+                    "requiredCapabilities": [
+                        "oa_presence",
+                        "friendb_husband_presence",
+                        "driver"
+                    ],
+                    "requiredCapabilityIds": [
+                        8,
+                        7,
+                        1
+                    ],
+                    "duration": 5,
+                    "start_location": "Location1",
+                    "end_location": "Location3"
+                }
+            ]
+        },
+        {
+            "name": "CleanHouse",
+            "id": 2,
+            "type": "meets",
+            "requiredCapabilities": [],
+            "subtasks": [
+                {
+                    "taskName": "cleaning",
+                    "id": 9,
+                    "type": "executable",
+                    "requiredCapabilities": [
+                        "cleaner"
+                    ],
+                    "requiredCapabilityIds": [
+                        4
+                    ],
+                    "duration": 5,
+                    "start_location": "@start_location",
+                    "end_location": "@end_location"
+                }
+            ]
+        },
+        {
+            "name": "EatLunch",
+            "id": 3,
+            "type": "meets",
+            "requiredCapabilities": [
+            ],
+            "subtasks": [
+                {
+                    "taskName": "lunch",
+                    "id": 3,
+                    "type": "executable",
+                    "requiredCapabilities": [
+                        "oa_presence"
+                    ],
+                    "requiredCapabilityIds": [
+                        8
+                    ],
+                    "duration": 5,
+                    "start_location": "@start_location",
+                    "end_location": "@end_location"
+                }
+            ]
+        },
+        {
+            "name": "EatDinner",
+            "id": 4,
+            "type": "meets",
+            "requiredCapabilities": [],
+            "subtasks": [
+                {
+                    "taskName": "dinner",
+                    "id": 7,
+                    "type": "executable",
+                    "requiredCapabilities": [
+                        "oa_presence"
+                    ],
+                    "requiredCapabilityIds": [
+                        8
+                    ],
+                    "duration": 5,
+                    "start_location": "@start_location",
+                    "end_location": "@end_location"
+                }
+            ]
+        },
+        {
+            "name": "GroceryDelivery",
+            "id": 5,
+            "type": "meets",
+            "requiredCapabilities": [],
+            "subtasks": [
+                {
+                    "taskName": "grocery_delivery",
+                    "id": 8,
+                    "type": "executable",
+                    "requiredCapabilities": [
+                        "oa_presence",
+                        "food_drop_off"
+                    ],
+                    "requiredCapabilityIds": [
+                        8,
+                        6
+                    ],
+                    "duration": 5,
+                    "start_location": "@start_location",
+                    "end_location": "@end_location"
+                }
+            ]
+        },
+        {
+            "name": "DiscussSchedule",
+            "id": 6,
+            "type": "meets",
+            "requiredCapabilities": [],
+            "subtasks": [
+                {
+                    "taskName": "discuss_schedule",
+                    "id": 1,
+                    "type": "executable",
+                    "requiredCapabilities": [
+                        "oa_planning",
+                        "friendb_planning"
+                    ],
+                    "requiredCapabilityIds": [
+                        5,
+                        12
+                    ],
+                    "duration": 5,
+                    "start_location": "@start_location",
+                    "end_location": "@end_location"
+                }
+            ]
+        },
+        {
+            "name": "OAStartBlock",
+            "id": 7,
+            "type": "meets",
+            "requiredCapabilities": [],
+            "subtasks": [
+                {
+                    "taskName": "oa_start_block",
+                    "id": 10,
+                    "type": "executable",
+                    "requiredCapabilities": [
+                        "oa_presence"
+                    ],
+                    "requiredCapabilityIds": [
+                        8
+                    ],
+                    "duration": 10,
+                    "start_location": "@start_location",
+                    "end_location": "@end_location"
+                }
+            ]
+        },
+        {
+            "name": "OAEndBlock",
+            "id": 8,
+            "type": "meets",
+            "requiredCapabilities": [],
+            "subtasks": [
+                {
+                    "taskName": "oa_end_block",
+                    "id": 11,
+                    "type": "executable",
+                    "requiredCapabilities": [
+                        "oa_presence"
+                    ],
+                    "requiredCapabilityIds": [
+                        8
+                    ],
+                    "duration": 10,
+                    "start_location": "@start_location",
+                    "end_location": "@end_location"
+                }
+            ]
+        },
+        {
+            "name": "FriendBStartBlock",
+            "id": 9,
+            "type": "meets",
+            "requiredCapabilities": [],
+            "subtasks": [
+                {
+                    "taskName": "friendb_start_block",
+                    "id": 12,
+                    "type": "executable",
+                    "requiredCapabilities": [
+                        "friendb_presence"
+                    ],
+                    "requiredCapabilityIds": [
+                        9
+                    ],
+                    "duration": 10,
+                    "start_location": "@start_location",
+                    "end_location": "@end_location"
+                }
+            ]
+        },
+        {
+            "name": "FriendBEndBlock",
+            "id": 10,
+            "type": "meets",
+            "requiredCapabilities": [],
+            "subtasks": [
+                {
+                    "taskName": "friendb_end_block",
+                    "id": 13,
+                    "type": "executable",
+                    "requiredCapabilities": [
+                        "friendb_presence"
+                    ],
+                    "requiredCapabilityIds": [
+                        9
+                    ],
+                    "duration": 10,
+                    "start_location": "@start_location",
+                    "end_location": "@end_location"
+                }
+            ]
+        },
+        {
+            "name": "NeighborStartBlock",
+            "id": 11,
+            "type": "meets",
+            "requiredCapabilities": [],
+            "subtasks": [
+                {
+                    "taskName": "neighbor_start_block",
+                    "id": 14,
+                    "type": "executable",
+                    "requiredCapabilities": [
+                        "neighbor_presence"
+                    ],
+                    "requiredCapabilityIds": [
+                        11
+                    ],
+                    "duration": 10,
+                    "start_location": "@start_location",
+                    "end_location": "@end_location"
+                }
+            ]
+        },
+        {
+            "name": "NeighborEndBlock",
+            "id": 12,
+            "type": "meets",
+            "requiredCapabilities": [],
+            "subtasks": [
+                {
+                    "taskName": "neighbor_end_block",
+                    "id": 15,
+                    "type": "executable",
+                    "requiredCapabilities": [
+                        "neighbor_presence"
+                    ],
+                    "requiredCapabilityIds": [
+                        11
+                    ],
+                    "duration": 10,
+                    "start_location": "@start_location",
+                    "end_location": "@end_location"
+                }
+            ]
+        },
+        {
+            "name": "SonStartBlock",
+            "id": 13,
+            "type": "meets",
+            "requiredCapabilities": [],
+            "subtasks": [
+                {
+                    "taskName": "son_start_block",
+                    "id": 16,
+                    "type": "executable",
+                    "requiredCapabilities": [
+                        "son_presence"
+                    ],
+                    "requiredCapabilityIds": [
+                        10
+                    ],
+                    "duration": 10,
+                    "start_location": "@start_location",
+                    "end_location": "@end_location"
+                }
+            ]
+        },
+        {
+            "name": "SonEndBlock",
+            "id": 14,
+            "type": "meets",
+            "requiredCapabilities": [],
+            "subtasks": [
+                {
+                    "taskName": "son_end_block",
+                    "id": 17,
+                    "type": "executable",
+                    "requiredCapabilities": [
+                        "son_presence"
+                    ],
+                    "requiredCapabilityIds": [
+                        10
+                    ],
+                    "duration": 10,
+                    "start_location": "@start_location",
+                    "end_location": "@end_location"
+                }
+            ]
+        },
+        {
+            "name": "FriendBHusbandStartBlock",
+            "id": 15,
+            "type": "meets",
+            "requiredCapabilities": [],
+            "subtasks": [
+                {
+                    "taskName": "friendb_husband_start_block",
+                    "id": 18,
+                    "type": "executable",
+                    "requiredCapabilities": [
+                        "friendb_husband_presence"
+                    ],
+                    "requiredCapabilityIds": [
+                        7
+                    ],
+                    "duration": 10,
+                    "start_location": "@start_location",
+                    "end_location": "@end_location"
+                }
+            ]
+        },
+        {
+            "name": "FriendBHusbandEndBlock",
+            "id": 16,
+            "type": "meets",
+            "requiredCapabilities": [],
+            "subtasks": [
+                {
+                    "taskName": "friendb_husband_end_block",
+                    "id": 19,
+                    "type": "executable",
+                    "requiredCapabilities": [
+                        "friendb_husband_presence"
+                    ],
+                    "requiredCapabilityIds": [
+                        7
+                    ],
+                    "duration": 10,
+                    "start_location": "@start_location",
+                    "end_location": "@end_location"
+                }
+            ]
+        },
+        {
+            "name": "GroceryShopping",
+            "id": 17,
+            "type": "meets",
+            "requiredCapabilities": [],
+            "subtasks": [
+                {
+                    "taskName": "grocery_shopping",
+                    "id": 2,
+                    "type": "executable",
+                    "requiredCapabilities": [
+                        "oa_presence",
+                        "friendb_presence"
+                    ],
+                    "requiredCapabilityIds": [
+                        8,
+                        9
+                    ],
+                    "duration": 5,
+                    "start_location": "@start_location",
+                    "end_location": "@end_location"
+                }
+            ]
+        }
+    ],
+    "orders": [
+        {
+            "name": "DoctorVisit",
+            "quantity": 1,
+            "earlieststartdate": 45,
+            "start_location": "Location3",
+            "end_location": "Location3",
+            "duedate": 70,
+            "tasks": [
+                "pick_up_oa",
+                "transport_to_doctor",
+                "husband_doctor_appt",
+                "oa_doctor_appt",
+                "drop_off_husband"
+            ]
+        },
+        {
+            "name": "CleanHouse",
+            "quantity": 1,
+            "earlieststartdate": 10,
+            "duedate": 90,
+            "start_location": "Location0",
+            "end_location": "Location0",
+            "tasks": [
+                "cleaning"
+            ]
+        },
+        {
+            "name": "EatLunch",
+            "quantity": 1,
+            "earlieststartdate": 20,
+            "duedate": 50,
+            "start_location": "Location0",
+            "end_location": "Location0",
+            "tasks": [
+                "lunch"
+            ]
+        },
+        {
+            "name": "EatDinner",
+            "quantity": 1,
+            "earlieststartdate": 60,
+            "duedate": 100,
+            "start_location": "Location0",
+            "end_location": "Location0",
+            "tasks": [
+                "dinner"
+            ]
+        },
+        {
+            "name": "GroceryDelivery",
+            "quantity": 1,
+            "earlieststartdate": 10,
+            "duedate": 90,
+            "start_location": "Location0",
+            "end_location": "Location0",
+            "tasks": [
+                "grocery_delivery"
+            ]
+        },
+        {
+            "name": "DiscussSchedule",
+            "quantity": 1,
+            "earlieststartdate": 10,
+            "duedate": 40,
+            "start_location": "Location4",
+            "end_location": "Location4",
+            "tasks": [
+                "discuss_schedule"
+            ]
+        },
+        {
+            "name": "OAStartBlock",
+            "quantity": 1,
+            "earlieststartdate": 0,
+            "duedate": 10,
+            "start_location": "Location0",
+            "end_location": "Location0",
+            "tasks": [
+                "oa_start_block"
+            ]
+        },
+        {
+            "name": "OAEndBlock",
+            "quantity": 1,
+            "earlieststartdate": 90,
+            "duedate": 100,
+            "start_location": "Location0",
+            "end_location": "Location0",
+            "tasks": [
+                "oa_end_block"
+            ]
+        },
+        {
+            "name": "FriendBStartBlock",
+            "quantity": 1,
+            "earlieststartdate": 0,
+            "duedate": 10,
+            "start_location": "Location3",
+            "end_location": "Location3",
+            "tasks": [
+                "friendb_start_block"
+            ]
+        },
+        {
+            "name": "FriendBEndBlock",
+            "quantity": 1,
+            "earlieststartdate": 90,
+            "duedate": 100,
+            "start_location": "Location3",
+            "end_location": "Location3",
+            "tasks": [
+                "friendb_end_block"
+            ]
+        },
+        {
+            "name": "NeighborStartBlock",
+            "quantity": 1,
+            "earlieststartdate": 0,
+            "duedate": 10,
+            "start_location": "Location0",
+            "end_location": "Location0",
+            "tasks": [
+                "neighbor_start_block"
+            ]
+        },
+        {
+            "name": "NeighborEndBlock",
+            "quantity": 1,
+            "earlieststartdate": 90,
+            "duedate": 100,
+            "start_location": "Location0",
+            "end_location": "Location0",
+            "tasks": [
+                "neighbor_end_block"
+            ]
+        },
+        {
+            "name": "SonStartBlock",
+            "quantity": 1,
+            "earlieststartdate": 0,
+            "duedate": 10,
+            "start_location": "Location2",
+            "end_location": "Location2",
+            "tasks": [
+                "son_start_block"
+            ]
+        },
+        {
+            "name": "SonEndBlock",
+            "quantity": 1,
+            "earlieststartdate": 90,
+            "duedate": 100,
+            "start_location": "Location2",
+            "end_location": "Location2",
+            "tasks": [
+                "son_end_block"
+            ]
+        },
+        {
+            "name": "FriendBHusbandStartBlock",
+            "quantity": 1,
+            "earlieststartdate": 0,
+            "duedate": 10,
+            "start_location": "Location3",
+            "end_location": "Location3",
+            "tasks": [
+                "friendb_husband_start_block"
+            ]
+        },
+        {
+            "name": "FriendBHusbandEndBlock",
+            "quantity": 1,
+            "earlieststartdate": 90,
+            "duedate": 100,
+            "start_location": "Location3",
+            "end_location": "Location3",
+            "tasks": [
+                "friendb_husband_end_block"
+            ]
+        },
+        {
+            "name": "GroceryShopping",
+            "quantity": 1,
+            "earlieststartdate": 10,
+            "duedate": 90,
+            "start_location": "Location2",
+            "end_location": "Location2",
+            "tasks": [
+                "grocery_shopping"
+            ]
+        }
+    ],
+    "order-constraints": [
+        {
+            "relation": "BEFORE",
+            "source": "GroceryDelivery",
+            "destination": "Lunch"
+        },
+        {
+            "relation": "BEFORE",
+            "source": "GroceryShopping",
+            "destination": "Dinner"
+        },
+        {
+            "relation": "BEFORE",
+            "source": "DiscussSchedule",
+            "destination": "DoctorVisit"
+        }
+    ]
+}
