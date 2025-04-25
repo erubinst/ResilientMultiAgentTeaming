@@ -75,7 +75,7 @@
             "name": "grocery_shopping",
             "duration": 5,
             "start_location": 3,
-            "end_location": 2,
+            "end_location": 3,
             "est": 10,
             "lft": 90
         },
@@ -638,8 +638,8 @@
         {
             "task_id": 20,
             "task_name": "pick_up_oa",
-            "skill_id": 1,
-            "skill_name": "driver",
+            "skill_id": 9,
+            "skill_name": "friendb_presence",
             "beneficiary_id": 1,
             "beneficiary_name": "OA"
         },
@@ -648,14 +648,14 @@
             "task_name": "pick_up_oa",
             "skill_id": 7,
             "skill_name": "friendb_husband_presence",
-            "beneficiary_id": 2,
-            "beneficiary_name": "FriendB"
+            "beneficiary_id": 5,
+            "beneficiary_name": "FriendBHusband"
         },
         {
             "task_id": 21,
             "task_name": "transport_to_doctor",
-            "skill_id": 1,
-            "skill_name": "driver",
+            "skill_id": 9,
+            "skill_name": "friendb_presence",
             "beneficiary_id": 1,
             "beneficiary_name": "OA"
         },
@@ -672,8 +672,8 @@
             "task_name": "transport_to_doctor",
             "skill_id": 7,
             "skill_name": "friendb_husband_presence",
-            "beneficiary_id": 2,
-            "beneficiary_name": "FriendB"
+            "beneficiary_id": 5,
+            "beneficiary_name": "FriendBHusband"
         },
         {
             "task_id": 4,

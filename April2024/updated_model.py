@@ -72,7 +72,7 @@ task_schedule = [
         [assignment_times[i] for i in range(len(AssignmentOptions)) if AssignmentOptions[i]["worker_skill"]["worker"]["id"] == w["id"]],
         [ao["requirement"]["operation"]["task"]["id"] for ao in AssignmentOptions if ao["worker_skill"]["worker"]["id"] == w["id"]]
     ) 
-    for w in data["Workers"]
+    for w in Workers
 ]
 
 nextTaskId = [type_of_next(task_schedule[AssignmentOptions[i]["worker_skill"]["worker"]["id"]-1],
@@ -95,9 +95,6 @@ prevTaskEndLocation = [element(end_locations, abs(prevTaskId[i]-1))
                          * presence_of(assignment_times[i])
                          for i in range(len(AssignmentOptions))]
 
-for i in range(len(AssignmentOptions)):
-    if AssignmentOptions[i]['requirement']['operation']['task']['start_location'] == 4:
-        AssignmentOptions[i]['requirement']['operation']['task']['end_location'] = prevTaskEndLocation[i]
 
 nextTaskStart = [start_of_next(task_schedule[AssignmentOptions[i]["worker_skill"]["worker"]["id"]-1],  
                             assignment_times[i], 0) for i in range(len(AssignmentOptions))]
@@ -260,7 +257,7 @@ model.add(
 for i in range(len(all_driver_tasks)):
     model.add_kpi(nextTaskStartLocation_driverschedule[i], "next task location for worker " + str(driver_task_workers[i]) + " after " + driver_task_names[i] + str(i))
     model.add_kpi(nextTaskId_driverschedule[i], "next task id for worker " + str(driver_task_workers[i]) + " after " + driver_task_names[i] + str(i))
-    #model.add_kpi(travelTimes_driverschedule[i], "travel time for worker " + str(driver_task_workers[i]) + " after " + driver_task_names[i] + str(i))
+    model.add_kpi(travelTimes_driverschedule[i], "travel time for worker " + str(driver_task_workers[i]) + " after " + driver_task_names[i] + str(i))
 
 for i in range(len(Requests)):
     # Request constraint
@@ -273,6 +270,7 @@ for i in range(len(Dependencies)):
     task1_interval = [task_times[j] for j in range(len(Tasks)) if Tasks[j]['name'] == Dependencies[i]['task1']]
     task2_interval = [task_times[j] for j in range(len(Tasks)) if Tasks[j]['name'] == Dependencies[i]['task2']]
     model.add(start_at_end(task2_interval[0], task1_interval[0]))
+
 
 for i in range(len(Requirements)):
     equivalent_task = [task_times[j] for j in range(len(Tasks)) if Tasks[j]['id'] == Requirements[i]['operation']['task']['id']][0]
@@ -292,19 +290,27 @@ for p in range(len(Precedences)):
                     model.add(end_before_start(requirement_times[rq], requirement_times[rq2]))
 
 
-# propagated = model.propagate(agent='local', execfile = '/Applications/CPLEX_Studio2211/cpoptimizer/bin/arm64_osx/cpoptimizer')
-# # find index where requirements[j]['operation']['task']['name'] == 'cleaning'
-# for k in range(len(AssignmentOptions)):
-#     if AssignmentOptions[k]['requirement']['operation']['task']['name'] == 'cleaning':
-#         worker = AssignmentOptions[k]['worker_skill']['worker']['name']
-#         print("Cleaning task domain after propagation for worker", worker)
-#         print(propagated.get_var_solution(assignment_times[k]))
+# intialize benefit counts with 0s and len(Workers) x len(Workers)
+benefit_counts = [[0 for j in range(len(Workers))] for i in range(len(Workers))]
+for i in range(len(Workers)):
+    for j in range(len(Workers)):
+        if i != j:
+            for ao in range(len(AssignmentOptions)):
+                if AssignmentOptions[ao]['worker_skill']['worker']['id'] == Workers[i]['id']:
+                    if AssignmentOptions[ao]['requirement']['beneficiary_id'] == Workers[j]['id']:
+                        benefit_counts[i][j] += 1 * presence_of(assignment_times[ao])
+
+for i in range(len(Workers)):
+    for j in range(len(Workers)):
+        if i != j:
+            if type(benefit_counts[i][j]) != int:
+                model.add_kpi(benefit_counts[i][j], "task count for worker " + Workers[i]['name'] + " benefiting worker " + Workers[j]['name'])
 
 # objective function
 # obj = model.minimize(max([end_of(requirement_times[j]) for j in range(len(Requirements))]))
 obj = model.maximize(sum(presence_of(assignment_times[i]) 
-                         * (AssignmentOptions[i]['worker_skill']['beneficiary_preference']
-                            + AssignmentOptions[i]['worker_skill']['worker_preference']) for i in range(len(AssignmentOptions))))
+                        * (AssignmentOptions[i]['worker_skill']['beneficiary_preference']
+                        + AssignmentOptions[i]['worker_skill']['worker_preference']) for i in range(len(AssignmentOptions))))
 model.add(obj)
 solution = model.solve(TimeLimit=100, agent='local', execfile = '/Applications/CPLEX_Studio2211/cpoptimizer/bin/arm64_osx/cpoptimizer')
 if solution:
@@ -314,7 +320,7 @@ else:
 
 
 a_times = [solution.get_var_solution(assignment_times[i]) for i in range(len(AssignmentOptions))]
-t_times = [solution.get_var_solution(travel[i]) for i in range(len(driver_tasks))]
+t_times = [solution.get_var_solution(travel[i]) for i in range(len(all_driver_tasks))]
 non_driver_travel_times = [solution.get_var_solution(non_driver_travel[i]) for i in range(len(non_driver_travel_list))]
 additional_t_times = [solution.get_var_solution(driver_task_options[i]) for i in range(len(driver_combinations))]
 data = []
@@ -348,7 +354,7 @@ for i in range(len(driver_combinations)):
         "travel"
     ])
 
-for i in range(len(driver_tasks)):
+for i in range(len(all_driver_tasks)):
     if t_times[i].is_present():
         data.append([
             Workers[driver_task_workers[i]-1]['name'],
