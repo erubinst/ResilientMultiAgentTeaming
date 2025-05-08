@@ -139,7 +139,7 @@
                         7
                     ],
                     "duration": 2,
-                    "start-location": "Location3",
+                    "start-location": "@start-location",
                     "end-location": "Location0"
                 },
                 {
@@ -208,7 +208,7 @@
                     ],
                     "duration": 5,
                     "start-location": "Location1",
-                    "end-location": "Location3"
+                    "end-location": "@end-location"
                 }
             ]
         },
@@ -229,8 +229,8 @@
                         4
                     ],
                     "duration": 5,
-                    "start-location": "Location0",
-                    "end-location": "Location0"
+                    "start-location": "@start-location",
+                    "end-location": "@end-location"
                 }
             ]
         },
@@ -251,8 +251,8 @@
                         8
                     ],
                     "duration": 5,
-                    "start-location": "Location0",
-                    "end-location": "Location0"
+                    "start-location": "@start-location",
+                    "end-location": "@end-location"
                 }
             ]
         },
@@ -273,8 +273,8 @@
                         8
                     ],
                     "duration": 5,
-                    "start-location": "Location0",
-                    "end-location": "Location0"
+                    "start-location": "@start-location",
+                    "end-location": "@end-location"
                 }
             ]
         },
@@ -297,8 +297,8 @@
                         6
                     ],
                     "duration": 5,
-                    "start-location": "Location0",
-                    "end-location": "Location0"
+                    "start-location": "@start-location",
+                    "end-location": "@end-location"
                 }
             ]
         },
@@ -321,8 +321,8 @@
                         12
                     ],
                     "duration": 5,
-                    "start-location": "Location0",
-                    "end-location": "Location0"
+                    "start-location": "@start-location",
+                    "end-location": "@end-location"
                 }
             ]
         },
@@ -343,8 +343,8 @@
                         8
                     ],
                     "duration": 10,
-                    "start-location": "Location0",
-                    "end-location": "Location0"
+                    "start-location": "@start-location",
+                    "end-location": "@end-location"
                 }
             ]
         },
@@ -365,8 +365,8 @@
                         8
                     ],
                     "duration": 10,
-                    "start-location": "Location0",
-                    "end-location": "Location0"
+                    "start-location": "@start-location",
+                    "end-location": "@end-location"
                 }
             ]
         },
@@ -387,8 +387,8 @@
                         9
                     ],
                     "duration": 10,
-                    "start-location": "Location3",
-                    "end-location": "Location3"
+                    "start-location": "@start-location",
+                    "end-location": "@end-location"
                 }
             ]
         },
@@ -409,8 +409,8 @@
                         9
                     ],
                     "duration": 10,
-                    "start-location": "Location3",
-                    "end-location": "Location3"
+                    "start-location": "@start-location",
+                    "end-location": "@end-location"
                 }
             ]
         },
@@ -431,8 +431,8 @@
                         11
                     ],
                     "duration": 10,
-                    "start-location": "Location0",
-                    "end-location": "Location0"
+                    "start-location": "@start-location",
+                    "end-location": "@end-location"
                 }
             ]
         },
@@ -453,8 +453,8 @@
                         11
                     ],
                     "duration": 10,
-                    "start-location": "Location0",
-                    "end-location": "Location0"
+                    "start-location": "@start-location",
+                    "end-location": "@end-location"
                 }
             ]
         },
@@ -475,8 +475,8 @@
                         10
                     ],
                     "duration": 10,
-                    "start-location": "Location2",
-                    "end-location": "Location2"
+                    "start-location": "@start-location",
+                    "end-location": "@end-location"
                 }
             ]
         },
@@ -497,8 +497,8 @@
                         10
                     ],
                     "duration": 10,
-                    "start-location": "Location2",
-                    "end-location": "Location2"
+                    "start-location": "@start-location",
+                    "end-location": "@end-location"
                 }
             ]
         },
@@ -519,8 +519,8 @@
                         7
                     ],
                     "duration": 10,
-                    "start-location": "Location3",
-                    "end-location": "Location3"
+                    "start-location": "@start-location",
+                    "end-location": "@end-location"
                 }
             ]
         },
@@ -541,8 +541,8 @@
                         7
                     ],
                     "duration": 10,
-                    "start-location": "Location3",
-                    "end-location": "Location3"
+                    "start-location": "@start-location",
+                    "end-location": "@end-location"
                 }
             ]
         },
@@ -565,8 +565,8 @@
                         9
                     ],
                     "duration": 5,
-                    "start-location": "Location3",
-                    "end-location": "Location3"
+                    "start-location": "@start-location",
+                    "end-location": "@end-location"
                 }
             ]
         }
