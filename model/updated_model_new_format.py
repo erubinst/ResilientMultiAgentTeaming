@@ -11,6 +11,20 @@ with open("/Users/esmerubinstein/Desktop/ICLL/ResilientMultiAgentTeaming/schedul
 
 H = 100
 
+orders_by_name = {order["name"]: order for order in data["orders"]}
+
+# Update placeholders in-place
+for template in data["templates"]:
+    order = orders_by_name.get(template["name"])
+    if order:
+        start_loc = order["start-location"]
+        end_loc = order["end-location"]
+        for subtask in template["subtasks"]:
+            if subtask["start-location"] == "@start-location":
+                subtask["start-location"] = start_loc
+            if subtask["end-location"] == "@end-location":
+                subtask["end-location"] = end_loc
+
 # workers contains name, id, capabilities, and capability ids
 Workers = data['resourceTypes']
 
@@ -267,10 +281,13 @@ model.add(
     [start_at_end(travel[i],all_driver_tasks[i]) for i in range(len(all_driver_tasks))]
 )
 
-for i in range(len(all_driver_tasks)):
-    model.add_kpi(next_task_start_location_driver_schedule[i], "next task location for worker " + str(driver_task_workers[i]) + " after " + driver_task_names[i] + str(i))
-    model.add_kpi(next_task_id_driver_schedule[i], "next task id for worker " + str(driver_task_workers[i]) + " after " + driver_task_names[i] + str(i))
-    model.add_kpi(travel_times_driver_schedule[i], "travel time for worker " + str(driver_task_workers[i]) + " after " + driver_task_names[i] + str(i))
+#for i in range(len(all_driver_tasks)):
+    #model.add_kpi(next_task_start_location_driver_schedule[i], "next task location for worker " + str(driver_task_workers[i]) + " after " + driver_task_names[i] + str(i))
+    #model.add_kpi(next_task_id_driver_schedule[i], "next task id for worker " + str(driver_task_workers[i]) + " after " + driver_task_names[i] + str(i))
+    #model.add_kpi(travel_times_driver_schedule[i], "travel time for worker " + str(driver_task_workers[i]) + " after " + driver_task_names[i] + str(i))
+
+for i in range(len(non_driver_travel_list)):
+    model.add_kpi(next_static_task_start_location[i], non_driver_travel_list[i]['assignment_option']['taskName'] + str(i))
 
 for i in range(len(Templates)):
     # Request constraint
@@ -329,6 +346,9 @@ t_times = [solution.get_var_solution(travel[i]) for i in range(len(all_driver_ta
 non_driver_travel_times = [solution.get_var_solution(non_driver_travel[i]) for i in range(len(non_driver_travel_list))]
 additional_t_times = [solution.get_var_solution(driver_task_options[i]) for i in range(len(driver_combinations))]
 data = []
+transport = []
+
+dynamic_locations = solution.get_kpis()
 
 for i in range(len(AssignmentOptions)):
     if a_times[i].is_present():
@@ -349,6 +369,14 @@ for i in range(len(non_driver_travel_list)):
         "travel",
         "travel"
     ])
+    if non_driver_travel_times[i].is_present():
+        transport.append([
+            non_driver_travel_list[i]['assignment_option']['requestName'],
+            non_driver_travel_list[i]['assignment_option']['taskName'],
+            non_driver_travel_list[i]['assignment_option']['resourceName'],
+            non_driver_travel_list[i]['travel_start'],
+            dynamic_locations[non_driver_travel_list[i]['assignment_option']['taskName']+ str(i)],
+        ])
 for i in range(len(driver_combinations)):
     data.append([
         Workers[driver_combinations[i]['driver']-1]['name'],
@@ -371,5 +399,36 @@ for i in range(len(all_driver_tasks)):
         ])
 
 df = pd.DataFrame(data, columns=["Worker", "Task", "Start", "End", "Request", "Skill"])
+transport_df = pd.DataFrame(transport, columns=["name", "previous_subtask", "resource", "start-location", "end-location"])
 df.to_csv("output.csv", index=False)
-df.to_json("output.json", orient="records", indent=4)
+transport_df.to_json("transport.json", orient="records", lines=True)
+
+with open("/Users/esmerubinstein/Desktop/ICLL/ResilientMultiAgentTeaming/schedule_manager/y3_scenario_stn.json") as file:
+    request_file = json.load(file)
+
+# loop through transport df
+for row in transport_df.iterrows():
+    for request in request_file['templates']:
+        if request['name'] == row[1]['name']:
+            resource_capability = row[1]["resource"].lower()+"_presence"
+            request['subtasks'].append({
+                "taskName": "pickup_" + row[1]['previous_subtask'],
+                "start-location": row[1]['start-location'],
+                "end-location": row[1]['start-location'],
+                "duration": 0,
+                "requiredCapabilities": ["transport", resource_capability],
+                "requiredCapabilityIds": []
+            })
+            request['subtasks'].append({
+                "taskName": "dropoff_" + row[1]['previous_subtask'],
+                "start-location": row[1]['end-location'],
+                "end-location": row[1]['end-location'],
+                "duration": 0,
+                "requiredCapabilities": ["transport", resource_capability],
+                "requiredCapabilityIds": []
+            })
+
+# output a new json file with the updated request_file
+with open("updated_request_file.json", "w") as outfile:
+    json.dump(request_file, outfile, indent=4)
+

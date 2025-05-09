@@ -632,6 +632,8 @@
             "quantity": 1,
             "earlieststartdate": 10,
             "duedate": 40,
+            "start-location": "Location0",
+            "end-location": "Location0",
             "tasks": [
                 "DiscussSchedule"
             ]
@@ -751,8 +753,8 @@
             "quantity": 1,
             "earlieststartdate": 10,
             "duedate": 90,
-            "start-location": "Location2",
-            "end-location": "Location2",
+            "start-location": "Location3",
+            "end-location": "Location3",
             "tasks": [
                 "GroceryShopping"
             ]
