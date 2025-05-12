@@ -294,11 +294,6 @@ for i in range(len(Templates)):
     model.add(span(request_times[i], 
                    [requirement_times[j] 
                    for j in range(len(Requirements)) if Requirements[j]["requestId"] == Templates[i]["id"]]))
-    subtasks = Templates[i]['subtasks']
-    if len(subtasks) > 1:
-        for k in range(len(subtasks) - 1):
-            current_task_id = subtasks[k]['id']
-            next_task_id = subtasks[k + 1]['id']
 
     
 for i in range(len(Requirements)):

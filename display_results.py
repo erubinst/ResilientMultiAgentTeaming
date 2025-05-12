@@ -2,7 +2,7 @@ import plotly.express as px
 import pandas as pd
 
 # Path to your CSV file
-solution_path = '/Users/esmerubinstein/Desktop/ICLL/ResilientMultiAgentTeaming/output.csv'
+solution_path = '/Users/esmerubinstein/Desktop/ICLL/ResilientMultiAgentTeaming/output_files/output.csv'
 
 # Read the CSV file into a DataFrame
 
