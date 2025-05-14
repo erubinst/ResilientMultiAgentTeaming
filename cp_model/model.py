@@ -198,6 +198,16 @@ def build_completed_sequence(assignment_times, request_data, non_driver_travel_d
     return completed_schedule
 
 
+def add_kpis(model, non_driver_travel_data):
+    """Add KPIs to the model."""
+    # Add KPIs to the model
+    non_driver_travel_list = non_driver_travel_data['non_driver_travel_list']
+    for i in range(len(non_driver_travel_list)):
+        model.add_kpi(non_driver_travel_list[i]['travel_end'], non_driver_travel_list[i]['assignment_option']['taskName'] + str(i))
+    
+    return model
+
+
 def build_model(request_data, travel_data):
     """Build the model and return the model object."""
     model = CpoModel()
@@ -208,5 +218,6 @@ def build_model(request_data, travel_data):
     transporter_data = build_transporter_schedule(explicit_task_intervals['assignment_times'], request_data, travel_data, transportation_assignment_data)
     transporter_travel_data = build_transporter_travel(request_data, travel_data, transporter_data)
     completed_schedule = build_completed_sequence(explicit_task_intervals['assignment_times'], request_data, non_driver_travel_data, transporter_travel_data)
+    model = add_kpis(model, non_driver_travel_data)
 
     return model, explicit_task_intervals, non_driver_travel_data, transporter_travel_data, completed_schedule
