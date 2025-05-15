@@ -140,7 +140,8 @@
                     ],
                     "duration": 2,
                     "start-location": "@start-location",
-                    "end-location": "Location0"
+                    "end-location": "Location0",
+                    "explicit_transport_task": true
                 },
                 {
                     "taskName": "transport_to_doctor",
@@ -158,7 +159,8 @@
                     ],
                     "duration": 3,
                     "start-location": "Location0",
-                    "end-location": "Location1"
+                    "end-location": "Location1",
+                    "explicit_transport_task": true
                 },
                 {
                     "taskName": "husband_doctor_appt",
@@ -174,7 +176,8 @@
                     ],
                     "duration": 10,
                     "start-location": "Location1",
-                    "end-location": "Location1"
+                    "end-location": "Location1",
+                    "explicit_transport_task": false
                 },
                 {
                     "taskName": "oa_doctor_appt",
@@ -190,7 +193,8 @@
                     ],
                     "duration": 5,
                     "start-location": "Location1",
-                    "end-location": "Location1"
+                    "end-location": "Location1",
+                    "explicit_transport_task": false
                 },
                 {
                     "taskName": "drop_off_husband",
@@ -208,7 +212,8 @@
                     ],
                     "duration": 5,
                     "start-location": "Location1",
-                    "end-location": "@end-location"
+                    "end-location": "@end-location",
+                    "explicit_transport_task": true
                 }
             ]
         },
@@ -230,7 +235,8 @@
                     ],
                     "duration": 5,
                     "start-location": "@start-location",
-                    "end-location": "@end-location"
+                    "end-location": "@end-location",
+                    "explicit_transport_task": false
                 }
             ]
         },
@@ -252,7 +258,8 @@
                     ],
                     "duration": 5,
                     "start-location": "@start-location",
-                    "end-location": "@end-location"
+                    "end-location": "@end-location",
+                    "explicit_transport_task": false
                 }
             ]
         },
@@ -274,7 +281,8 @@
                     ],
                     "duration": 5,
                     "start-location": "@start-location",
-                    "end-location": "@end-location"
+                    "end-location": "@end-location",
+                    "explicit_transport_task": false
                 }
             ]
         },
@@ -298,7 +306,8 @@
                     ],
                     "duration": 5,
                     "start-location": "@start-location",
-                    "end-location": "@end-location"
+                    "end-location": "@end-location",
+                    "explicit_transport_task": false
                 }
             ]
         },
@@ -322,7 +331,8 @@
                     ],
                     "duration": 5,
                     "start-location": "@start-location",
-                    "end-location": "@end-location"
+                    "end-location": "@end-location",
+                    "explicit_transport_task": false
                 }
             ]
         },
@@ -344,7 +354,8 @@
                     ],
                     "duration": 10,
                     "start-location": "@start-location",
-                    "end-location": "@end-location"
+                    "end-location": "@end-location",
+                    "explicit_transport_task": false
                 }
             ]
         },
@@ -366,7 +377,8 @@
                     ],
                     "duration": 10,
                     "start-location": "@start-location",
-                    "end-location": "@end-location"
+                    "end-location": "@end-location",
+                    "explicit_transport_task": false
                 }
             ]
         },
@@ -388,7 +400,8 @@
                     ],
                     "duration": 10,
                     "start-location": "@start-location",
-                    "end-location": "@end-location"
+                    "end-location": "@end-location",
+                    "explicit_transport_task": false
                 }
             ]
         },
@@ -410,7 +423,8 @@
                     ],
                     "duration": 10,
                     "start-location": "@start-location",
-                    "end-location": "@end-location"
+                    "end-location": "@end-location",
+                    "explicit_transport_task": false
                 }
             ]
         },
@@ -432,7 +446,8 @@
                     ],
                     "duration": 10,
                     "start-location": "@start-location",
-                    "end-location": "@end-location"
+                    "end-location": "@end-location",
+                    "explicit_transport_task": false
                 }
             ]
         },
@@ -454,7 +469,8 @@
                     ],
                     "duration": 10,
                     "start-location": "@start-location",
-                    "end-location": "@end-location"
+                    "end-location": "@end-location",
+                    "explicit_transport_task": false
                 }
             ]
         },
@@ -476,7 +492,8 @@
                     ],
                     "duration": 10,
                     "start-location": "@start-location",
-                    "end-location": "@end-location"
+                    "end-location": "@end-location",
+                    "explicit_transport_task": false
                 }
             ]
         },
@@ -498,7 +515,8 @@
                     ],
                     "duration": 10,
                     "start-location": "@start-location",
-                    "end-location": "@end-location"
+                    "end-location": "@end-location",
+                    "explicit_transport_task": false
                 }
             ]
         },
@@ -520,7 +538,8 @@
                     ],
                     "duration": 10,
                     "start-location": "@start-location",
-                    "end-location": "@end-location"
+                    "end-location": "@end-location",
+                    "explicit_transport_task": false
                 }
             ]
         },
@@ -542,7 +561,8 @@
                     ],
                     "duration": 10,
                     "start-location": "@start-location",
-                    "end-location": "@end-location"
+                    "end-location": "@end-location",
+                    "explicit_transport_task": false
                 }
             ]
         },
@@ -566,7 +586,8 @@
                     ],
                     "duration": 5,
                     "start-location": "@start-location",
-                    "end-location": "@end-location"
+                    "end-location": "@end-location",
+                    "explicit_transport_task": false
                 }
             ]
         }

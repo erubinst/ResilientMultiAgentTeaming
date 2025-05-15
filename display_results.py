@@ -27,8 +27,9 @@ df['End_dt'] = epoch_date + pd.to_timedelta(df['End'], unit='h')
 df['Type'] = 0
 df.loc[df['Task'].str.contains('break'), 'Type'] = 1
 df.loc[df['Task'].str.contains('block'), 'Type'] = 1
-df.loc[df['Task'].str.contains('travel'), 'Type'] = 2
-df.loc[df['Task'].str.contains('transportation'), 'Type'] = 2
+df.loc[df['Task'].str.contains('travel'), 'Type'] = 3
+df.loc[df['Task'].str.contains('transportation'), 'Type'] = 3
+df.loc[df['ExplicitTransport'] == True, 'Type'] = 2
 df['Worker'] = df['Worker'].astype(str)  # Ensure Worker column is of type string
 df = df.sort_values('Worker')
 

@@ -88,7 +88,8 @@ def retrieve_requirements(data):
                     "capabilityId": cap_id,
                     "end-location": data['locations'].index(subtask["end-location"]),
                     "start-location": data['locations'].index(subtask["start-location"]),
-                    "duration": subtask["duration"]
+                    "duration": subtask["duration"],
+                    "explicit_transport_task": subtask.get("explicit_transport_task", False)
                 })
 
     requirements = pd.DataFrame(requirements)

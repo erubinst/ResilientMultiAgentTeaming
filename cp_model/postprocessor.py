@@ -28,7 +28,8 @@ def format_explicit_tasks(output_data, request_data, explicit_tasks):
                 explicit_tasks[i].start,
                 explicit_tasks[i].end,
                 assignment_options[i]['requestName'],
-                assignment_options[i]['capability']
+                assignment_options[i]['capability'],
+                assignment_options[i]['explicit_transport_task']
             ])
     return output_data
 
@@ -42,7 +43,8 @@ def format_non_driver_travel(output_data, non_driver_travel_data, non_driver_tra
             non_driver_travel[i].start,
             non_driver_travel[i].end,
             "travel",
-            "travel"
+            "travel",
+            False
         ])
     return output_data
 
@@ -59,7 +61,8 @@ def format_transport_tasks(output_data, request_data, transporter_travel_data, t
             transport_tasks[i].start,
             transport_tasks[i].end,
             "TRANSPORT",
-            "travel"
+            "travel",
+            False
         ])
     return output_data
 
@@ -76,7 +79,8 @@ def format_transporter_travel(output_data, request_data, transporter_travel_data
                 transporter_travel[i].start,
                 transporter_travel[i].end,
                 "travel",
-                "travel"
+                "travel",
+                False
             ])
     return output_data
 
@@ -106,8 +110,8 @@ def pull_solution_data(solution,request_data, explicit_task_intervals, non_drive
     output_data = format_transporter_travel(output_data, request_data, transporter_travel_data, transporter_travel)
 
     # Create a DataFrame from the output data
-    df = pd.DataFrame(output_data, columns=["Worker", "Task", "Start", "End", "Request", "Skill"])
-    return df, non_driver_travel
+    df = pd.DataFrame(output_data, columns=["Worker", "Task", "Start", "End", "Request", "Skill", "ExplicitTransport"])
+    return df, explicit_tasks
 
 
 def load_json_file(filename, data_path):
@@ -122,12 +126,12 @@ def save_json_file(filename, data_path, data):
         json.dump(data, f, indent=4)
 
 
-def update_request_file(solution, non_driver_travel, non_driver_travel_data):
+def update_request_file(solution, explicit_tasks, non_driver_travel_data):
     transport = []
     dynamic_locations = solution.get_kpis()
     non_driver_travel_list = non_driver_travel_data['non_driver_travel_list']
     for i in range(len(non_driver_travel_list)):
-        if non_driver_travel[i].is_present():
+        if explicit_tasks[non_driver_travel_list[i]['index']].is_present():
             transport.append([
                 non_driver_travel_list[i]['assignment_option']['requestName'],
                 non_driver_travel_list[i]['assignment_option']['taskName'],
@@ -140,7 +144,9 @@ def update_request_file(solution, non_driver_travel, non_driver_travel_data):
     # loop through transport df
     for row in transport_df.iterrows():
         for request in original_request_dict['templates']:
-            if request['name'] == row[1]['name']:
+            # check if any of the subtasks have explicit_transport_task to true
+            has_transport = any(d.get('explicit_transport_task') is True for d in request['subtasks'])
+            if request['name'] == row[1]['name'] and not has_transport:
                 resource_capability = row[1]["resource"].lower()+"_presence"
                 subtasks = []
                 subtasks.append({
@@ -160,7 +166,7 @@ def update_request_file(solution, non_driver_travel, non_driver_travel_data):
                     "duration": 0,
                 })
                 outernest_subtask = {
-                    "taskName": "pickup_and_dropoff",
+                    "taskName": "pickup_and_dropoff_" + row[1]['previous_subtask'],
                     "type": "serial",
                     "requiredCapabilities": ["transport", resource_capability],
                     "subtasks": subtasks
@@ -177,11 +183,11 @@ def postprocess_data(solution, request_data, explicit_task_intervals, non_driver
     Postprocess the solution data and save it to a CSV file.
     """
     # Pull the solution data
-    df, non_driver_travel = pull_solution_data(solution, request_data, explicit_task_intervals, non_driver_travel_data, transporter_travel_data)
+    df, explicit_tasks = pull_solution_data(solution, request_data, explicit_task_intervals, non_driver_travel_data, transporter_travel_data)
     
     # Save the DataFrame to a CSV file
     output_path = OUTPUT_PATH + "output.csv"
     df.to_csv(output_path, index=False)
     
     # Update the request file
-    update_request_file(solution, non_driver_travel, non_driver_travel_data)
+    update_request_file(solution, explicit_tasks, non_driver_travel_data)
