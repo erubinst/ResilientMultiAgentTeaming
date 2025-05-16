@@ -273,16 +273,16 @@
                             "taskName": "pickup_lunch",
                             "requiredCapabilities": [],
                             "requiredCapabilityIds": [],
-                            "start-location": 0,
-                            "end-location": 0,
+                            "start-location": "Location0",
+                            "end-location": "Location0",
                             "duration": 0
                         },
                         {
                             "taskName": "dropoff_lunch",
                             "requiredCapabilities": [],
                             "requiredCapabilityIds": [],
-                            "start-location": 0,
-                            "end-location": 0,
+                            "start-location": "Location0",
+                            "end-location": "Location0",
                             "duration": 0
                         }
                     ]
@@ -322,16 +322,16 @@
                             "taskName": "pickup_dinner",
                             "requiredCapabilities": [],
                             "requiredCapabilityIds": [],
-                            "start-location": 0,
-                            "end-location": 0,
+                            "start-location": "Location0",
+                            "end-location": "Location0",
                             "duration": 0
                         },
                         {
                             "taskName": "dropoff_dinner",
                             "requiredCapabilities": [],
                             "requiredCapabilityIds": [],
-                            "start-location": 0,
-                            "end-location": 0,
+                            "start-location": "Location0",
+                            "end-location": "Location0",
                             "duration": 0
                         }
                     ]
@@ -373,16 +373,16 @@
                             "taskName": "pickup_grocery_delivery",
                             "requiredCapabilities": [],
                             "requiredCapabilityIds": [],
-                            "start-location": 0,
-                            "end-location": 0,
+                            "start-location": "Location0",
+                            "end-location": "Location0",
                             "duration": 0
                         },
                         {
                             "taskName": "dropoff_grocery_delivery",
                             "requiredCapabilities": [],
                             "requiredCapabilityIds": [],
-                            "start-location": 0,
-                            "end-location": 0,
+                            "start-location": "Location0",
+                            "end-location": "Location0",
                             "duration": 0
                         }
                     ]
@@ -424,16 +424,16 @@
                             "taskName": "pickup_discuss_schedule",
                             "requiredCapabilities": [],
                             "requiredCapabilityIds": [],
-                            "start-location": 0,
-                            "end-location": 0,
+                            "start-location": "Location0",
+                            "end-location": "Location0",
                             "duration": 0
                         },
                         {
                             "taskName": "dropoff_discuss_schedule",
                             "requiredCapabilities": [],
                             "requiredCapabilityIds": [],
-                            "start-location": 0,
-                            "end-location": 0,
+                            "start-location": "Location0",
+                            "end-location": "Location0",
                             "duration": 0
                         }
                     ]
@@ -473,16 +473,16 @@
                             "taskName": "pickup_oa_start_block",
                             "requiredCapabilities": [],
                             "requiredCapabilityIds": [],
-                            "start-location": 0,
-                            "end-location": 0,
+                            "start-location": "Location0",
+                            "end-location": "Location0",
                             "duration": 0
                         },
                         {
                             "taskName": "dropoff_oa_start_block",
                             "requiredCapabilities": [],
                             "requiredCapabilityIds": [],
-                            "start-location": 0,
-                            "end-location": 0,
+                            "start-location": "Location0",
+                            "end-location": "Location0",
                             "duration": 0
                         }
                     ]
@@ -522,16 +522,16 @@
                             "taskName": "pickup_oa_end_block",
                             "requiredCapabilities": [],
                             "requiredCapabilityIds": [],
-                            "start-location": 0,
-                            "end-location": 0,
+                            "start-location": "Location0",
+                            "end-location": "Location0",
                             "duration": 0
                         },
                         {
                             "taskName": "dropoff_oa_end_block",
                             "requiredCapabilities": [],
                             "requiredCapabilityIds": [],
-                            "start-location": 4,
-                            "end-location": 4,
+                            "start-location": "Location4",
+                            "end-location": "Location4",
                             "duration": 0
                         }
                     ]
@@ -709,16 +709,16 @@
                             "taskName": "pickup_friendb_husband_start_block",
                             "requiredCapabilities": [],
                             "requiredCapabilityIds": [],
-                            "start-location": 3,
-                            "end-location": 3,
+                            "start-location": "Location3",
+                            "end-location": "Location3",
                             "duration": 0
                         },
                         {
                             "taskName": "dropoff_friendb_husband_start_block",
                             "requiredCapabilities": [],
                             "requiredCapabilityIds": [],
-                            "start-location": 3,
-                            "end-location": 3,
+                            "start-location": "Location3",
+                            "end-location": "Location3",
                             "duration": 0
                         }
                     ]
@@ -758,16 +758,16 @@
                             "taskName": "pickup_friendb_husband_end_block",
                             "requiredCapabilities": [],
                             "requiredCapabilityIds": [],
-                            "start-location": 3,
-                            "end-location": 3,
+                            "start-location": "Location3",
+                            "end-location": "Location3",
                             "duration": 0
                         },
                         {
                             "taskName": "dropoff_friendb_husband_end_block",
                             "requiredCapabilities": [],
                             "requiredCapabilityIds": [],
-                            "start-location": 4,
-                            "end-location": 4,
+                            "start-location": "Location4",
+                            "end-location": "Location4",
                             "duration": 0
                         }
                     ]
@@ -809,16 +809,16 @@
                             "taskName": "pickup_grocery_shopping",
                             "requiredCapabilities": [],
                             "requiredCapabilityIds": [],
-                            "start-location": 3,
-                            "end-location": 3,
+                            "start-location": "Location3",
+                            "end-location": "Location3",
                             "duration": 0
                         },
                         {
                             "taskName": "dropoff_grocery_shopping",
                             "requiredCapabilities": [],
                             "requiredCapabilityIds": [],
-                            "start-location": 0,
-                            "end-location": 0,
+                            "start-location": "Location0",
+                            "end-location": "Location0",
                             "duration": 0
                         }
                     ]

@@ -126,7 +126,7 @@ def save_json_file(filename, data_path, data):
         json.dump(data, f, indent=4)
 
 
-def update_request_file(solution, explicit_tasks, non_driver_travel_data):
+def update_request_file(solution, locations, explicit_tasks, non_driver_travel_data):
     transport = []
     dynamic_locations = solution.get_kpis()
     non_driver_travel_list = non_driver_travel_data['non_driver_travel_list']
@@ -153,16 +153,16 @@ def update_request_file(solution, explicit_tasks, non_driver_travel_data):
                     "taskName": "pickup_" + row[1]['previous_subtask'],
                     "requiredCapabilities": [],
                     "requiredCapabilityIds": [],
-                    "start-location": row[1]['start-location'],
-                    "end-location": row[1]['start-location'],
+                    "start-location": locations[row[1]['start-location']],
+                    "end-location": locations[row[1]['start-location']],
                     "duration": 0
                 })
                 subtasks.append({
                     "taskName": "dropoff_" + row[1]['previous_subtask'],
                     "requiredCapabilities": [],
                     "requiredCapabilityIds": [],
-                    "start-location": row[1]['end-location'],
-                    "end-location": row[1]['end-location'],
+                    "start-location": locations[row[1]['end-location']],
+                    "end-location": locations[row[1]['end-location']],
                     "duration": 0,
                 })
                 outernest_subtask = {
@@ -178,7 +178,7 @@ def update_request_file(solution, explicit_tasks, non_driver_travel_data):
     return transport_df
 
 
-def postprocess_data(solution, request_data, explicit_task_intervals, non_driver_travel_data, transporter_travel_data):
+def postprocess_data(solution, request_data, travel_data, explicit_task_intervals, non_driver_travel_data, transporter_travel_data):
     """
     Postprocess the solution data and save it to a CSV file.
     """
@@ -190,4 +190,4 @@ def postprocess_data(solution, request_data, explicit_task_intervals, non_driver
     df.to_csv(output_path, index=False)
     
     # Update the request file
-    update_request_file(solution, explicit_tasks, non_driver_travel_data)
+    update_request_file(solution, travel_data['locations'], explicit_tasks, non_driver_travel_data)

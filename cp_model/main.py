@@ -15,7 +15,7 @@ def main():
     model = add_model_constraints(model, request_data, travel_data, completed_schedule, explicit_task_intervals, transporter_travel_data, non_driver_travel_data)
     # Solve the model
     solution = solve_model(model, explicit_task_intervals, request_data)
-    postprocess_data(solution, request_data, explicit_task_intervals, non_driver_travel_data, transporter_travel_data)
+    postprocess_data(solution, request_data, travel_data, explicit_task_intervals, non_driver_travel_data, transporter_travel_data)
 
 
 main()
