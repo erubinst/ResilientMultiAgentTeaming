@@ -6,9 +6,9 @@ def build_explicit_task_intervals(request_data):
     """Build intervals for explicit request file tasks."""
     request_times = [interval_var(end=[0,H], optional=True) for t in request_data['templates']]
     task_times = [interval_var(end=[0,H], optional=True) for t in request_data['tasks']]
-    requirement_times = [interval_var(end=[0,H], optional=True) for r in request_data['requirements']]
+    requirement_times = [interval_var(end=[0,H], optional=r['optional']) for r in request_data['requirements']]
     assignment_times = [interval_var(end=[0,H], optional=True) for a in request_data['assignment_options']]
-    unavailable_times = [interval_var(start=[u["startTime"],H], end=[0,u["endTime"]], size=u['duration']) for u in request_data['unavailabilities']]
+    unavailable_times = [interval_var(start=[u["startTime"],H], end=[0,u["endTime"]], size=u['duration'], optional=True) for u in request_data['unavailabilities']]
 
     return {
         'request_times': request_times,

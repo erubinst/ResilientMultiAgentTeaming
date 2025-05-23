@@ -15,11 +15,11 @@ df = df.dropna(subset=['Start', 'End'])
 
 
 # Define an epoch date (example: 2020-01-01)
-epoch_date = pd.to_datetime('2025-03-13')
+epoch_date = pd.to_datetime('2025-05-19')
 
 # # Convert integer days to datetime objects
-df['Start_dt'] = epoch_date + pd.to_timedelta(df['Start'], unit='h')
-df['End_dt'] = epoch_date + pd.to_timedelta(df['End'], unit='h')
+df['Start_dt'] = epoch_date + pd.to_timedelta(df['Start'], unit='m')
+df['End_dt'] = epoch_date + pd.to_timedelta(df['End'], unit='m')
 
 # if df['Task'] contains the word 'break' no caps, set new column type to 1
 # if df['Task'] == 'travel' set new column type to 2
@@ -84,13 +84,5 @@ for trace in fig.data:
 #     bgcolor="black",
 #     opacity=0.8
 # )
-
-fig.update_layout(
-    title="Schedule",
-    xaxis_title="Time",
-    xaxis=dict(
-        tickformat="%M:%S"  # Show only minutes, hiding the date
-    )
-)
 
 fig.show()

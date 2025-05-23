@@ -1,7 +1,7 @@
 import json
 import pandas as pd
 import numpy as np
-from config import DATA_PATH, REQUEST_FILE, TRAVEL_MATRIX_FILE
+from config import EPOCH_DATE
 
 
 def load_json_file(filename, data_path):
@@ -77,7 +77,6 @@ def retrieve_requirements(data):
         for subtask in template.get("subtasks", []):
             capabilities = subtask.get("requiredCapabilities", [])
             capability_ids = subtask.get("requiredCapabilityIds", [])
-            
             for cap, cap_id in zip(capabilities, capability_ids):
                 requirements.append({
                     "requestId": template["id"],
@@ -93,7 +92,15 @@ def retrieve_requirements(data):
                 })
 
     requirements = pd.DataFrame(requirements)
-    orders = pd.DataFrame(data["orders"], columns=['name', 'earlieststartdate', 'duedate'])
+    orders = pd.DataFrame(data["orders"], columns=['name', 'earlieststartdate', 'duedate', 'optional'])
+    # Convert date columns and EPOCH_DATE to datetime
+    orders['earlieststartdate'] = pd.to_datetime(orders['earlieststartdate'])
+    orders['duedate'] = pd.to_datetime(orders['duedate'])
+    epoch = pd.to_datetime(EPOCH_DATE)
+
+    # Compute the difference in minutes
+    orders['earlieststartdate'] = (orders['earlieststartdate'] - epoch).dt.total_seconds() // 60
+    orders['duedate'] = (orders['duedate'] - epoch).dt.total_seconds() // 60
     requirements = pd.merge(
         requirements,
         orders,

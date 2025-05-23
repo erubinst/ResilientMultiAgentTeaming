@@ -6,7 +6,7 @@ def add_explicit_task_constraints(model, explicit_task_intervals, request_data):
     """
     requirement_times = explicit_task_intervals['requirement_times']
     model.add(
-        [size_of(requirement_times[j]) == request_data['requirements'][j]['duration'] 
+        [size_of(requirement_times[j]) == request_data['requirements'][j]['duration'] * presence_of(requirement_times[j]) 
                                             for i in range(len(request_data['templates']))
                                             for j in range(len(request_data['requirements'])) if request_data['templates'][i]['id'] == request_data['requirements'][j]['requestId']] +
         [alternative(requirement_times[j], [explicit_task_intervals['assignment_times'][k] 

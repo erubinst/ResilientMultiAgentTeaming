@@ -1,0 +1,65 @@
+{
+    "PersonAHouse": {
+        "PersonAHouse": 0,
+        "DentistOffice": 5,
+        "SeniorCenter": 15,
+        "GroceryStore1": 5,
+        "DoctorOffice": 20,
+        "GroceryStore2": 30,
+        "PersonBHouse": 15
+    },
+    "DentistOffice": {
+        "PersonAHouse": 5,
+        "DentistOffice": 0,
+        "SeniorCenter": 20,
+        "GroceryStore1": 10,
+        "DoctorOffice": 25,
+        "GroceryStore2": 40,
+        "PersonBHouse": 20
+    },
+    "SeniorCenter": {
+        "PersonAHouse": 15,
+        "DentistOffice": 20,
+        "SeniorCenter": 0,
+        "GroceryStore1": 10,
+        "DoctorOffice": 30,
+        "GroceryStore2": 20,
+        "PersonBHouse": 20
+    },
+    "GroceryStore1": {
+        "PersonAHouse": 5,
+        "DentistOffice": 10,
+        "SeniorCenter": 10,
+        "GroceryStore1": 0,
+        "DoctorOffice": 20,
+        "GroceryStore2": 30,
+        "PersonBHouse": 30
+    },
+    "DoctorOffice": {
+        "PersonAHouse": 20,
+        "DentistOffice": 25,
+        "SeniorCenter": 30,
+        "GroceryStore1": 20,
+        "DoctorOffice": 0,
+        "GroceryStore2": 15,
+        "PersonBHouse": 25
+    },
+    "GroceryStore2": {
+        "PersonAHouse": 30,
+        "DentistOffice": 40,
+        "SeniorCenter": 20,
+        "GroceryStore1": 30,
+        "DoctorOffice": 15,
+        "GroceryStore2": 0,
+        "PersonBHouse": 20
+    },
+    "PersonBHouse": {
+        "PersonAHouse": 15,
+        "DentistOffice": 20,
+        "SeniorCenter": 20,
+        "GroceryStore1": 30,
+        "DoctorOffice": 25,
+        "GroceryStore2": 20,
+        "PersonBHouse": 0
+    }
+}
