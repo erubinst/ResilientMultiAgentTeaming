@@ -23,13 +23,13 @@ def format_explicit_tasks(output_data, request_data, explicit_tasks):
     for i in range(len(assignment_options)):
         if explicit_tasks[i].is_present():
             output_data.append([
-                assignment_options[i]['resourceName'],
-                assignment_options[i]['taskName'],
+                assignment_options.iloc[i]['resourceName'],
+                assignment_options.iloc[i]['taskName'],
                 explicit_tasks[i].start,
                 explicit_tasks[i].end,
-                assignment_options[i]['requestName'],
-                assignment_options[i]['capability'],
-                assignment_options[i]['explicit_transport_task']
+                assignment_options.iloc[i]['requestName'],
+                assignment_options.iloc[i]['capability'],
+                assignment_options.iloc[i]['explicit_transport_task']
             ])
     return output_data
 
@@ -56,7 +56,7 @@ def format_transport_tasks(output_data, request_data, transporter_travel_data, t
     driver_combinations = transporter_travel_data['driver_combinations']
     for i in range(len(driver_combinations)):
         output_data.append([
-            request_data['workers'][driver_combinations[i]['driver']-1]['name'],
+            request_data['workers'].iloc[driver_combinations[i]['driver']-1]['name'],
             "transportation from" + driver_combinations[i]['previous_task']['taskName'],
             transport_tasks[i].start,
             transport_tasks[i].end,
@@ -74,7 +74,7 @@ def format_transporter_travel(output_data, request_data, transporter_travel_data
     for i in range(len(transporter_travel_data['all_driver_tasks'])):
         if transporter_travel[i].is_present():
             output_data.append([
-                request_data['workers'][transporter_travel_data['driver_task_workers'][i]-1]['name'],
+                request_data['workers'].iloc[transporter_travel_data['driver_task_workers'][i]-1]['name'],
                 "travel from " + transporter_travel_data['driver_task_names'][i],
                 transporter_travel[i].start,
                 transporter_travel[i].end,
@@ -190,4 +190,4 @@ def postprocess_data(solution, request_data, travel_data, explicit_task_interval
     df.to_csv(output_path, index=False)
     
     # Update the request file
-    update_request_file(solution, travel_data['locations'], explicit_tasks, non_driver_travel_data)
+    # update_request_file(solution, travel_data['locations'], explicit_tasks, non_driver_travel_data)

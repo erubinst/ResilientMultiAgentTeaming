@@ -37,16 +37,42 @@ def load_all_data(request_file, travel_matrix_file, data_path):
 
 def retrieve_derived_data(data, travel_matrix):
     """Retrieve derived data from the request data."""
-    tasks = retrieve_subtasks(data)
+    orders_df = retrieve_orders(data)
+    tasks_df = retrieve_subtasks(orders_df)
     unavailabilities = retrieve_unavailability_periods(data)
-    requirements_df = retrieve_requirements(data)
-    worker_skills_df = retrieve_worker_skills(data)
-    assignment_options = retrieve_assignment_options(requirements_df, worker_skills_df)
+    worker_skills_df, capabilities_df, resourceTypes_df = retrieve_worker_skills(data)
+    requirements_df = retrieve_requirements(tasks_df, capabilities_df, data['locations'])
+    assignment_options_df = retrieve_assignment_options(requirements_df, worker_skills_df)
     travel_matrix, traveler_worker_ids, transport_worker_ids = retrieve_travel_information(
         worker_skills_df, travel_matrix
     )
-    requirements = requirements_df.to_dict(orient="records")
-    return tasks, unavailabilities, requirements, assignment_options, travel_matrix, traveler_worker_ids, transport_worker_ids
+    return {
+        "tasks": tasks_df,
+        "unavailabilities": unavailabilities,
+        "requirements": requirements_df,
+        "assignment_options": assignment_options_df,
+        "travel_matrix": travel_matrix,
+        "traveler_worker_ids": traveler_worker_ids,
+        "transport_worker_ids": transport_worker_ids,
+        "orders": orders_df,
+        "workers": resourceTypes_df
+    }
+
+
+def retrieve_orders(data):
+    orders_df = pd.DataFrame(data['orders'])
+    orders_df['tasks'] = orders_df['tasks'].apply(lambda x: str(x[0]))
+    templates_df = pd.DataFrame(data['templates'])
+    templates_df.rename(columns={"name": "tasks"}, inplace = True)
+    orders_df = orders_df.merge(templates_df, how='inner', on= 'tasks')
+    orders_df['orderID'] = range(1, len(orders_df) + 1)
+    orders_df['earlieststartdate'] = pd.to_datetime(orders_df['earlieststartdate'])
+    orders_df['duedate'] = pd.to_datetime(orders_df['duedate'])
+    epoch = pd.to_datetime(EPOCH_DATE)
+    orders_df['earlieststartdate'] = (orders_df['earlieststartdate'] - epoch).dt.total_seconds() // 60
+    orders_df['duedate'] = (orders_df['duedate'] - epoch).dt.total_seconds() // 60
+
+    return orders_df
 
 
 def retrieve_unavailability_periods(data):
@@ -63,79 +89,66 @@ def retrieve_unavailability_periods(data):
     return unavailabilities
 
 
-def retrieve_subtasks(data):
-    tasks = []
-    for template in data["templates"]:
-        tasks.extend(template.get("subtasks", []))
-    return tasks
-
-
-def retrieve_requirements(data):
-    """Retrieve requirements from the request data."""
-    requirements = []
-    for template in data["templates"]:
-        for subtask in template.get("subtasks", []):
-            capabilities = subtask.get("requiredCapabilities", [])
-            capability_ids = subtask.get("requiredCapabilityIds", [])
-            for cap, cap_id in zip(capabilities, capability_ids):
-                requirements.append({
-                    "requestId": template["id"],
-                    "requestName": template["name"],
-                    "taskId": subtask["id"],
-                    "taskName": subtask["taskName"],
-                    "capability": cap,
-                    "capabilityId": cap_id,
-                    "end-location": data['locations'].index(subtask["end-location"]),
-                    "start-location": data['locations'].index(subtask["start-location"]),
-                    "duration": subtask["duration"],
-                    "explicit_transport_task": subtask.get("explicit_transport_task", False)
-                })
-
-    requirements = pd.DataFrame(requirements)
-    orders = pd.DataFrame(data["orders"], columns=['name', 'earlieststartdate', 'duedate', 'optional'])
-    # Convert date columns and EPOCH_DATE to datetime
-    orders['earlieststartdate'] = pd.to_datetime(orders['earlieststartdate'])
-    orders['duedate'] = pd.to_datetime(orders['duedate'])
-    epoch = pd.to_datetime(EPOCH_DATE)
-
-    # Compute the difference in minutes
-    orders['earlieststartdate'] = (orders['earlieststartdate'] - epoch).dt.total_seconds() // 60
-    orders['duedate'] = (orders['duedate'] - epoch).dt.total_seconds() // 60
-    requirements = pd.merge(
-        requirements,
-        orders,
-        left_on=["requestName"],
-        right_on=["name"],
-        how="inner"
+def retrieve_subtasks(orders_df):
+    orders_exploded = orders_df.explode('subtasks')
+    subtasks_df = pd.json_normalize(orders_exploded['subtasks'])
+    subtasks_df['start-location-order'] = orders_exploded['start-location'].values
+    subtasks_df['end-location-order'] = orders_exploded['end-location'].values
+    subtasks_df['optional'] = orders_exploded['optional'].values
+    subtasks_df['start-location'] = subtasks_df.apply(
+        lambda row: row['start-location-order'] if row['start-location'] == '@start-location' else row['start-location'],
+        axis=1
     )
-    return requirements
+    subtasks_df['end-location'] = subtasks_df.apply(
+        lambda row: row['end-location-order'] if row['end-location'] == '@end-location' else row['end-location'],
+        axis=1
+    )
+    subtasks_df.drop(columns=['start-location-order', 'end-location-order'], inplace=True)
+    subtasks_df['taskID'] = range(1, len(subtasks_df) + 1)
+    orders_cols = ['orderID', 'name', 'earlieststartdate', 'duedate']
+    for col in orders_cols:
+        subtasks_df[col] = orders_exploded[col].values
+    
+    subtasks_df.rename(columns={'name': 'requestName'}, inplace=True)
+
+    return subtasks_df
+
+
+def retrieve_requirements(subtasks_df, capabilities_df, locations):
+    """Retrieve requirements from the request data."""
+    requirements_df = subtasks_df.explode('requiredCapabilities')
+    requirements_df.rename(columns={"requiredCapabilities": "capability"}, inplace = True)
+    requirements_df = requirements_df.merge(capabilities_df, how='inner', on= 'capability')
+    requirements_df['end-location'] = requirements_df['end-location'].apply(lambda x: locations.index(x))
+    requirements_df['start-location'] = requirements_df['start-location'].apply(lambda x: locations.index(x))
+
+    return requirements_df
 
 
 def retrieve_worker_skills(data):
     """Retrieve worker skills from the request data."""
-    worker_skills = []
-    for resource in data['resourceTypes']:
-        for cap, cap_id in zip(resource["capabilities"], resource["capability_ids"]):
-            worker_skills.append({
-                "resourceName": resource["name"],
-                "resourceId": resource["id"],
-                "capability": cap,
-                "capabilityId": cap_id,
-            })
-    worker_skills = pd.DataFrame(worker_skills)
-    return worker_skills
+    resourceTypes_df = pd.DataFrame(data['resourceTypes'])
+    resourceTypes_df['resourceId'] = range(1, len(resourceTypes_df) + 1)
+    exploded = resourceTypes_df.explode('capabilities')
+    unique_capabilities = exploded['capabilities'].dropna().unique()
+    capabilities_df = pd.DataFrame({
+        'capability': sorted(unique_capabilities),
+        'capability_id': range(1, len(unique_capabilities) + 1)
+    })
+
+    worker_skills_df = exploded.rename(columns={'capabilities': 'capability', 'name': 'resourceName'})
+    worker_skills_df = worker_skills_df.merge(capabilities_df, on='capability', how='inner')
+    return worker_skills_df, capabilities_df, resourceTypes_df
 
 
 def retrieve_assignment_options(requirements_df, worker_skills_df):
     """Retrieve assignment options based on requirements and worker skills."""
-    assignment_options = requirements_df.merge(
+    assignment_options_df = requirements_df.merge(
         worker_skills_df,
-        left_on=["capabilityId", "capability"],
-        right_on=["capabilityId", "capability"],
+        on=["capability_id", "capability"],
         how="inner" 
     )
-    assignment_options = assignment_options.to_dict(orient="records")
-    return assignment_options
+    return assignment_options_df
 
 
 def retrieve_travel_information(worker_skills_df, travel_matrix):
@@ -154,24 +167,24 @@ def retrieve_travel_information(worker_skills_df, travel_matrix):
 def preprocess_data(request_file, travel_matrix_file, data_path):
     """Preprocess the data and return the required variables."""
     data, travel_matrix = load_all_data(request_file, travel_matrix_file, data_path)
-    tasks, unavailabilities, requirements, assignment_options, travel_matrix, traveler_worker_ids, transport_worker_ids = retrieve_derived_data(data, travel_matrix)
+    derived_data = retrieve_derived_data(data, travel_matrix)
 
     request_data = {
-        "tasks": tasks,
-        "workers": data["resourceTypes"],
-        "templates": data["templates"],
+        "tasks": derived_data["tasks"],
+        "workers": derived_data["workers"],
+        "orders": derived_data["orders"],
         "order-constraints": data["order-constraints"],
-        "requirements": requirements,
-        "unavailabilities": unavailabilities,
-        "assignment_options": assignment_options
+        "requirements": derived_data["requirements"],
+        "unavailabilities": derived_data["unavailabilities"],
+        "assignment_options": derived_data["assignment_options"]
     }
 
     travel_data = {
-        "travel_matrix": travel_matrix,
-        "driving_times_flat": np.array(travel_matrix).flatten(),
+        "travel_matrix": derived_data['travel_matrix'],
+        "driving_times_flat": np.array(derived_data['travel_matrix']).flatten(),
         "locations": data["locations"],
-        "traveler_worker_ids": traveler_worker_ids,
-        "transport_worker_ids": transport_worker_ids
+        "traveler_worker_ids": derived_data["traveler_worker_ids"],
+        "transport_worker_ids": derived_data["transport_worker_ids"]
     }
     
     return request_data, travel_data
