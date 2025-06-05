@@ -1,0 +1,16 @@
+{
+    "resources": [
+        {
+            "name": "Resource1",
+            "subtasks": [
+                {
+                    "name": "task1",
+                    "order": "order1",
+                    "start_time": 10,
+                    "end_time": 90,
+                    "capability": "handywork"
+                }
+            ]
+        }
+    ]
+}

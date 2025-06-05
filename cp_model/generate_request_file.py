@@ -1,5 +1,5 @@
 import pandas as pd
-from config import DATA_PATH, CSV_RESOURCES_FILE, CSV_TEMPLATE_FILE, CSV_TRAVEL_MATRIX_FILE
+from config import DATA_PATH, SCENARIO
 import json
 
 
@@ -180,8 +180,8 @@ def extract_travel_matrix(travel_csv):
 
 
 def main():
-    resources_df = pd.read_csv(DATA_PATH + CSV_RESOURCES_FILE)
-    templates_df = pd.read_csv(DATA_PATH + CSV_TEMPLATE_FILE)
+    resources_df = pd.read_csv(DATA_PATH + SCENARIO + "request_csv/resources.csv")
+    templates_df = pd.read_csv(DATA_PATH + SCENARIO + "request_csv/templates.csv")
     capabilities_df = generate_capability_df(resources_df)
     # resources_df = add_capability_ids_to_resources(resouces_df, capabilities_df)
     # templates_df = expand_templates(templates_df)
@@ -196,9 +196,9 @@ def main():
         json.dump(full_json, f, indent=4)
     print("Request file generated successfully at:", DATA_PATH + "request.json")
 
-    travel_matrix = extract_travel_matrix(DATA_PATH + CSV_TRAVEL_MATRIX_FILE)
+    travel_matrix = extract_travel_matrix(DATA_PATH + SCENARIO + "request_csv/travel_matrix.csv")
     with open(DATA_PATH + "travel_matrix.json", "w") as f:
         json.dump(travel_matrix, f, indent=4)
-    print("Travel matrix file generated successfully at:", DATA_PATH + "travel_matrix.json")
+    print("Travel matrix file generated successfully at:", DATA_PATH + SCENARIO + "request_json/travel_matrix.json")
 
 main()

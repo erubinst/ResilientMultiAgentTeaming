@@ -1,0 +1,128 @@
+Worker,Task,Start,End,Request,Skill,ExplicitTransport
+PersonA,a_lunch,720,780,ALunch_M,personA_presence,False
+PersonA,a_lunch,2160,2220,ALunch_T,personA_presence,False
+PersonA,a_lunch,3600,3660,ALunch_W,personA_presence,False
+PersonA,a_lunch,5040,5100,ALunch_Th,personA_presence,False
+PersonA,buy_cake_ingredients,485,505,BuyCakeIngredients,personA_presence,False
+PersonA,casino_event,6690,6780,CasinoEvent,personA_presence,False
+PersonA,load_car,8100,8115,CommunityDinner,personA_presence,False
+PersonA,drive_to_dinner,8115,8130,CommunityDinner,personA_presence,True
+PersonA,community_dinner,8130,8220,CommunityDinner,personA_presence,False
+PersonA,drive_from_dinner,8220,8235,CommunityDinner,personA_presence,True
+PersonA,dental_appointment,2370,2371,DentalAppointment,personA_presence,False
+PersonA,exercise_class,600,660,ExerciseClass_M,personA_presence,False
+PersonA,exercise_class,3480,3540,ExerciseClass_W,personA_presence,False
+PersonA,exercise_class,4920,4980,ExerciseClass_Th,personA_presence,False
+PersonA,line_dancing,3660,3780,LineDancing_W,personA_presence,False
+PersonA,line_dancing,6540,6660,LineDancing_F,personA_presence,False
+PersonA,personA_end_block,9840,9841,PersonAEndBlock,personA_presence,False
+PersonA,personA_night_block,1200,1920,PersonANightBlock_M,personA_presence,False
+PersonA,personA_night_block,2640,3360,PersonANightBlock_T,personA_presence,False
+PersonA,personA_night_block,4080,4800,PersonANightBlock_W,personA_presence,False
+PersonA,personA_night_block,5520,6240,PersonANightBlock_Th,personA_presence,False
+PersonA,personA_night_block,6960,7680,PersonANightBlock_F,personA_presence,False
+PersonA,personA_night_block,8400,9120,PersonANightBlock_Sa,personA_presence,False
+PersonA,personA_start_block,479,480,PersonAStartBlock,personA_presence,False
+PersonA,prepare_food,510,570,PrepareFood,personA_presence,False
+PersonA,prescription_pickup,865,880,PrescriptionPickup,personA_presence,False
+PersonB,b_lunch,720,780,BLunch_M,personB_presence,False
+PersonB,b_lunch,2160,2220,BLunch_T,personB_presence,False
+PersonB,b_lunch,3600,3660,BLunch_W,personB_presence,False
+PersonB,b_lunch,5040,5100,BLunch_Th,personB_presence,False
+PersonB,b_lunch,6480,6540,BLunch_F,personB_presence,False
+PersonB,call_daughter,855,1035,CallDaughter,personB_presence,False
+PersonB,casino_event,6690,6780,CasinoEvent,personB_presence,False
+PersonB,drive_to_dinner,8115,8130,CommunityDinner,personB_presence,True
+PersonB,community_dinner,8130,8220,CommunityDinner,personB_presence,False
+PersonB,drive_from_dinner,8220,8235,CommunityDinner,personB_presence,True
+PersonB,grocery_shopping,490,520,GroceryShopping,personB_presence,False
+PersonB,pcpa_checkup,1980,2040,PCPACheckup,personB_presence,False
+PersonB,pcpa_prescription_pickup,3370,3385,PCPAPrescriptionPickup,personB_presence,False
+PersonB,personB_end_block,9840,9841,PersonBEndBlock,personB_presence,False
+PersonB,personB_night_block,1200,1920,PersonBNightBlock_M,personB_presence,False
+PersonB,personB_night_block,2640,3360,PersonBNightBlock_T,personB_presence,False
+PersonB,personB_night_block,4080,4800,PersonBNightBlock_W,personB_presence,False
+PersonB,personB_night_block,5520,6240,PersonBNightBlock_Th,personB_presence,False
+PersonB,personB_night_block,6960,7680,PersonBNightBlock_F,personB_presence,False
+PersonB,personB_night_block,8400,9120,PersonBNightBlock_Sa,personB_presence,False
+PersonB,personB_start_block,479,480,PersonBStartBlock,personB_presence,False
+PersonB,son_lunch,2250,2310,SonLunch,personB_presence,False
+PersonB,drive_to_walmart,530,550,Walmart,personB_presence,True
+PersonB,walmart_shopping,550,595,Walmart,personB_presence,False
+PersonB,drive_from_walmart,595,615,Walmart,personB_presence,True
+PersonB,load_car,8100,8115,CommunityDinner,handywork,False
+PersonABrother,housework_help,500,560,HouseworkHelp,handywork,False
+PersonB,mow_lawn,800,845,MowLawn,handywork,False
+PersonABrother,personA_brother_end_block,9840,9841,PersonABrotherEndBlock,personA_brother_presence,False
+PersonABrother,personA_brother_night_block,1200,1920,PersonABrotherNightBlock_M,personA_brother_presence,False
+PersonABrother,personA_brother_night_block,2640,3360,PersonABrotherNightBlock_T,personA_brother_presence,False
+PersonABrother,personA_brother_night_block,4080,4800,PersonABrotherNightBlock_W,personA_brother_presence,False
+PersonABrother,personA_brother_night_block,5520,6240,PersonABrotherNightBlock_Th,personA_brother_presence,False
+PersonABrother,personA_brother_night_block,6960,7680,PersonABrotherNightBlock_F,personA_brother_presence,False
+PersonABrother,personA_brother_night_block,8400,9120,PersonABrotherNightBlock_Sa,personA_brother_presence,False
+PersonABrother,personA_brother_start_block,479,480,PersonABrotherStartBlock,personA_brother_presence,False
+PersonBBrother,personB_brother_end_block,9840,9841,PersonBBrotherEndBlock,personB_brother_presence,False
+PersonBBrother,personB_brother_night_block,1200,1920,PersonBBrotherNightBlock_M,personB_brother_presence,False
+PersonBBrother,personB_brother_night_block,2640,3360,PersonBBrotherNightBlock_T,personB_brother_presence,False
+PersonBBrother,personB_brother_night_block,4080,4800,PersonBBrotherNightBlock_W,personB_brother_presence,False
+PersonBBrother,personB_brother_night_block,5520,6240,PersonBBrotherNightBlock_Th,personB_brother_presence,False
+PersonBBrother,personB_brother_night_block,6960,7680,PersonBBrotherNightBlock_F,personB_brother_presence,False
+PersonBBrother,personB_brother_night_block,8400,9120,PersonBBrotherNightBlock_Sa,personB_brother_presence,False
+PersonBBrother,personB_brother_start_block,479,480,PersonBBrotherStartBlock,personB_brother_presence,False
+PersonBBrother,walmart_shopping,550,595,Walmart,personB_brother_presence,False
+PersonBSon,personB_son_end_block,9840,9841,PersonBSonEndBlock,personB_son_presence,False
+PersonBSon,personB_son_night_block,1200,1920,PersonBSonNightBlock_M,personB_son_presence,False
+PersonBSon,personB_son_night_block,2640,3360,PersonBSonNightBlock_T,personB_son_presence,False
+PersonBSon,personB_son_night_block,4080,4800,PersonBSonNightBlock_W,personB_son_presence,False
+PersonBSon,personB_son_night_block,5520,6240,PersonBSonNightBlock_Th,personB_son_presence,False
+PersonBSon,personB_son_night_block,6960,7680,PersonBSonNightBlock_F,personB_son_presence,False
+PersonBSon,personB_son_night_block,8400,9120,PersonBSonNightBlock_Sa,personB_son_presence,False
+PersonBSon,personB_son_start_block,479,480,PersonBSonStartBlock,personB_son_presence,False
+PersonBSon,son_lunch,2250,2310,SonLunch,personB_son_presence,False
+PersonA,sewing,800,860,Sewing,sewing,False
+PersonB,volunteer,660,720,Volunteer_M,volunteer,False
+PersonB,volunteer,2100,2160,Volunteer_T,volunteer,False
+PersonB,volunteer,3540,3600,Volunteer_W,volunteer,False
+PersonB,volunteer,4980,5040,Volunteer_Th,volunteer,False
+PersonB,volunteer,6420,6480,Volunteer_F,volunteer,False
+PersonBBrother,drive_to_walmart,530,550,Walmart,transport,True
+PersonBBrother,drive_from_walmart,595,615,Walmart,transport,True
+PersonA,travel from a_lunch,780,800,travel,travel,False
+PersonA,travel from a_lunch,2220,2245,travel,travel,False
+PersonA,travel from a_lunch,5100,5120,travel,travel,False
+PersonA,travel from buy_cake_ingredients,505,510,travel,travel,False
+PersonA,travel from casino_event,6780,6810,travel,travel,False
+PersonA,travel from dental_appointment,2371,2376,travel,travel,False
+PersonA,travel from line_dancing,3780,3800,travel,travel,False
+PersonA,travel from line_dancing,6660,6690,travel,travel,False
+PersonA,travel from personA_night_block,1920,1940,travel,travel,False
+PersonA,travel from personA_night_block,3360,3380,travel,travel,False
+PersonA,travel from personA_night_block,4800,4820,travel,travel,False
+PersonA,travel from personA_night_block,6240,6260,travel,travel,False
+PersonA,travel from personA_start_block,480,485,travel,travel,False
+PersonA,travel from prepare_food,570,590,travel,travel,False
+PersonA,travel from prescription_pickup,880,885,travel,travel,False
+PersonB,travel from b_lunch,780,800,travel,travel,False
+PersonB,travel from b_lunch,2220,2250,travel,travel,False
+PersonB,travel from b_lunch,3660,3685,travel,travel,False
+PersonB,travel from b_lunch,5100,5125,travel,travel,False
+PersonB,travel from b_lunch,6540,6570,travel,travel,False
+PersonB,travel from casino_event,6780,6820,travel,travel,False
+PersonB,travel from drive_from_dinner,8235,8245,travel,travel,False
+PersonB,travel from grocery_shopping,520,530,travel,travel,False
+PersonB,travel from pcpa_checkup,2040,2055,travel,travel,False
+PersonB,travel from pcpa_prescription_pickup,3385,3415,travel,travel,False
+PersonB,travel from personB_night_block,1920,1955,travel,travel,False
+PersonB,travel from personB_night_block,3360,3370,travel,travel,False
+PersonB,travel from personB_night_block,4800,4825,travel,travel,False
+PersonB,travel from personB_night_block,6240,6265,travel,travel,False
+PersonB,travel from personB_night_block,7680,7690,travel,travel,False
+PersonB,travel from personB_start_block,480,490,travel,travel,False
+PersonB,travel from son_lunch,2310,2350,travel,travel,False
+PersonB,travel from drive_from_walmart,615,640,travel,travel,False
+PersonABrother,travel from housework_help,560,580,travel,travel,False
+PersonB,travel from mow_lawn,845,855,travel,travel,False
+PersonABrother,travel from personA_brother_start_block,480,500,travel,travel,False
+PersonBBrother,travel from personB_brother_start_block,480,490,travel,travel,False
+PersonA,travel from sewing,860,865,travel,travel,False
+PersonBBrother,travel from drive_from_walmart,615,625,travel,travel,False
