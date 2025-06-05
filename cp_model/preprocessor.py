@@ -148,6 +148,39 @@ def retrieve_assignment_options(requirements_df, worker_skills_df):
         on=["capability_id", "capability"],
         how="inner" 
     )
+    assignment_options_df['is_preferred'] = False
+    # Filter out capabilities that contain "presence" (case-insensitive)
+    filtered_df = assignment_options_df[~assignment_options_df['capability'].str.contains('presence', case=False)]
+
+    # Group by taskName and capability, and get unique resourceNames
+    grouped = (
+        filtered_df.groupby(['taskName', 'capability'])['resourceName']
+        .apply(lambda x: sorted(set(x)))  # convert to set for uniqueness, then sort for consistency
+    )
+
+    for (task, capability), resources in grouped.items():
+        print(f"\nTask: {task}")
+        print(f"  Capability: {capability}")
+        print(f"    Available resources: {resources}")
+        
+        if len(resources) == 1:
+            preferred = resources[0]
+            print(f"    Only one resource available: '{preferred}' — automatically selected.")
+        else:
+            preferred = input("    Enter preferred resource from above: ").strip()
+            while preferred not in resources:
+                print("    Invalid choice. Please select from the list above.")
+                preferred = input("    Enter preferred resource from above: ").strip()
+
+        # Mark preferred in the original DataFrame
+        condition = (
+            (assignment_options_df['taskName'] == task) &
+            (assignment_options_df['capability'] == capability) &
+            (assignment_options_df['resourceName'] == preferred)
+        )
+        assignment_options_df.loc[condition, 'is_preferred'] = True
+
+
     return assignment_options_df
 
 
