@@ -192,13 +192,13 @@ def main():
     orders_dict = create_orders_json(templates_df)
     full_json = {**resources_dict, **templates_dict, **orders_dict}
 
-    with open(DATA_PATH + "request.json", "w") as f:
+    with open(DATA_PATH + "/request.json", "w") as f:
         json.dump(full_json, f, indent=4)
-    print("Request file generated successfully at:", DATA_PATH + "request.json")
+    print("Request file generated successfully at:", DATA_PATH + "/request.json")
 
-    travel_matrix = extract_travel_matrix(DATA_PATH + SCENARIO + "request_csv/travel_matrix.csv")
-    with open(DATA_PATH + "travel_matrix.json", "w") as f:
+    travel_matrix = extract_travel_matrix(DATA_PATH + SCENARIO + "/request_csv/travel_matrix.csv")
+    with open(DATA_PATH + "/travel_matrix.json", "w") as f:
         json.dump(travel_matrix, f, indent=4)
-    print("Travel matrix file generated successfully at:", DATA_PATH + SCENARIO + "request_json/travel_matrix.json")
+    print("Travel matrix file generated successfully at:", DATA_PATH + SCENARIO + "/request_json/travel_matrix.json")
 
 main()

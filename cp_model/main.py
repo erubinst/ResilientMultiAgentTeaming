@@ -7,8 +7,8 @@ from postprocessor import postprocess_data
 
 def main():
     # Load the request data and travel matrix
-    request_file = SCENARIO + "request_json/request.json"
-    travel_matrix_file = SCENARIO + "request_json/travel_matrix.json"
+    request_file = SCENARIO + "/request_json/request.json"
+    travel_matrix_file = SCENARIO + "/request_json/travel_matrix.json"
     request_data, travel_data = preprocess_data(request_file, travel_matrix_file, DATA_PATH)
 
     # Build the model

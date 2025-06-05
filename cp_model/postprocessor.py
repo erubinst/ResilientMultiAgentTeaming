@@ -134,5 +134,5 @@ def postprocess_data(solution, request_data, explicit_task_intervals, non_driver
     df = pull_solution_data(solution, request_data, explicit_task_intervals, non_driver_travel_data, transporter_travel_data)
     
     # Save the DataFrame to a CSV file
-    output_path = DATA_PATH + SCENARIO + "outputs/display_schedule.csv"
+    output_path = DATA_PATH + SCENARIO + "/outputs/display_schedule.csv"
     df.to_csv(output_path, index=False)
