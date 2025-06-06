@@ -1,0 +1,86 @@
+{
+    "preferences": [
+        {
+            "taskName": "drive_from_surgery",
+            "capability": "transport",
+            "ranking": [
+                "PersonASon",
+                "PersonABrother",
+                "PersonA",
+                "FriendP",
+                "PersonB",
+                "PersonBBrother"
+            ]
+        },
+        {
+            "taskName": "drive_from_walmart",
+            "capability": "transport",
+            "ranking": [
+                "PersonBBrother",
+                "PersonA",
+                "PersonB",
+                "FriendP",
+                "PersonABrother",
+                "PersonASon"
+            ]
+        },
+        {
+            "taskName": "drive_to_surgery",
+            "capability": "transport",
+            "ranking": [
+                "PersonASon",
+                "PersonABrother",
+                "PersonA",
+                "FriendP",
+                "PersonB",
+                "PersonBBrother"
+            ]
+        },
+        {
+            "taskName": "drive_to_walmart",
+            "capability": "transport",
+            "ranking": [
+                "PersonBBrother",
+                "PersonA",
+                "PersonB",
+                "FriendP",
+                "PersonABrother",
+                "PersonASon"
+            ]
+        },
+        {
+            "taskName": "housework_help",
+            "capability": "handywork",
+            "ranking": [
+                "PersonABrother",
+                "PersonB"
+            ]
+        },
+        {
+            "taskName": "mow_lawn",
+            "capability": "handywork",
+            "ranking": [
+                "PersonB",
+                "PersonABrother"
+            ]
+        },
+        {
+            "taskName": "post_surgery_check_in",
+            "capability": "watch",
+            "ranking": [
+                "PersonASon",
+                "FriendP",
+                "PersonB"
+            ]
+        },
+        {
+            "taskName": "post_surgery_watch",
+            "capability": "watch",
+            "ranking": [
+                "PersonASon",
+                "FriendP",
+                "PersonB"
+            ]
+        }
+    ]
+}

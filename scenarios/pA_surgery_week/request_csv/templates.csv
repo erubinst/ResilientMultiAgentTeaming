@@ -1,0 +1,38 @@
+templates,subtasks,requiredCapabilities,duration,start-location,end-location,explicit_transport_task,order_multiplier,order_start,order_end
+StressTest,stress_test,personA_presence,30,,,FALSE,,DoctorOffice,DoctorOffice
+Surgery,drive_to_surgery,"personA_presence, transport",30,PersonAHouse,DoctorOffice,TRUE,,PersonAHouse,PersonAHouse
+Surgery,surgery,personA_presence,150,DoctorOffice,DoctorOffice,FALSE,,PersonAHouse,PersonAHouse
+Surgery,drive_from_surgery,"personA_presence, transport",30,DoctorOffice,PersonAHouse,TRUE,,PersonAHouse,PersonAHouse
+Surgery,post_surgery_watch,"personA_presence, watch",120,PersonAHouse,PersonAHouse,FALSE,,PersonAHouse,PersonAHouse
+MealPrep,meal_prep,cook,60,,,FALSE,,PersonAHouse,PersonAHouse
+PostSurgeryCheckIn,post_surgery_check_in,watch,180,,,FALSE,"W, Th",PersonAHouse,PersonAHouse
+PrescriptionDropOff,prescription_dropoff,transport,5,GroceryStore1,PersonAHouse,TRUE,,GroceryStore1,PersonAHouse
+HouseworkHelp,housework_help,handywork,60,,,FALSE,,PersonAHouse,PersonAHouse
+MowLawn,mow_lawn,handywork,45,,,FALSE,,PersonAHouse,PersonAHouse
+PhysicalTherapy,physical_therapy,personA_presence,60,,,FALSE,,PTOffice,PTOffice
+ALunch,a_lunch,personA_presence,60,,,FALSE,,SeniorCenter,SeniorCenter
+Sewing,sewing,sewing,60,,,FALSE,,PersonAHouse,PersonAHouse
+PCPACheckup,pcpa_checkup,personB_presence,60,,,FALSE,,DoctorOffice,DoctorOffice
+PCPAPrescriptionPickup,pcpa_prescription_pickup,personB_presence,15,,,FALSE,,GroceryStore2,GroceryStore2
+CallDaughter,call_daughter,personB_presence,180,,,FALSE,,PersonBHouse,PersonBHouse
+BLunch,b_lunch,personB_presence,60,,,FALSE,"M, T, W, Th, F",SeniorCenter,SeniorCenter
+Volunteer,volunteer,volunteer,60,,,FALSE,"M, T, W, Th, F",SeniorCenter,SeniorCenter
+Walmart,drive_to_walmart,"personB_presence, transport",15,PersonBHouse,GroceryStore1,TRUE,,PersonBHouse,PersonBHouse
+Walmart,walmart_shopping,"personB_presence, personB_brother_presence",45,GroceryStore1,GroceryStore1,FALSE,,PersonBHouse,PersonBHouse
+Walmart,drive_from_walmart,"personB_presence, transport",15,GroceryStore1,PersonBHouse,TRUE,,PersonBHouse,PersonBHouse
+GroceryShopping,grocery_shopping,personB_presence,30,,,FALSE,,GroceryStore2,GroceryStore2
+PersonAStartBlock,personA_start_block,personA_presence,1,,,FALSE,,PersonAHouse,PersonAHouse
+PersonAEndBlock,personA_end_block,personA_presence,1,,,FALSE,,PersonAHouse,PersonAHouse
+PersonBStartBlock,personB_start_block,personB_presence,1,,,FALSE,,PersonBHouse,PersonBHouse
+PersonBEndBlock,personB_end_block,personB_presence,1,,,FALSE,,PersonBHouse,PersonBHouse
+PersonANightBlock,personA_night_block,personA_presence,720,,,FALSE,"M, T, W, Th, F, Sa",PersonAHouse,PersonAHouse
+PersonBNightBlock,personB_night_block,personB_presence,720,,,FALSE,"M, T, W, Th, F, Sa",PersonBHouse,PersonBHouse
+PersonBBrotherStartBlock,personB_brother_start_block,personB_brother_presence,1,,,FALSE,,PersonBBrotherHouse,PersonBBrotherHouse
+PersonBBrotherEndBlock,personB_brother_end_block,personB_brother_presence,1,,,FALSE,,PersonBBrotherHouse,PersonBBrotherHouse
+PersonASonStartBlock,personA_son_start_block,personA_son_presence,1,,,FALSE,,PersonAHouse,PersonAHouse
+PersonASonEndBlock,personA_son_end_block,personA_son_presence,1,,,FALSE,,PersonAHouse,PersonAHouse
+PersonABrotherStartBlock,personA_brother_start_block,personA_brother_presence,1,,,FALSE,,PersonABrotherHouse,PersonABrotherHouse
+PersonABrotherEndBlock,personA_brother_end_block,personA_brother_presence,1,,,FALSE,,PersonABrotherHouse,PersonABrotherHouse
+PersonABrotherNightBlock,personA_brother_night_block,personA_brother_presence,720,,,FALSE,"M, T, W, Th, F, Sa",PersonABrotherHouse,PersonABrotherHouse
+PersonBBrotherNightBlock,personB_brother_night_block,personB_brother_presence,720,,,FALSE,"M, T, W, Th, F, Sa",PersonBBrotherHouse,PersonBBrotherHouse
+PersonASonNightBlock,personA_son_night_block,personA_son_presence,720,,,FALSE,"M, T, W, Th, F, Sa",PersonAHouse,PersonAHouse

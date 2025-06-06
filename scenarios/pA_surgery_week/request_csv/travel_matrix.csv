@@ -1,0 +1,11 @@
+Locations,PersonAHouse,PersonBHouse,DentistOffice,GroceryStore1,SeniorCenter,DoctorOffice,GroceryStore2,PTOffice,PersonBBrotherHouse,PersonABrotherHouse
+PersonAHouse,0,10,5,5,20,30,20,30,15,20
+PersonBHouse,10,0,15,15,25,35,10,40,10,30
+DentistOffice,5,15,0,10,25,30,15,35,20,25
+GroceryStore1,5,15,10,0,30,30,25,35,20,25
+SeniorCenter,20,25,25,30,0,15,30,30,25,40
+DoctorOffice,30,35,30,30,15,0,45,25,30,50
+GroceryStore2,20,10,15,25,30,45,0,50,15,40
+PTOffice,30,40,35,35,30,25,50,0,25,50
+PersonBBrotherHouse,15,10,20,20,25,30,15,25,0,35
+PersonABrotherHouse,20,30,25,25,40,50,40,50,35,0

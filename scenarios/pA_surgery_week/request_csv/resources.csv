@@ -1,0 +1,7 @@
+name,capabilities,location
+PersonA,"personA_presence, sewing, traveler, transport",PersonAHouse
+PersonB,"personB_presence, handywork, traveler, volunteer, transport, watch",PersonBHouse
+PersonBBrother,"personB_brother_presence, traveler, transport",PersonBBrotherHouse
+PersonABrother,"personA_brother_presence, traveler, transport, handywork",PersonABrotherHouse
+PersonASon,"personA_son_presence, cook, watch, traveler, transport",PersonAHouse
+FriendP,"friendP_presence, traveler, transport, watch",FriendPHouse
