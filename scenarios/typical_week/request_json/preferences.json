@@ -1,0 +1,50 @@
+{
+    "preferences": [
+        {
+            "taskName": "drive_from_walmart",
+            "capability": "transport",
+            "ranking": [
+                "PersonBBrother",
+                "PersonB",
+                "PersonBSon",
+                "PersonA",
+                "PersonABrother"
+            ]
+        },
+        {
+            "taskName": "drive_to_walmart",
+            "capability": "transport",
+            "ranking": [
+                "PersonBBrother",
+                "PersonB",
+                "PersonBSon",
+                "PersonA",
+                "PersonABrother"
+            ]
+        },
+        {
+            "taskName": "housework_help",
+            "capability": "handywork",
+            "ranking": [
+                "PersonABrother",
+                "PersonB"
+            ]
+        },
+        {
+            "taskName": "load_car",
+            "capability": "handywork",
+            "ranking": [
+                "PersonB",
+                "PersonABrother"
+            ]
+        },
+        {
+            "taskName": "mow_lawn",
+            "capability": "handywork",
+            "ranking": [
+                "PersonB",
+                "PersonABrother"
+            ]
+        }
+    ]
+}

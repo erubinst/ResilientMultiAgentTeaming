@@ -1,7 +1,8 @@
 import json
 import pandas as pd
 import numpy as np
-from config import EPOCH_DATE
+import os
+from config import EPOCH_DATE, DATA_PATH, SCENARIO
 
 
 def load_json_file(filename, data_path):
@@ -141,15 +142,7 @@ def retrieve_worker_skills(data):
     return worker_skills_df, capabilities_df, resourceTypes_df
 
 
-def retrieve_assignment_options(requirements_df, worker_skills_df):
-    """Retrieve assignment options based on requirements and worker skills."""
-    assignment_options_df = requirements_df.merge(
-        worker_skills_df,
-        on=["capability_id", "capability"],
-        how="inner" 
-    )
-    assignment_options_df['is_preferred'] = False
-    # Filter out capabilities that contain "presence" (case-insensitive)
+def create_preferences_json(assignment_options_df):
     filtered_df = assignment_options_df[~assignment_options_df['capability'].str.contains('presence', case=False)]
 
     # Group by taskName and capability, and get unique resourceNames
@@ -158,28 +151,71 @@ def retrieve_assignment_options(requirements_df, worker_skills_df):
         .apply(lambda x: sorted(set(x)))  # convert to set for uniqueness, then sort for consistency
     )
 
-    for (task, capability), resources in grouped.items():
-        print(f"\nTask: {task}")
-        print(f"  Capability: {capability}")
-        print(f"    Available resources: {resources}")
-        
-        if len(resources) == 1:
-            preferred = resources[0]
-            print(f"    Only one resource available: '{preferred}' — automatically selected.")
-        else:
-            preferred = input("    Enter preferred resource from above: ").strip()
-            while preferred not in resources:
-                print("    Invalid choice. Please select from the list above.")
-                preferred = input("    Enter preferred resource from above: ").strip()
+    preferences = []
+    for (task, capability), resources in grouped.items():  
+        if len(resources) > 1:
+            preferences.append({
+                "taskName": task,
+                "capability": capability,
+                "ranking": resources
+            })
+    
+    dict = {"preferences": preferences}
+    path = DATA_PATH + SCENARIO + "/request_json/preferences.json"
+    with open(path, 'w') as f:
+        json.dump(dict, f, indent=4)
+    # stop code
+    raise SystemExit("Please order the rankings in preferences.json before proceeding.")
 
-        # Mark preferred in the original DataFrame
-        condition = (
-            (assignment_options_df['taskName'] == task) &
-            (assignment_options_df['capability'] == capability) &
-            (assignment_options_df['resourceName'] == preferred)
-        )
-        assignment_options_df.loc[condition, 'is_preferred'] = True
 
+def add_preferences_to_assignment_options(assignment_options_df):
+    preferences_json_path = DATA_PATH + SCENARIO + "/request_json/preferences.json"
+    with open(preferences_json_path, 'r') as f:
+        data = json.load(f)
+    rows = []
+    for item in data["preferences"]:
+        task = item["taskName"]
+        capability = item["capability"]
+        ranking_list = item["ranking"]
+        max_rank = len(ranking_list)
+        for rank, resource in enumerate(item["ranking"], start=1):
+            # Normalized score: 1.0 (best) to 0.0 (worst)
+            if max_rank == 1:
+                normalized_score = 1.0
+            else:
+                normalized_score = 1 - (rank - 1) / (max_rank - 1)
+            
+            rows.append({
+                "taskName": task,
+                "capability": capability,
+                "resourceName": resource,
+                "score": normalized_score
+            })
+    preferences = pd.DataFrame(rows)
+
+    assignment_options_df = assignment_options_df.merge(
+        preferences,
+        on=["taskName", "capability", "resourceName"],
+        how="left"
+    )
+    # fill blank ranking with 0
+    assignment_options_df['score'] = assignment_options_df['score'].fillna(0).astype(int)
+    return assignment_options_df
+
+
+
+def retrieve_assignment_options(requirements_df, worker_skills_df):
+    """Retrieve assignment options based on requirements and worker skills."""
+    assignment_options_df = requirements_df.merge(
+        worker_skills_df,
+        on=["capability_id", "capability"],
+        how="inner" 
+    )
+
+    if not os.path.exists(DATA_PATH + SCENARIO + "/request_json/preferences.json"):
+        create_preferences_json(assignment_options_df)
+    
+    assignment_options_df = add_preferences_to_assignment_options(assignment_options_df)
 
     return assignment_options_df
 

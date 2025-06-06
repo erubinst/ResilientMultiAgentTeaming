@@ -1,8 +1,9 @@
 import plotly.express as px
 import pandas as pd
+from cp_model.config import DATA_PATH, SCENARIO
 
 # Path to your CSV file
-solution_path = '/Users/esmerubinstein/Desktop/ICLL/ResilientMultiAgentTeaming/output_files/output.csv'
+solution_path = DATA_PATH + SCENARIO + '/outputs/display_schedule.csv'
 
 # Read the CSV file into a DataFrame
 

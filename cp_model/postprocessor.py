@@ -60,7 +60,7 @@ def format_transport_tasks(output_data, request_data, transporter_travel_data, t
             "transportation from" + driver_combinations[i]['previous_task']['taskName'],
             transport_tasks[i].start,
             transport_tasks[i].end,
-            "TRANSPORT",
+            "transport",
             "travel",
             False
         ])
@@ -126,6 +126,38 @@ def save_json_file(filename, data_path, data):
         json.dump(data, f, indent=4)
 
 
+def export_initial_schedule(df):
+    # filter out where Request is "travel"
+    df = df[df["Request"] != "travel"]
+    resources = []
+    for worker, group in df.groupby("Worker"):
+        group_sorted = group.sort_values("Start")
+
+        timeline = []
+        for _, row in group_sorted.iterrows():
+            timeline.append({
+                "taskName": row["Task"],
+                "order": row["Request"],
+                "start_time": row["Start"],
+                "end_time": row["End"],
+                "capability": row["Skill"]
+            })
+
+        resources.append({
+            "resourceName": worker,
+            "timeline": timeline
+        })
+
+    # Final JSON structure
+    output_json = {
+        "resources": resources
+    }
+    # Save to JSON file
+    output_path = DATA_PATH + SCENARIO + "/outputs/initial_schedule.json"
+    with open(output_path, 'w') as f:
+        json.dump(output_json, f, indent=4)
+
+
 def postprocess_data(solution, request_data, explicit_task_intervals, non_driver_travel_data, transporter_travel_data):
     """
     Postprocess the solution data and save it to a CSV file.
@@ -136,3 +168,5 @@ def postprocess_data(solution, request_data, explicit_task_intervals, non_driver
     # Save the DataFrame to a CSV file
     output_path = DATA_PATH + SCENARIO + "/outputs/display_schedule.csv"
     df.to_csv(output_path, index=False)
+    # Export the initial schedule to JSON
+    export_initial_schedule(df)
