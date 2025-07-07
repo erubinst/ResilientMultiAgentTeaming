@@ -66,7 +66,7 @@
                 "transport",
                 "watch"
             ],
-            "location": "FriendPHouse"
+            "location": "GroceryStore1"
         }
     ],
     "resources": [
@@ -150,6 +150,60 @@
                         "personB_presence"
                     ],
                     "duration": 180,
+                    "start-location": "@start-location",
+                    "end-location": "@end-location",
+                    "explicit_transport_task": false
+                }
+            ]
+        },
+        {
+            "name": "FriendPEndBlock",
+            "type": "meets",
+            "requiredCapabilities": [],
+            "subtasks": [
+                {
+                    "taskName": "friendP_end_block",
+                    "type": "executable",
+                    "requiredCapabilities": [
+                        "friendP_presence"
+                    ],
+                    "duration": 1,
+                    "start-location": "@start-location",
+                    "end-location": "@end-location",
+                    "explicit_transport_task": false
+                }
+            ]
+        },
+        {
+            "name": "FriendPNightBlock",
+            "type": "meets",
+            "requiredCapabilities": [],
+            "subtasks": [
+                {
+                    "taskName": "friendP_night_block",
+                    "type": "executable",
+                    "requiredCapabilities": [
+                        "friendP_presence"
+                    ],
+                    "duration": 720,
+                    "start-location": "@start-location",
+                    "end-location": "@end-location",
+                    "explicit_transport_task": false
+                }
+            ]
+        },
+        {
+            "name": "FriendPStartBlock",
+            "type": "meets",
+            "requiredCapabilities": [],
+            "subtasks": [
+                {
+                    "taskName": "friendP_start_block",
+                    "type": "executable",
+                    "requiredCapabilities": [
+                        "friendP_presence"
+                    ],
+                    "duration": 1,
                     "start-location": "@start-location",
                     "end-location": "@end-location",
                     "explicit_transport_task": false
@@ -822,6 +876,102 @@
             "end-location": "PersonBHouse",
             "tasks": [
                 "CallDaughter"
+            ],
+            "optional": false
+        },
+        {
+            "name": "FriendPEndBlock",
+            "quantity": 1,
+            "earlieststartdate": "2025-05-25T20:00",
+            "duedate": "2025-05-25T23:00",
+            "start-location": "GroceryStore1",
+            "end-location": "GroceryStore1",
+            "tasks": [
+                "FriendPEndBlock"
+            ],
+            "optional": false
+        },
+        {
+            "name": "FriendPNightBlock_M",
+            "quantity": 1,
+            "earlieststartdate": "2025-05-19T20:00",
+            "duedate": "2025-05-20T08:00",
+            "start-location": "GroceryStore1",
+            "end-location": "GroceryStore1",
+            "tasks": [
+                "FriendPNightBlock"
+            ],
+            "optional": false
+        },
+        {
+            "name": "FriendPNightBlock_T",
+            "quantity": 1,
+            "earlieststartdate": "2025-05-20T20:00",
+            "duedate": "2025-05-21T08:00",
+            "start-location": "GroceryStore1",
+            "end-location": "GroceryStore1",
+            "tasks": [
+                "FriendPNightBlock"
+            ],
+            "optional": false
+        },
+        {
+            "name": "FriendPNightBlock_W",
+            "quantity": 1,
+            "earlieststartdate": "2025-05-21T20:00",
+            "duedate": "2025-05-22T08:00",
+            "start-location": "GroceryStore1",
+            "end-location": "GroceryStore1",
+            "tasks": [
+                "FriendPNightBlock"
+            ],
+            "optional": false
+        },
+        {
+            "name": "FriendPNightBlock_Th",
+            "quantity": 1,
+            "earlieststartdate": "2025-05-22T20:00",
+            "duedate": "2025-05-23T08:00",
+            "start-location": "GroceryStore1",
+            "end-location": "GroceryStore1",
+            "tasks": [
+                "FriendPNightBlock"
+            ],
+            "optional": false
+        },
+        {
+            "name": "FriendPNightBlock_F",
+            "quantity": 1,
+            "earlieststartdate": "2025-05-23T20:00",
+            "duedate": "2025-05-24T08:00",
+            "start-location": "GroceryStore1",
+            "end-location": "GroceryStore1",
+            "tasks": [
+                "FriendPNightBlock"
+            ],
+            "optional": false
+        },
+        {
+            "name": "FriendPNightBlock_Sa",
+            "quantity": 1,
+            "earlieststartdate": "2025-05-24T20:00",
+            "duedate": "2025-05-25T08:00",
+            "start-location": "GroceryStore1",
+            "end-location": "GroceryStore1",
+            "tasks": [
+                "FriendPNightBlock"
+            ],
+            "optional": false
+        },
+        {
+            "name": "FriendPStartBlock",
+            "quantity": 1,
+            "earlieststartdate": "2025-05-19T07:59",
+            "duedate": "2025-05-19T08:00",
+            "start-location": "GroceryStore1",
+            "end-location": "GroceryStore1",
+            "tasks": [
+                "FriendPStartBlock"
             ],
             "optional": false
         },
