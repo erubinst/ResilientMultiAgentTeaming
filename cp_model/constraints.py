@@ -9,6 +9,7 @@ def add_explicit_task_constraints(model, explicit_task_intervals, request_data):
     orders = request_data['orders']
     requirements = request_data['requirements']
     assignment_options = request_data['assignment_options']
+
     model.add(
         [
             size_of(requirement_times[j]) == requirements.iloc[j]['duration'] * presence_of(requirement_times[j])
@@ -30,9 +31,11 @@ def add_explicit_task_constraints(model, explicit_task_intervals, request_data):
             for j in range(len(requirements))
             if order['orderID'] == requirements.iloc[j]['orderID']
         ] +
-        [end_of(requirement_times[j]) <= request_data['requirements'].iloc[j]['duedate'] for j in range(len(request_data['requirements']))] +
-        [start_of(requirement_times[j]) >= request_data['requirements'].iloc[j]['earlieststartdate'] for j in range(len(request_data['requirements']))]
+        [model.if_then(presence_of(requirement_times[j]), end_of(requirement_times[j]) <= request_data['requirements'].iloc[j]['duedate']) for j in range(len(request_data['requirements']))] +
+        [model.if_then(presence_of(requirement_times[j]), start_of(requirement_times[j]) >= request_data['requirements'].iloc[j]['earlieststartdate']) for j in range(len(request_data['requirements']))]
     )
+
+    
 
     for i in range(len(request_data['requirements'])):
         equivalent_task = request_data['tasks'].index[
@@ -41,6 +44,7 @@ def add_explicit_task_constraints(model, explicit_task_intervals, request_data):
         ][0]
         model.add(start_of(requirement_times[i]) == start_of(explicit_task_intervals['task_times'][equivalent_task]))
         model.add(end_of(requirement_times[i]) == end_of(explicit_task_intervals['task_times'][equivalent_task]))
+
 
     for i in range(len(request_data['orders'])):
         model.add(span(

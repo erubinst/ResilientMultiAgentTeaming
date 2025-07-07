@@ -149,7 +149,7 @@
                     "requiredCapabilities": [
                         "personB_presence"
                     ],
-                    "duration": 180,
+                    "duration": 100,
                     "start-location": "@start-location",
                     "end-location": "@end-location",
                     "explicit_transport_task": false
@@ -615,7 +615,8 @@
                     "taskName": "post_surgery_check_in",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "watch"
+                        "watch",
+                        "personA_presence"
                     ],
                     "duration": 180,
                     "start-location": "@start-location",
@@ -798,8 +799,8 @@
         {
             "name": "ALunch",
             "quantity": 1,
-            "earlieststartdate": "2025-05-19T12:00",
-            "duedate": "2025-05-19T13:00",
+            "earlieststartdate": "2025-05-25T12:00",
+            "duedate": "2025-05-25T13:00",
             "start-location": "SeniorCenter",
             "end-location": "SeniorCenter",
             "tasks": [
@@ -882,7 +883,7 @@
         {
             "name": "FriendPEndBlock",
             "quantity": 1,
-            "earlieststartdate": "2025-05-25T20:00",
+            "earlieststartdate": "2025-05-25T22:59",
             "duedate": "2025-05-25T23:00",
             "start-location": "GroceryStore1",
             "end-location": "GroceryStore1",
@@ -1050,7 +1051,7 @@
         {
             "name": "PersonABrotherEndBlock",
             "quantity": 1,
-            "earlieststartdate": "2025-05-25T20:00",
+            "earlieststartdate": "2025-05-25T22:59",
             "duedate": "2025-05-25T23:00",
             "start-location": "PersonABrotherHouse",
             "end-location": "PersonABrotherHouse",
@@ -1146,7 +1147,7 @@
         {
             "name": "PersonAEndBlock",
             "quantity": 1,
-            "earlieststartdate": "2025-05-25T20:00",
+            "earlieststartdate": "2025-05-25T22:59",
             "duedate": "2025-05-25T23:00",
             "start-location": "PersonAHouse",
             "end-location": "PersonAHouse",
@@ -1230,7 +1231,7 @@
         {
             "name": "PersonASonEndBlock",
             "quantity": 1,
-            "earlieststartdate": "2025-05-25T20:00",
+            "earlieststartdate": "2025-05-25T22:59",
             "duedate": "2025-05-25T23:00",
             "start-location": "PersonAHouse",
             "end-location": "PersonAHouse",
@@ -1338,7 +1339,7 @@
         {
             "name": "PersonBBrotherEndBlock",
             "quantity": 1,
-            "earlieststartdate": "2025-05-25T20:00",
+            "earlieststartdate": "2025-05-25T22:59",
             "duedate": "2025-05-25T23:00",
             "start-location": "PersonBBrotherHouse",
             "end-location": "PersonBBrotherHouse",
@@ -1434,7 +1435,7 @@
         {
             "name": "PersonBEndBlock",
             "quantity": 1,
-            "earlieststartdate": "2025-05-25T20:00",
+            "earlieststartdate": "2025-05-25T22:59",
             "duedate": "2025-05-25T23:00",
             "start-location": "PersonBHouse",
             "end-location": "PersonBHouse",
@@ -1578,7 +1579,7 @@
         {
             "name": "Sewing",
             "quantity": 1,
-            "earlieststartdate": "2025-05-19T08:00",
+            "earlieststartdate": "2025-05-23T08:00",
             "duedate": "2025-05-25T23:00",
             "start-location": "PersonAHouse",
             "end-location": "PersonAHouse",
@@ -1590,8 +1591,8 @@
         {
             "name": "StressTest",
             "quantity": 1,
-            "earlieststartdate": "2025-05-19T14:00",
-            "duedate": "2025-05-25T14:45",
+            "earlieststartdate": "2025-05-19T08:00",
+            "duedate": "2025-05-25T23:00",
             "start-location": "DoctorOffice",
             "end-location": "DoctorOffice",
             "tasks": [
@@ -1614,7 +1615,7 @@
         {
             "name": "Volunteer_M",
             "quantity": 1,
-            "earlieststartdate": "2025-05-19T11:00",
+            "earlieststartdate": "2025-05-19T10:00",
             "duedate": "2025-05-19T12:00",
             "start-location": "SeniorCenter",
             "end-location": "SeniorCenter",
