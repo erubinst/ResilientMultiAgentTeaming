@@ -1,7 +1,5 @@
 # Outputs
-scenarios/typical_week/outputs/
-scenarios/pA_surgery_week/outputs/
-scenarions/piggybacking_week/outputs/
+**/outputs/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
