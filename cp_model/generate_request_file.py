@@ -1,5 +1,5 @@
 import pandas as pd
-from config import DATA_PATH, SCENARIO
+from config import DATA_PATH, SCENARIO, URL
 import json
 
 
@@ -59,22 +59,9 @@ def assign_capability_ids(templates_df, capabilities_df):
     """
     Assign capability IDs, Subtask IDs, and Template IDs to the templates
     """
-    # original_columns = templates_df.columns.tolist()
-    # templates_df['capability'] = templates_df['requiredCapabilities'].str.split(', ')
-    # templates_df = templates_df.explode('capability')
-    # templates_df = templates_df.merge(capabilities_df, how='left', on='capability')
-    # group_cols = [col for col in original_columns]
-    # required_ids_df = templates_df.groupby(group_cols)['id'].apply(list).reset_index()
-    # templates_df = templates_df.merge(required_ids_df, on=group_cols)
     templates_df["start-location"] = templates_df["start-location"].fillna("@start-location")
     templates_df["end-location"] = templates_df["end-location"].fillna("@end-location")
-
-    # assign subtask and template IDs
-    # templates_df["id"] = range(1, len(templates_df) + 1)
-    # unique_subtasks = {subtask: i + 1 for i, subtask in enumerate(sorted(templates_df["subtasks"].unique()))}
-    # templates_df["subtask_id"] = templates_df["subtasks"].map(unique_subtasks)
     templates_df["requiredCapabilities"] = templates_df["requiredCapabilities"].astype(str).str.replace(" ", "").str.split(",")
-    # templates_df["requiredCapabilityIds"] = templates_df["requiredCapabilityIds"].astype(str).str.split(",")
 
     return templates_df
 
@@ -152,14 +139,15 @@ def create_resources_json(resources_df):
         resource_entry = {
             "name": row["name"],
             "type": "resusable",
-            "capabilities": row["capabilities"].split(", "),
-            "location": row["location"]
+            "capabilities": row["capabilities"].split(", ")
         }
         resources_list.append(resource_entry)
         resource = {
             "name": row["name"],
             "type": row["name"],
             "downtimes": [],
+            "location": row["location"],
+            "URL": URL
         }
         resources.append(resource)
 
