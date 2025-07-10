@@ -8,8 +8,7 @@
                 "sewing",
                 "traveler",
                 "transport"
-            ],
-            "location": "PersonAHouse"
+            ]
         },
         {
             "name": "PersonB",
@@ -21,8 +20,7 @@
                 "volunteer",
                 "transport",
                 "watch"
-            ],
-            "location": "PersonBHouse"
+            ]
         },
         {
             "name": "PersonBBrother",
@@ -31,8 +29,7 @@
                 "personB_brother_presence",
                 "traveler",
                 "transport"
-            ],
-            "location": "PersonBBrotherHouse"
+            ]
         },
         {
             "name": "PersonABrother",
@@ -42,8 +39,7 @@
                 "traveler",
                 "transport",
                 "handywork"
-            ],
-            "location": "PersonABrotherHouse"
+            ]
         },
         {
             "name": "PersonASon",
@@ -54,8 +50,7 @@
                 "watch",
                 "traveler",
                 "transport"
-            ],
-            "location": "PersonAHouse"
+            ]
         },
         {
             "name": "FriendP",
@@ -65,40 +60,51 @@
                 "traveler",
                 "transport",
                 "watch"
-            ],
-            "location": "GroceryStore1"
+            ]
         }
     ],
     "resources": [
         {
             "name": "PersonA",
             "type": "PersonA",
-            "downtimes": []
+            "location": "PersonAHouse",
+            "downtimes": [],
+	    "URL": "localhost:9087"
         },
         {
             "name": "PersonB",
             "type": "PersonB",
-            "downtimes": []
+	    "location": "PersonBHouse",
+            "downtimes": [],
+	    "URL": "localhost:9087"
         },
         {
             "name": "PersonBBrother",
             "type": "PersonBBrother",
-            "downtimes": []
+            "location": "PersonBBrotherHouse",	    
+            "downtimes": [],
+	    "URL": "localhost:9087"
         },
         {
             "name": "PersonABrother",
             "type": "PersonABrother",
-            "downtimes": []
+            "location": "PersonABrotherHouse",	    
+            "downtimes": [],
+	    "URL": "localhost:9087"
         },
         {
             "name": "PersonASon",
             "type": "PersonASon",
-            "downtimes": []
+            "location": "PersonAHouse",	    
+            "downtimes": [],
+	    "URL": "localhost:9087"
         },
         {
             "name": "FriendP",
             "type": "FriendP",
-            "downtimes": []
+            "location": "GroceryStore1",	    
+            "downtimes": [],
+	    "URL": "localhost:9087"
         }
     ],
     "templates": [
@@ -1565,18 +1571,6 @@
             "optional": false
         },
         {
-            "name": "PrescriptionPickup",
-            "quantity": 1,
-            "earlieststartdate": "2025-05-19T08:00",
-            "duedate": "2025-05-25T23:00",
-            "start-location": "GroceryStore1",
-            "end-location": "GroceryStore1",
-            "tasks": [
-                "PrescriptionPickup"
-            ],
-            "optional": false
-        },
-        {
             "name": "Sewing",
             "quantity": 1,
             "earlieststartdate": "2025-05-23T08:00",
@@ -1699,12 +1693,12 @@
         {
             "relation": "BEFORE",
             "source": "Surgery",
-            "destination": "PostSurgeryCheckIn"
+            "destination": "PostSurgeryCheckIn_W"
         },
         {
             "relation": "BEFORE",
             "source": "Surgery",
-            "destination": "PrescriptionDropOff"
+            "destination": "PostSurgeryCheckIn_Th"
         },
         {
             "relation": "BEFORE",
