@@ -1,0 +1,678 @@
+{
+    "resources": [
+        {
+            "resourceName": "FriendP",
+            "timeline": [
+                {
+                    "taskName": "friendP_start_block",
+                    "order": "FriendPStartBlock",
+                    "start_time": 479,
+                    "end_time": 480,
+                    "capability": "friendP_presence"
+                },
+                {
+                    "taskName": "friendP_night_block",
+                    "order": "FriendPNightBlock_M",
+                    "start_time": 1200,
+                    "end_time": 1920,
+                    "capability": "friendP_presence"
+                },
+                {
+                    "taskName": "friendP_night_block",
+                    "order": "FriendPNightBlock_T",
+                    "start_time": 2640,
+                    "end_time": 3360,
+                    "capability": "friendP_presence"
+                },
+                {
+                    "taskName": "friendP_night_block",
+                    "order": "FriendPNightBlock_W",
+                    "start_time": 4080,
+                    "end_time": 4800,
+                    "capability": "friendP_presence"
+                },
+                {
+                    "taskName": "friendP_night_block",
+                    "order": "FriendPNightBlock_Th",
+                    "start_time": 5520,
+                    "end_time": 6240,
+                    "capability": "friendP_presence"
+                },
+                {
+                    "taskName": "friendP_night_block",
+                    "order": "FriendPNightBlock_F",
+                    "start_time": 6960,
+                    "end_time": 7680,
+                    "capability": "friendP_presence"
+                },
+                {
+                    "taskName": "community_dinner",
+                    "order": "CommunityDinner",
+                    "start_time": 8135,
+                    "end_time": 8225,
+                    "capability": "friendP_presence"
+                },
+                {
+                    "taskName": "friendP_night_block",
+                    "order": "FriendPNightBlock_Sa",
+                    "start_time": 8400,
+                    "end_time": 9120,
+                    "capability": "friendP_presence"
+                },
+                {
+                    "taskName": "friendP_end_block",
+                    "order": "FriendPEndBlock",
+                    "start_time": 10019,
+                    "end_time": 10020,
+                    "capability": "friendP_presence"
+                }
+            ]
+        },
+        {
+            "resourceName": "PersonA",
+            "timeline": [
+                {
+                    "taskName": "personA_start_block",
+                    "order": "PersonAStartBlock",
+                    "start_time": 479,
+                    "end_time": 480,
+                    "capability": "personA_presence"
+                },
+                {
+                    "taskName": "a_lunch",
+                    "order": "ALunch_M",
+                    "start_time": 720,
+                    "end_time": 780,
+                    "capability": "personA_presence"
+                },
+                {
+                    "taskName": "personA_night_block",
+                    "order": "PersonANightBlock_M",
+                    "start_time": 1200,
+                    "end_time": 1920,
+                    "capability": "personA_presence"
+                },
+                {
+                    "taskName": "buy_cake_ingredients",
+                    "order": "BuyCakeIngredients",
+                    "start_time": 1925,
+                    "end_time": 1945,
+                    "capability": "pA_shopping"
+                },
+                {
+                    "taskName": "fP_prescription_pickup",
+                    "order": "FPPrescriptionPickup",
+                    "start_time": 1945,
+                    "end_time": 1950,
+                    "capability": "fP_prescription"
+                },
+                {
+                    "taskName": "pA_prescription_pickup",
+                    "order": "PAPrescriptionPickup",
+                    "start_time": 1950,
+                    "end_time": 1955,
+                    "capability": "pA_prescription"
+                },
+                {
+                    "taskName": "pB_prescription_pickup",
+                    "order": "PBPrescriptionPickup",
+                    "start_time": 1955,
+                    "end_time": 1960,
+                    "capability": "pB_prescription"
+                },
+                {
+                    "taskName": "a_lunch",
+                    "order": "ALunch_T",
+                    "start_time": 2160,
+                    "end_time": 2220,
+                    "capability": "personA_presence"
+                },
+                {
+                    "taskName": "dental_appointment",
+                    "order": "DentalAppointment",
+                    "start_time": 2340,
+                    "end_time": 2370,
+                    "capability": "personA_presence"
+                },
+                {
+                    "taskName": "personA_night_block",
+                    "order": "PersonANightBlock_T",
+                    "start_time": 2640,
+                    "end_time": 3360,
+                    "capability": "personA_presence"
+                },
+                {
+                    "taskName": "prepare_food",
+                    "order": "PrepareFood",
+                    "start_time": 3360,
+                    "end_time": 3420,
+                    "capability": "cook"
+                },
+                {
+                    "taskName": "exercise_class",
+                    "order": "ExerciseClass_W",
+                    "start_time": 3480,
+                    "end_time": 3540,
+                    "capability": "personA_presence"
+                },
+                {
+                    "taskName": "a_lunch",
+                    "order": "ALunch_W",
+                    "start_time": 3600,
+                    "end_time": 3660,
+                    "capability": "personA_presence"
+                },
+                {
+                    "taskName": "line_dancing",
+                    "order": "LineDancing_W",
+                    "start_time": 3660,
+                    "end_time": 3780,
+                    "capability": "personA_presence"
+                },
+                {
+                    "taskName": "personA_night_block",
+                    "order": "PersonANightBlock_W",
+                    "start_time": 4080,
+                    "end_time": 4800,
+                    "capability": "personA_presence"
+                },
+                {
+                    "taskName": "exercise_class",
+                    "order": "ExerciseClass_Th",
+                    "start_time": 4920,
+                    "end_time": 4980,
+                    "capability": "personA_presence"
+                },
+                {
+                    "taskName": "a_lunch",
+                    "order": "ALunch_Th",
+                    "start_time": 5040,
+                    "end_time": 5100,
+                    "capability": "personA_presence"
+                },
+                {
+                    "taskName": "personA_night_block",
+                    "order": "PersonANightBlock_Th",
+                    "start_time": 5520,
+                    "end_time": 6240,
+                    "capability": "personA_presence"
+                },
+                {
+                    "taskName": "exercise_class",
+                    "order": "ExerciseClass_Th",
+                    "start_time": 6360,
+                    "end_time": 6420,
+                    "capability": "personA_presence"
+                },
+                {
+                    "taskName": "casino_event",
+                    "order": "CasinoEvent",
+                    "start_time": 6660,
+                    "end_time": 6750,
+                    "capability": "personA_presence"
+                },
+                {
+                    "taskName": "personA_night_block",
+                    "order": "PersonANightBlock_F",
+                    "start_time": 6960,
+                    "end_time": 7680,
+                    "capability": "personA_presence"
+                },
+                {
+                    "taskName": "load_car",
+                    "order": "CommunityDinner",
+                    "start_time": 8100,
+                    "end_time": 8115,
+                    "capability": "personA_presence"
+                },
+                {
+                    "taskName": "drive_to_dinner",
+                    "order": "CommunityDinner",
+                    "start_time": 8115,
+                    "end_time": 8135,
+                    "capability": "personA_presence"
+                },
+                {
+                    "taskName": "community_dinner",
+                    "order": "CommunityDinner",
+                    "start_time": 8135,
+                    "end_time": 8225,
+                    "capability": "personA_presence"
+                },
+                {
+                    "taskName": "drive_from_dinner",
+                    "order": "CommunityDinner",
+                    "start_time": 8225,
+                    "end_time": 8245,
+                    "capability": "personA_presence"
+                },
+                {
+                    "taskName": "personA_night_block",
+                    "order": "PersonANightBlock_Sa",
+                    "start_time": 8400,
+                    "end_time": 9120,
+                    "capability": "personA_presence"
+                },
+                {
+                    "taskName": "personA_end_block",
+                    "order": "PersonAEndBlock",
+                    "start_time": 10019,
+                    "end_time": 10020,
+                    "capability": "personA_presence"
+                }
+            ]
+        },
+        {
+            "resourceName": "PersonABrother",
+            "timeline": [
+                {
+                    "taskName": "personA_brother_start_block",
+                    "order": "PersonABrotherStartBlock",
+                    "start_time": 479,
+                    "end_time": 480,
+                    "capability": "personA_brother_presence"
+                },
+                {
+                    "taskName": "personA_brother_night_block",
+                    "order": "PersonABrotherNightBlock_M",
+                    "start_time": 1200,
+                    "end_time": 1920,
+                    "capability": "personA_brother_presence"
+                },
+                {
+                    "taskName": "personA_brother_night_block",
+                    "order": "PersonABrotherNightBlock_T",
+                    "start_time": 2640,
+                    "end_time": 3360,
+                    "capability": "personA_brother_presence"
+                },
+                {
+                    "taskName": "personA_brother_night_block",
+                    "order": "PersonABrotherNightBlock_W",
+                    "start_time": 4080,
+                    "end_time": 4800,
+                    "capability": "personA_brother_presence"
+                },
+                {
+                    "taskName": "personA_brother_night_block",
+                    "order": "PersonABrotherNightBlock_Th",
+                    "start_time": 5520,
+                    "end_time": 6240,
+                    "capability": "personA_brother_presence"
+                },
+                {
+                    "taskName": "personA_brother_night_block",
+                    "order": "PersonABrotherNightBlock_F",
+                    "start_time": 6960,
+                    "end_time": 7680,
+                    "capability": "personA_brother_presence"
+                },
+                {
+                    "taskName": "personA_brother_night_block",
+                    "order": "PersonABrotherNightBlock_Sa",
+                    "start_time": 8400,
+                    "end_time": 9120,
+                    "capability": "personA_brother_presence"
+                },
+                {
+                    "taskName": "personA_brother_end_block",
+                    "order": "PersonABrotherEndBlock",
+                    "start_time": 10019,
+                    "end_time": 10020,
+                    "capability": "personA_brother_presence"
+                }
+            ]
+        },
+        {
+            "resourceName": "PersonB",
+            "timeline": [
+                {
+                    "taskName": "personB_start_block",
+                    "order": "PersonBStartBlock",
+                    "start_time": 479,
+                    "end_time": 480,
+                    "capability": "personB_presence"
+                },
+                {
+                    "taskName": "housework_help",
+                    "order": "HouseworkHelp",
+                    "start_time": 490,
+                    "end_time": 550,
+                    "capability": "handywork"
+                },
+                {
+                    "taskName": "mow_lawn",
+                    "order": "MowLawn",
+                    "start_time": 550,
+                    "end_time": 595,
+                    "capability": "handywork"
+                },
+                {
+                    "taskName": "volunteer",
+                    "order": "Volunteer_M",
+                    "start_time": 660,
+                    "end_time": 720,
+                    "capability": "volunteer"
+                },
+                {
+                    "taskName": "b_lunch",
+                    "order": "BLunch_M",
+                    "start_time": 720,
+                    "end_time": 780,
+                    "capability": "personB_presence"
+                },
+                {
+                    "taskName": "personB_night_block",
+                    "order": "PersonBNightBlock_M",
+                    "start_time": 1200,
+                    "end_time": 1920,
+                    "capability": "personB_presence"
+                },
+                {
+                    "taskName": "pcpa_checkup",
+                    "order": "PCPACheckup",
+                    "start_time": 1980,
+                    "end_time": 2040,
+                    "capability": "personB_presence"
+                },
+                {
+                    "taskName": "volunteer",
+                    "order": "Volunteer_T",
+                    "start_time": 2100,
+                    "end_time": 2160,
+                    "capability": "volunteer"
+                },
+                {
+                    "taskName": "b_lunch",
+                    "order": "BLunch_T",
+                    "start_time": 2160,
+                    "end_time": 2220,
+                    "capability": "personB_presence"
+                },
+                {
+                    "taskName": "personB_night_block",
+                    "order": "PersonBNightBlock_T",
+                    "start_time": 2640,
+                    "end_time": 3360,
+                    "capability": "personB_presence"
+                },
+                {
+                    "taskName": "drive_to_walmart",
+                    "order": "Walmart",
+                    "start_time": 3600,
+                    "end_time": 3615,
+                    "capability": "personB_presence"
+                },
+                {
+                    "taskName": "walmart_shopping",
+                    "order": "Walmart",
+                    "start_time": 3615,
+                    "end_time": 3660,
+                    "capability": "personB_presence"
+                },
+                {
+                    "taskName": "drive_from_walmart",
+                    "order": "Walmart",
+                    "start_time": 3660,
+                    "end_time": 3675,
+                    "capability": "personB_presence"
+                },
+                {
+                    "taskName": "personB_night_block",
+                    "order": "PersonBNightBlock_W",
+                    "start_time": 4080,
+                    "end_time": 4800,
+                    "capability": "personB_presence"
+                },
+                {
+                    "taskName": "volunteer",
+                    "order": "Volunteer_Th",
+                    "start_time": 4980,
+                    "end_time": 5040,
+                    "capability": "volunteer"
+                },
+                {
+                    "taskName": "b_lunch",
+                    "order": "BLunch_Th",
+                    "start_time": 5040,
+                    "end_time": 5100,
+                    "capability": "personB_presence"
+                },
+                {
+                    "taskName": "personB_night_block",
+                    "order": "PersonBNightBlock_Th",
+                    "start_time": 5520,
+                    "end_time": 6240,
+                    "capability": "personB_presence"
+                },
+                {
+                    "taskName": "grocery_shopping",
+                    "order": "GroceryShopping",
+                    "start_time": 6250,
+                    "end_time": 6280,
+                    "capability": "pB_shopping"
+                },
+                {
+                    "taskName": "volunteer",
+                    "order": "Volunteer_F",
+                    "start_time": 6420,
+                    "end_time": 6480,
+                    "capability": "volunteer"
+                },
+                {
+                    "taskName": "son_lunch",
+                    "order": "SonLunch",
+                    "start_time": 6570,
+                    "end_time": 6630,
+                    "capability": "personB_presence"
+                },
+                {
+                    "taskName": "casino_event",
+                    "order": "CasinoEvent",
+                    "start_time": 6660,
+                    "end_time": 6750,
+                    "capability": "personB_presence"
+                },
+                {
+                    "taskName": "personB_night_block",
+                    "order": "PersonBNightBlock_F",
+                    "start_time": 6960,
+                    "end_time": 7680,
+                    "capability": "personB_presence"
+                },
+                {
+                    "taskName": "load_car",
+                    "order": "CommunityDinner",
+                    "start_time": 8100,
+                    "end_time": 8115,
+                    "capability": "handywork"
+                },
+                {
+                    "taskName": "drive_to_dinner",
+                    "order": "CommunityDinner",
+                    "start_time": 8115,
+                    "end_time": 8135,
+                    "capability": "personB_presence"
+                },
+                {
+                    "taskName": "community_dinner",
+                    "order": "CommunityDinner",
+                    "start_time": 8135,
+                    "end_time": 8225,
+                    "capability": "personB_presence"
+                },
+                {
+                    "taskName": "drive_from_dinner",
+                    "order": "CommunityDinner",
+                    "start_time": 8225,
+                    "end_time": 8245,
+                    "capability": "personB_presence"
+                },
+                {
+                    "taskName": "personB_night_block",
+                    "order": "PersonBNightBlock_Sa",
+                    "start_time": 8400,
+                    "end_time": 9120,
+                    "capability": "personB_presence"
+                },
+                {
+                    "taskName": "personB_end_block",
+                    "order": "PersonBEndBlock",
+                    "start_time": 10019,
+                    "end_time": 10020,
+                    "capability": "personB_presence"
+                }
+            ]
+        },
+        {
+            "resourceName": "PersonBBrother",
+            "timeline": [
+                {
+                    "taskName": "personB_brother_start_block",
+                    "order": "PersonBBrotherStartBlock",
+                    "start_time": 479,
+                    "end_time": 480,
+                    "capability": "personB_brother_presence"
+                },
+                {
+                    "taskName": "personB_brother_night_block",
+                    "order": "PersonBBrotherNightBlock_M",
+                    "start_time": 1200,
+                    "end_time": 1920,
+                    "capability": "personB_brother_presence"
+                },
+                {
+                    "taskName": "personB_brother_night_block",
+                    "order": "PersonBBrotherNightBlock_T",
+                    "start_time": 2640,
+                    "end_time": 3360,
+                    "capability": "personB_brother_presence"
+                },
+                {
+                    "taskName": "drive_to_walmart",
+                    "order": "Walmart",
+                    "start_time": 3600,
+                    "end_time": 3615,
+                    "capability": "transport"
+                },
+                {
+                    "taskName": "walmart_shopping",
+                    "order": "Walmart",
+                    "start_time": 3615,
+                    "end_time": 3660,
+                    "capability": "personB_brother_presence"
+                },
+                {
+                    "taskName": "drive_from_walmart",
+                    "order": "Walmart",
+                    "start_time": 3660,
+                    "end_time": 3675,
+                    "capability": "transport"
+                },
+                {
+                    "taskName": "personB_brother_night_block",
+                    "order": "PersonBBrotherNightBlock_W",
+                    "start_time": 4080,
+                    "end_time": 4800,
+                    "capability": "personB_brother_presence"
+                },
+                {
+                    "taskName": "personB_brother_night_block",
+                    "order": "PersonBBrotherNightBlock_Th",
+                    "start_time": 5520,
+                    "end_time": 6240,
+                    "capability": "personB_brother_presence"
+                },
+                {
+                    "taskName": "personB_brother_night_block",
+                    "order": "PersonBBrotherNightBlock_F",
+                    "start_time": 6960,
+                    "end_time": 7680,
+                    "capability": "personB_brother_presence"
+                },
+                {
+                    "taskName": "personB_brother_night_block",
+                    "order": "PersonBBrotherNightBlock_Sa",
+                    "start_time": 8400,
+                    "end_time": 9120,
+                    "capability": "personB_brother_presence"
+                },
+                {
+                    "taskName": "personB_brother_end_block",
+                    "order": "PersonBBrotherEndBlock",
+                    "start_time": 10019,
+                    "end_time": 10020,
+                    "capability": "personB_brother_presence"
+                }
+            ]
+        },
+        {
+            "resourceName": "PersonBSon",
+            "timeline": [
+                {
+                    "taskName": "personB_son_start_block",
+                    "order": "PersonBSonStartBlock",
+                    "start_time": 479,
+                    "end_time": 480,
+                    "capability": "personB_son_presence"
+                },
+                {
+                    "taskName": "personB_son_night_block",
+                    "order": "PersonBSonNightBlock_M",
+                    "start_time": 1200,
+                    "end_time": 1920,
+                    "capability": "personB_son_presence"
+                },
+                {
+                    "taskName": "personB_son_night_block",
+                    "order": "PersonBSonNightBlock_T",
+                    "start_time": 2640,
+                    "end_time": 3360,
+                    "capability": "personB_son_presence"
+                },
+                {
+                    "taskName": "personB_son_night_block",
+                    "order": "PersonBSonNightBlock_W",
+                    "start_time": 4080,
+                    "end_time": 4800,
+                    "capability": "personB_son_presence"
+                },
+                {
+                    "taskName": "personB_son_night_block",
+                    "order": "PersonBSonNightBlock_Th",
+                    "start_time": 5520,
+                    "end_time": 6240,
+                    "capability": "personB_son_presence"
+                },
+                {
+                    "taskName": "son_lunch",
+                    "order": "SonLunch",
+                    "start_time": 6570,
+                    "end_time": 6630,
+                    "capability": "personB_son_presence"
+                },
+                {
+                    "taskName": "personB_son_night_block",
+                    "order": "PersonBSonNightBlock_F",
+                    "start_time": 6960,
+                    "end_time": 7680,
+                    "capability": "personB_son_presence"
+                },
+                {
+                    "taskName": "personB_son_night_block",
+                    "order": "PersonBSonNightBlock_Sa",
+                    "start_time": 8400,
+                    "end_time": 9120,
+                    "capability": "personB_son_presence"
+                },
+                {
+                    "taskName": "personB_son_end_block",
+                    "order": "PersonBSonEndBlock",
+                    "start_time": 10019,
+                    "end_time": 10020,
+                    "capability": "personB_son_presence"
+                }
+            ]
+        }
+    ]
+}
