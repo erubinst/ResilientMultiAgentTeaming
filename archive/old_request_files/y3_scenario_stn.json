@@ -95,7 +95,7 @@
                 {
                     "startTime": 50,
                     "endTime": 70,
-                    "duration": 15,
+                    "duration": 15, 
                     "permitted_skill_ids": []
                 }
             ]

@@ -1,0 +1,78 @@
+{
+    "preferences": [
+        {
+            "taskName": "drive_from_walmart",
+            "capability": "transport",
+            "ranking": [
+                "PersonBBrother",
+                "PersonB",
+                "PersonBSon",
+                "FriendP",
+                "PersonA",
+                "PersonABrother"
+            ]
+        },
+        {
+            "taskName": "drive_to_walmart",
+            "capability": "transport",
+            "ranking": [
+                "PersonBBrother",
+                "PersonB",
+                "PersonBSon",
+                "FriendP",
+                "PersonA",
+                "PersonABrother"
+            ]
+        },
+        {
+            "taskName": "fP_prescription_pickup",
+            "capability": "fP_prescription",
+            "ranking": [
+                "FriendP",
+                "PersonA",
+                "PersonB"
+            ]
+        },
+        {
+            "taskName": "grocery_shopping",
+            "capability": "pB_shopping",
+            "ranking": [
+                "PersonB",
+                "PersonA"
+            ]
+        },
+        {
+            "taskName": "housework_help",
+            "capability": "handywork",
+            "ranking": [
+                "PersonABrother",
+                "PersonB"
+            ]
+        },
+        {
+            "taskName": "load_car",
+            "capability": "handywork",
+            "ranking": [
+                "PersonB",
+                "PersonABrother"
+            ]
+        },
+        {
+            "taskName": "mow_lawn",
+            "capability": "handywork",
+            "ranking": [
+                "PersonB",
+                "PersonABrother"
+            ]
+        },
+        {
+            "taskName": "pB_prescription_pickup",
+            "capability": "pB_prescription",
+            "ranking": [
+                "PersonB",
+                "PersonA",
+                "FriendP"
+            ]
+        }
+    ]
+}

@@ -4,7 +4,7 @@ from config import H
 
 def build_explicit_task_intervals(request_data):
     """Build intervals for explicit request file tasks."""
-    request_times = [interval_var(end=[0,H], optional=True) for _, t in request_data['orders'].iterrows()]
+    request_times = [interval_var(end=[0,H], optional = t['optional']) for _, t in request_data['orders'].iterrows()]
     task_times = [interval_var(end=[0,H], optional=True) for _, t in request_data['tasks'].iterrows()]
     requirement_times = [interval_var(end=[0,H], optional=r['optional']) for _, r in request_data['requirements'].iterrows()]
     assignment_times = [interval_var(end=[0,H], optional=True) for _, a in request_data['assignment_options'].iterrows()]

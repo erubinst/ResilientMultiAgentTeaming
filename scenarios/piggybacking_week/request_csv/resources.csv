@@ -1,0 +1,7 @@
+name,capabilities,location
+PersonA,"personA_presence, pA_prescription, pB_prescription, fP_prescription, pA_shopping, pB_shopping, cook, sewing, traveler, transport",PersonAHouse
+PersonB,"personB_presence, pA_prescription, pB_prescription, fP_prescription, pA_shopping, pB_shopping, handywork, traveler, volunteer, transport",PersonBHouse
+PersonBBrother,"personB_brother_presence, traveler, transport",PersonBBrotherHouse
+PersonABrother,"personA_brother_presence, traveler, transport, handywork",PersonABrotherHouse
+PersonBSon,"personB_son_presence, traveler, transport",Downtown
+FriendP,"friendP_presence, pA_prescription, pB_prescription, fP_prescription, traveler, transport",PersonAHouse
