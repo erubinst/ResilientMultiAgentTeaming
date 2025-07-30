@@ -9,7 +9,7 @@
         "GroceryStore2": 20,
         "Downtown": 30,
         "DebbieBrotherHouse": 15,
-        "AnnieBrotherHouse": 20
+        "AnnieSonHouse": 20
     },
     "DebbieHouse": {
         "AnnieHouse": 10,
@@ -21,7 +21,7 @@
         "GroceryStore2": 10,
         "Downtown": 40,
         "DebbieBrotherHouse": 10,
-        "AnnieBrotherHouse": 30
+        "AnnieSonHouse": 30
     },
     "DentistOffice": {
         "AnnieHouse": 5,
@@ -33,7 +33,7 @@
         "GroceryStore2": 15,
         "Downtown": 35,
         "DebbieBrotherHouse": 20,
-        "AnnieBrotherHouse": 25
+        "AnnieSonHouse": 25
     },
     "GroceryStore1": {
         "AnnieHouse": 5,
@@ -45,7 +45,7 @@
         "GroceryStore2": 25,
         "Downtown": 35,
         "DebbieBrotherHouse": 20,
-        "AnnieBrotherHouse": 25
+        "AnnieSonHouse": 25
     },
     "SeniorCenter": {
         "AnnieHouse": 20,
@@ -57,7 +57,7 @@
         "GroceryStore2": 30,
         "Downtown": 30,
         "DebbieBrotherHouse": 25,
-        "AnnieBrotherHouse": 40
+        "AnnieSonHouse": 40
     },
     "DoctorOffice": {
         "AnnieHouse": 30,
@@ -69,7 +69,7 @@
         "GroceryStore2": 45,
         "Downtown": 25,
         "DebbieBrotherHouse": 30,
-        "AnnieBrotherHouse": 50
+        "AnnieSonHouse": 50
     },
     "GroceryStore2": {
         "AnnieHouse": 20,
@@ -81,7 +81,7 @@
         "GroceryStore2": 0,
         "Downtown": 50,
         "DebbieBrotherHouse": 15,
-        "AnnieBrotherHouse": 40
+        "AnnieSonHouse": 40
     },
     "Downtown": {
         "AnnieHouse": 30,
@@ -93,7 +93,7 @@
         "GroceryStore2": 50,
         "Downtown": 0,
         "DebbieBrotherHouse": 25,
-        "AnnieBrotherHouse": 50
+        "AnnieSonHouse": 50
     },
     "DebbieBrotherHouse": {
         "AnnieHouse": 15,
@@ -105,9 +105,9 @@
         "GroceryStore2": 15,
         "Downtown": 25,
         "DebbieBrotherHouse": 0,
-        "AnnieBrotherHouse": 35
+        "AnnieSonHouse": 35
     },
-    "AnnieBrotherHouse": {
+    "AnnieSonHouse": {
         "AnnieHouse": 20,
         "DebbieHouse": 30,
         "DentistOffice": 25,
@@ -117,6 +117,6 @@
         "GroceryStore2": 40,
         "Downtown": 50,
         "DebbieBrotherHouse": 35,
-        "AnnieBrotherHouse": 0
+        "AnnieSonHouse": 0
     }
 }

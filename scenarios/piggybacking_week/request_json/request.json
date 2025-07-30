@@ -6,9 +6,6 @@
             "capabilities": [
                 "annie_presence",
                 "annie_shopping",
-                "annie_prescription",
-                "debbie_prescription",
-                "tom_prescription",
                 "cook",
                 "sewing",
                 "traveler",
@@ -39,10 +36,13 @@
             ]
         },
         {
-            "name": "AnnieBrother",
+            "name": "AnnieSon",
             "type": "resusable",
             "capabilities": [
-                "annie_brother_presence",
+                "annie_son_presence",
+                "annie_prescription",
+                "debbie_prescription",
+                "tom_prescription",
                 "traveler",
                 "handywork",
                 "transport"
@@ -94,10 +94,10 @@
             "URL": "localhost:9087"
         },
         {
-            "name": "AnnieBrother",
-            "type": "AnnieBrother",
+            "name": "AnnieSon",
+            "type": "AnnieSon",
             "downtimes": [],
-            "location": "AnnieBrotherHouse",
+            "location": "AnnieSonHouse",
             "URL": "localhost:9087"
         },
         {
@@ -427,7 +427,7 @@
         },
         {
             "name": "AnniePrescriptionPickup",
-            "type": "serial",
+            "type": "meets",
             "requiredCapabilities": [],
             "subtasks": [
                 {
@@ -480,15 +480,15 @@
             ]
         },
         {
-            "name": "AnnieBrotherEndBlock",
+            "name": "AnnieSonEndBlock",
             "type": "meets",
             "requiredCapabilities": [],
             "subtasks": [
                 {
-                    "taskName": "annie_brother_end_block",
+                    "taskName": "annie_son_end_block",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "annie_brother_presence"
+                        "annie_son_presence"
                     ],
                     "duration": 1,
                     "start-location": "@start-location",
@@ -498,15 +498,15 @@
             ]
         },
         {
-            "name": "AnnieBrotherNightBlock",
+            "name": "AnnieSonNightBlock",
             "type": "meets",
             "requiredCapabilities": [],
             "subtasks": [
                 {
-                    "taskName": "annie_brother_night_block",
+                    "taskName": "annie_son_night_block",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "annie_brother_presence"
+                        "annie_son_presence"
                     ],
                     "duration": 720,
                     "start-location": "@start-location",
@@ -516,15 +516,15 @@
             ]
         },
         {
-            "name": "AnnieBrotherStartBlock",
+            "name": "AnnieSonStartBlock",
             "type": "meets",
             "requiredCapabilities": [],
             "subtasks": [
                 {
-                    "taskName": "annie_brother_start_block",
+                    "taskName": "annie_son_start_block",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "annie_brother_presence"
+                        "annie_son_presence"
                     ],
                     "duration": 1,
                     "start-location": "@start-location",
@@ -1051,7 +1051,7 @@
             "name": "TomPrescriptionPickup",
             "quantity": 1,
             "earlieststartdate": "2025-05-20T08:00",
-            "duedate": "2025-05-21T23:00",
+            "duedate": "2025-05-20T23:00",
             "start-location": "GroceryStore1",
             "end-location": "GroceryStore1",
             "tasks": [
@@ -1207,7 +1207,7 @@
             "name": "AnniePrescriptionPickup",
             "quantity": 1,
             "earlieststartdate": "2025-05-20T08:00",
-            "duedate": "2025-05-20T23:00",
+            "duedate": "2025-05-20T17:00",
             "start-location": "GroceryStore1",
             "end-location": "GroceryStore1",
             "tasks": [
@@ -1219,7 +1219,7 @@
             "name": "DebbiePrescriptionPickup",
             "quantity": 1,
             "earlieststartdate": "2025-05-20T08:00",
-            "duedate": "2025-05-25T23:00",
+            "duedate": "2025-05-20T17:00",
             "start-location": "GroceryStore1",
             "end-location": "GroceryStore1",
             "tasks": [
@@ -1240,98 +1240,98 @@
             "optional": false
         },
         {
-            "name": "AnnieBrotherEndBlock",
+            "name": "AnnieSonEndBlock",
             "quantity": 1,
             "earlieststartdate": "2025-05-25T22:59",
             "duedate": "2025-05-25T23:00",
-            "start-location": "AnnieBrotherHouse",
-            "end-location": "AnnieBrotherHouse",
+            "start-location": "AnnieSonHouse",
+            "end-location": "AnnieSonHouse",
             "tasks": [
-                "AnnieBrotherEndBlock"
+                "AnnieSonEndBlock"
             ],
             "optional": false
         },
         {
-            "name": "AnnieBrotherNightBlock_M",
+            "name": "AnnieSonNightBlock_M",
             "quantity": 1,
             "earlieststartdate": "2025-05-19T20:00",
             "duedate": "2025-05-20T08:00",
-            "start-location": "AnnieBrotherHouse",
-            "end-location": "AnnieBrotherHouse",
+            "start-location": "AnnieSonHouse",
+            "end-location": "AnnieSonHouse",
             "tasks": [
-                "AnnieBrotherNightBlock"
+                "AnnieSonNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "AnnieBrotherNightBlock_T",
+            "name": "AnnieSonNightBlock_T",
             "quantity": 1,
             "earlieststartdate": "2025-05-20T20:00",
             "duedate": "2025-05-21T08:00",
-            "start-location": "AnnieBrotherHouse",
-            "end-location": "AnnieBrotherHouse",
+            "start-location": "AnnieSonHouse",
+            "end-location": "AnnieSonHouse",
             "tasks": [
-                "AnnieBrotherNightBlock"
+                "AnnieSonNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "AnnieBrotherNightBlock_W",
+            "name": "AnnieSonNightBlock_W",
             "quantity": 1,
             "earlieststartdate": "2025-05-21T20:00",
             "duedate": "2025-05-22T08:00",
-            "start-location": "AnnieBrotherHouse",
-            "end-location": "AnnieBrotherHouse",
+            "start-location": "AnnieSonHouse",
+            "end-location": "AnnieSonHouse",
             "tasks": [
-                "AnnieBrotherNightBlock"
+                "AnnieSonNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "AnnieBrotherNightBlock_Th",
+            "name": "AnnieSonNightBlock_Th",
             "quantity": 1,
             "earlieststartdate": "2025-05-22T20:00",
             "duedate": "2025-05-23T08:00",
-            "start-location": "AnnieBrotherHouse",
-            "end-location": "AnnieBrotherHouse",
+            "start-location": "AnnieSonHouse",
+            "end-location": "AnnieSonHouse",
             "tasks": [
-                "AnnieBrotherNightBlock"
+                "AnnieSonNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "AnnieBrotherNightBlock_F",
+            "name": "AnnieSonNightBlock_F",
             "quantity": 1,
             "earlieststartdate": "2025-05-23T20:00",
             "duedate": "2025-05-24T08:00",
-            "start-location": "AnnieBrotherHouse",
-            "end-location": "AnnieBrotherHouse",
+            "start-location": "AnnieSonHouse",
+            "end-location": "AnnieSonHouse",
             "tasks": [
-                "AnnieBrotherNightBlock"
+                "AnnieSonNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "AnnieBrotherNightBlock_Sa",
+            "name": "AnnieSonNightBlock_Sa",
             "quantity": 1,
             "earlieststartdate": "2025-05-24T20:00",
             "duedate": "2025-05-25T08:00",
-            "start-location": "AnnieBrotherHouse",
-            "end-location": "AnnieBrotherHouse",
+            "start-location": "AnnieSonHouse",
+            "end-location": "AnnieSonHouse",
             "tasks": [
-                "AnnieBrotherNightBlock"
+                "AnnieSonNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "AnnieBrotherStartBlock",
+            "name": "AnnieSonStartBlock",
             "quantity": 1,
             "earlieststartdate": "2025-05-19T07:59",
             "duedate": "2025-05-19T08:00",
-            "start-location": "AnnieBrotherHouse",
-            "end-location": "AnnieBrotherHouse",
+            "start-location": "AnnieSonHouse",
+            "end-location": "AnnieSonHouse",
             "tasks": [
-                "AnnieBrotherStartBlock"
+                "AnnieSonStartBlock"
             ],
             "optional": false
         },
@@ -1838,6 +1838,6 @@
         "GroceryStore2",
         "Downtown",
         "DebbieBrotherHouse",
-        "AnnieBrotherHouse"
+        "AnnieSonHouse"
     ]
 }
