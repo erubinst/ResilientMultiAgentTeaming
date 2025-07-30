@@ -1,15 +1,14 @@
 {
     "resourceTypes": [
         {
-            "name": "PersonA",
+            "name": "Annie",
             "type": "resusable",
             "capabilities": [
-                "personA_presence",
-                "pA_prescription",
-                "pB_prescription",
-                "fP_prescription",
-                "pA_shopping",
-                "pB_shopping",
+                "annie_presence",
+                "annie_shopping",
+                "annie_prescription",
+                "debbie_prescription",
+                "tom_prescription",
                 "cook",
                 "sewing",
                 "traveler",
@@ -17,14 +16,13 @@
             ]
         },
         {
-            "name": "PersonB",
+            "name": "Debbie",
             "type": "resusable",
             "capabilities": [
-                "personB_presence",
-                "pA_prescription",
-                "pB_prescription",
-                "fP_prescription",
-                "pB_shopping",
+                "debbie_presence",
+                "annie_prescription",
+                "debbie_prescription",
+                "tom_prescription",
                 "handywork",
                 "traveler",
                 "volunteer",
@@ -32,41 +30,42 @@
             ]
         },
         {
-            "name": "PersonBBrother",
+            "name": "DebbieBrother",
             "type": "resusable",
             "capabilities": [
-                "personB_brother_presence",
+                "debbie_brother_presence",
                 "traveler",
                 "transport"
             ]
         },
         {
-            "name": "PersonABrother",
+            "name": "AnnieBrother",
             "type": "resusable",
             "capabilities": [
-                "personA_brother_presence",
+                "annie_brother_presence",
                 "traveler",
-                "transport",
-                "handywork"
+                "handywork",
+                "transport"
             ]
         },
         {
-            "name": "PersonBSon",
+            "name": "DebbieSon",
             "type": "resusable",
             "capabilities": [
-                "personB_son_presence",
+                "debbie_son_presence",
                 "traveler",
                 "transport"
             ]
         },
         {
-            "name": "FriendP",
+            "name": "Tom",
             "type": "resusable",
             "capabilities": [
-                "friendP_presence",
-                "pA_prescription",
-                "pB_prescription",
-                "fP_prescription",
+                "tom_presence",
+                "tom_shopping",
+                "annie_prescription",
+                "debbie_prescription",
+                "tom_prescription",
                 "traveler",
                 "transport"
             ]
@@ -74,45 +73,45 @@
     ],
     "resources": [
         {
-            "name": "PersonA",
-            "type": "PersonA",
+            "name": "Annie",
+            "type": "Annie",
             "downtimes": [],
-            "location": "PersonAHouse",
+            "location": "AnnieHouse",
             "URL": "localhost:9087"
         },
         {
-            "name": "PersonB",
-            "type": "PersonB",
+            "name": "Debbie",
+            "type": "Debbie",
             "downtimes": [],
-            "location": "PersonBHouse",
+            "location": "DebbieHouse",
             "URL": "localhost:9087"
         },
         {
-            "name": "PersonBBrother",
-            "type": "PersonBBrother",
+            "name": "DebbieBrother",
+            "type": "DebbieBrother",
             "downtimes": [],
-            "location": "PersonBBrotherHouse",
+            "location": "DebbieBrotherHouse",
             "URL": "localhost:9087"
         },
         {
-            "name": "PersonABrother",
-            "type": "PersonABrother",
+            "name": "AnnieBrother",
+            "type": "AnnieBrother",
             "downtimes": [],
-            "location": "PersonABrotherHouse",
+            "location": "AnnieBrotherHouse",
             "URL": "localhost:9087"
         },
         {
-            "name": "PersonBSon",
-            "type": "PersonBSon",
+            "name": "DebbieSon",
+            "type": "DebbieSon",
             "downtimes": [],
             "location": "Downtown",
             "URL": "localhost:9087"
         },
         {
-            "name": "FriendP",
-            "type": "FriendP",
+            "name": "Tom",
+            "type": "Tom",
             "downtimes": [],
-            "location": "PersonAHouse",
+            "location": "AnnieHouse",
             "URL": "localhost:9087"
         }
     ],
@@ -126,7 +125,7 @@
                     "taskName": "a_lunch",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "personA_presence"
+                        "annie_presence"
                     ],
                     "duration": 60,
                     "start-location": "@start-location",
@@ -136,15 +135,15 @@
             ]
         },
         {
-            "name": "BLunch",
+            "name": "DLunch",
             "type": "meets",
             "requiredCapabilities": [],
             "subtasks": [
                 {
-                    "taskName": "b_lunch",
+                    "taskName": "d_lunch",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "personB_presence"
+                        "debbie_presence"
                     ],
                     "duration": 60,
                     "start-location": "@start-location",
@@ -162,7 +161,7 @@
                     "taskName": "buy_cake_ingredients",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "pA_shopping"
+                        "annie_shopping"
                     ],
                     "duration": 20,
                     "start-location": "@start-location",
@@ -180,8 +179,8 @@
                     "taskName": "casino_event",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "personB_presence",
-                        "personA_presence"
+                        "debbie_presence",
+                        "annie_presence"
                     ],
                     "duration": 90,
                     "start-location": "@start-location",
@@ -199,23 +198,23 @@
                     "taskName": "load_car",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "personA_presence",
+                        "annie_presence",
                         "handywork"
                     ],
                     "duration": 15,
-                    "start-location": "PersonAHouse",
-                    "end-location": "PersonAHouse",
+                    "start-location": "AnnieHouse",
+                    "end-location": "AnnieHouse",
                     "explicit_transport_task": false
                 },
                 {
                     "taskName": "drive_to_dinner",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "personA_presence",
-                        "personB_presence"
+                        "annie_presence",
+                        "debbie_presence"
                     ],
                     "duration": 20,
-                    "start-location": "PersonAHouse",
+                    "start-location": "AnnieHouse",
                     "end-location": "SeniorCenter",
                     "explicit_transport_task": true
                 },
@@ -223,9 +222,9 @@
                     "taskName": "community_dinner",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "personA_presence",
-                        "personB_presence",
-                        "friendP_presence"
+                        "annie_presence",
+                        "debbie_presence",
+                        "tom_presence"
                     ],
                     "duration": 90,
                     "start-location": "SeniorCenter",
@@ -236,12 +235,12 @@
                     "taskName": "drive_from_dinner",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "personA_presence",
-                        "personB_presence"
+                        "annie_presence",
+                        "debbie_presence"
                     ],
                     "duration": 20,
                     "start-location": "SeniorCenter",
-                    "end-location": "PersonAHouse",
+                    "end-location": "AnnieHouse",
                     "explicit_transport_task": true
                 }
             ]
@@ -255,7 +254,7 @@
                     "taskName": "dental_appointment",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "personA_presence"
+                        "annie_presence"
                     ],
                     "duration": 30,
                     "start-location": "@start-location",
@@ -273,7 +272,7 @@
                     "taskName": "exercise_class",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "personA_presence"
+                        "annie_presence"
                     ],
                     "duration": 60,
                     "start-location": "@start-location",
@@ -283,15 +282,15 @@
             ]
         },
         {
-            "name": "FPPrescriptionPickup",
+            "name": "TomPrescriptionPickup",
             "type": "meets",
             "requiredCapabilities": [],
             "subtasks": [
                 {
-                    "taskName": "fP_prescription_pickup",
+                    "taskName": "tom_prescription_pickup",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "fP_prescription"
+                        "tom_prescription"
                     ],
                     "duration": 5,
                     "start-location": "@start-location",
@@ -301,15 +300,15 @@
             ]
         },
         {
-            "name": "FriendPEndBlock",
+            "name": "TomEndBlock",
             "type": "meets",
             "requiredCapabilities": [],
             "subtasks": [
                 {
-                    "taskName": "friendP_end_block",
+                    "taskName": "tom_end_block",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "friendP_presence"
+                        "tom_presence"
                     ],
                     "duration": 1,
                     "start-location": "@start-location",
@@ -319,15 +318,15 @@
             ]
         },
         {
-            "name": "FriendPNightBlock",
+            "name": "TomNightBlock",
             "type": "meets",
             "requiredCapabilities": [],
             "subtasks": [
                 {
-                    "taskName": "friendP_night_block",
+                    "taskName": "tom_night_block",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "friendP_presence"
+                        "tom_presence"
                     ],
                     "duration": 720,
                     "start-location": "@start-location",
@@ -337,15 +336,15 @@
             ]
         },
         {
-            "name": "FriendPStartBlock",
+            "name": "TomStartBlock",
             "type": "meets",
             "requiredCapabilities": [],
             "subtasks": [
                 {
-                    "taskName": "friendP_start_block",
+                    "taskName": "tom_start_block",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "friendP_presence"
+                        "tom_presence"
                     ],
                     "duration": 1,
                     "start-location": "@start-location",
@@ -363,7 +362,7 @@
                     "taskName": "grocery_shopping",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "pB_shopping"
+                        "tom_shopping"
                     ],
                     "duration": 30,
                     "start-location": "@start-location",
@@ -399,7 +398,7 @@
                     "taskName": "line_dancing",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "personA_presence"
+                        "annie_presence"
                     ],
                     "duration": 120,
                     "start-location": "@start-location",
@@ -427,15 +426,15 @@
             ]
         },
         {
-            "name": "PAPrescriptionPickup",
-            "type": "meets",
+            "name": "AnniePrescriptionPickup",
+            "type": "serial",
             "requiredCapabilities": [],
             "subtasks": [
                 {
-                    "taskName": "pA_prescription_pickup",
+                    "taskName": "annie_prescription_pickup",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "pA_prescription"
+                        "annie_prescription"
                     ],
                     "duration": 5,
                     "start-location": "@start-location",
@@ -445,15 +444,15 @@
             ]
         },
         {
-            "name": "PBPrescriptionPickup",
+            "name": "DebbiePrescriptionPickup",
             "type": "meets",
             "requiredCapabilities": [],
             "subtasks": [
                 {
-                    "taskName": "pB_prescription_pickup",
+                    "taskName": "debbie_prescription_pickup",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "pB_prescription"
+                        "debbie_prescription"
                     ],
                     "duration": 5,
                     "start-location": "@start-location",
@@ -471,7 +470,7 @@
                     "taskName": "pcpa_checkup",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "personB_presence"
+                        "debbie_presence"
                     ],
                     "duration": 60,
                     "start-location": "@start-location",
@@ -481,15 +480,15 @@
             ]
         },
         {
-            "name": "PersonABrotherEndBlock",
+            "name": "AnnieBrotherEndBlock",
             "type": "meets",
             "requiredCapabilities": [],
             "subtasks": [
                 {
-                    "taskName": "personA_brother_end_block",
+                    "taskName": "annie_brother_end_block",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "personA_brother_presence"
+                        "annie_brother_presence"
                     ],
                     "duration": 1,
                     "start-location": "@start-location",
@@ -499,15 +498,15 @@
             ]
         },
         {
-            "name": "PersonABrotherNightBlock",
+            "name": "AnnieBrotherNightBlock",
             "type": "meets",
             "requiredCapabilities": [],
             "subtasks": [
                 {
-                    "taskName": "personA_brother_night_block",
+                    "taskName": "annie_brother_night_block",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "personA_brother_presence"
+                        "annie_brother_presence"
                     ],
                     "duration": 720,
                     "start-location": "@start-location",
@@ -517,15 +516,15 @@
             ]
         },
         {
-            "name": "PersonABrotherStartBlock",
+            "name": "AnnieBrotherStartBlock",
             "type": "meets",
             "requiredCapabilities": [],
             "subtasks": [
                 {
-                    "taskName": "personA_brother_start_block",
+                    "taskName": "annie_brother_start_block",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "personA_brother_presence"
+                        "annie_brother_presence"
                     ],
                     "duration": 1,
                     "start-location": "@start-location",
@@ -535,15 +534,15 @@
             ]
         },
         {
-            "name": "PersonAEndBlock",
+            "name": "AnnieEndBlock",
             "type": "meets",
             "requiredCapabilities": [],
             "subtasks": [
                 {
-                    "taskName": "personA_end_block",
+                    "taskName": "annie_end_block",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "personA_presence"
+                        "annie_presence"
                     ],
                     "duration": 1,
                     "start-location": "@start-location",
@@ -553,15 +552,15 @@
             ]
         },
         {
-            "name": "PersonANightBlock",
+            "name": "AnnieNightBlock",
             "type": "meets",
             "requiredCapabilities": [],
             "subtasks": [
                 {
-                    "taskName": "personA_night_block",
+                    "taskName": "annie_night_block",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "personA_presence"
+                        "annie_presence"
                     ],
                     "duration": 720,
                     "start-location": "@start-location",
@@ -571,15 +570,15 @@
             ]
         },
         {
-            "name": "PersonAStartBlock",
+            "name": "AnnieStartBlock",
             "type": "meets",
             "requiredCapabilities": [],
             "subtasks": [
                 {
-                    "taskName": "personA_start_block",
+                    "taskName": "annie_start_block",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "personA_presence"
+                        "annie_presence"
                     ],
                     "duration": 1,
                     "start-location": "@start-location",
@@ -589,15 +588,15 @@
             ]
         },
         {
-            "name": "PersonBBrotherEndBlock",
+            "name": "DebbieBrotherEndBlock",
             "type": "meets",
             "requiredCapabilities": [],
             "subtasks": [
                 {
-                    "taskName": "personB_brother_end_block",
+                    "taskName": "debbie_brother_end_block",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "personB_brother_presence"
+                        "debbie_brother_presence"
                     ],
                     "duration": 1,
                     "start-location": "@start-location",
@@ -607,15 +606,15 @@
             ]
         },
         {
-            "name": "PersonBBrotherNightBlock",
+            "name": "DebbieBrotherNightBlock",
             "type": "meets",
             "requiredCapabilities": [],
             "subtasks": [
                 {
-                    "taskName": "personB_brother_night_block",
+                    "taskName": "debbie_brother_night_block",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "personB_brother_presence"
+                        "debbie_brother_presence"
                     ],
                     "duration": 720,
                     "start-location": "@start-location",
@@ -625,15 +624,15 @@
             ]
         },
         {
-            "name": "PersonBBrotherStartBlock",
+            "name": "DebbieBrotherStartBlock",
             "type": "meets",
             "requiredCapabilities": [],
             "subtasks": [
                 {
-                    "taskName": "personB_brother_start_block",
+                    "taskName": "debbie_brother_start_block",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "personB_brother_presence"
+                        "debbie_brother_presence"
                     ],
                     "duration": 1,
                     "start-location": "@start-location",
@@ -643,15 +642,15 @@
             ]
         },
         {
-            "name": "PersonBEndBlock",
+            "name": "DebbieEndBlock",
             "type": "meets",
             "requiredCapabilities": [],
             "subtasks": [
                 {
-                    "taskName": "personB_end_block",
+                    "taskName": "debbie_end_block",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "personB_presence"
+                        "debbie_presence"
                     ],
                     "duration": 1,
                     "start-location": "@start-location",
@@ -661,15 +660,15 @@
             ]
         },
         {
-            "name": "PersonBNightBlock",
+            "name": "DebbieNightBlock",
             "type": "meets",
             "requiredCapabilities": [],
             "subtasks": [
                 {
-                    "taskName": "personB_night_block",
+                    "taskName": "debbie_night_block",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "personB_presence"
+                        "debbie_presence"
                     ],
                     "duration": 720,
                     "start-location": "@start-location",
@@ -679,15 +678,15 @@
             ]
         },
         {
-            "name": "PersonBSonEndBlock",
+            "name": "DebbieSonEndBlock",
             "type": "meets",
             "requiredCapabilities": [],
             "subtasks": [
                 {
-                    "taskName": "personB_son_end_block",
+                    "taskName": "debbie_son_end_block",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "personB_son_presence"
+                        "debbie_son_presence"
                     ],
                     "duration": 1,
                     "start-location": "@start-location",
@@ -697,15 +696,15 @@
             ]
         },
         {
-            "name": "PersonBSonNightBlock",
+            "name": "DebbieSonNightBlock",
             "type": "meets",
             "requiredCapabilities": [],
             "subtasks": [
                 {
-                    "taskName": "personB_son_night_block",
+                    "taskName": "debbie_son_night_block",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "personB_son_presence"
+                        "debbie_son_presence"
                     ],
                     "duration": 720,
                     "start-location": "@start-location",
@@ -715,15 +714,15 @@
             ]
         },
         {
-            "name": "PersonBSonStartBlock",
+            "name": "DebbieSonStartBlock",
             "type": "meets",
             "requiredCapabilities": [],
             "subtasks": [
                 {
-                    "taskName": "personB_son_start_block",
+                    "taskName": "debbie_son_start_block",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "personB_son_presence"
+                        "debbie_son_presence"
                     ],
                     "duration": 1,
                     "start-location": "@start-location",
@@ -733,15 +732,15 @@
             ]
         },
         {
-            "name": "PersonBStartBlock",
+            "name": "DebbieStartBlock",
             "type": "meets",
             "requiredCapabilities": [],
             "subtasks": [
                 {
-                    "taskName": "personB_start_block",
+                    "taskName": "debbie_start_block",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "personB_presence"
+                        "debbie_presence"
                     ],
                     "duration": 1,
                     "start-location": "@start-location",
@@ -795,8 +794,8 @@
                     "taskName": "son_lunch",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "personB_presence",
-                        "personB_son_presence"
+                        "debbie_presence",
+                        "debbie_son_presence"
                     ],
                     "duration": 60,
                     "start-location": "@start-location",
@@ -832,36 +831,36 @@
                     "taskName": "drive_to_walmart",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "personB_presence",
+                        "debbie_presence",
                         "transport"
                     ],
                     "duration": 15,
-                    "start-location": "PersonBHouse",
-                    "end-location": "GroceryStore1",
+                    "start-location": "DebbieHouse",
+                    "end-location": "GroceryStore2",
                     "explicit_transport_task": true
                 },
                 {
                     "taskName": "walmart_shopping",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "personB_presence",
-                        "personB_brother_presence"
+                        "debbie_presence",
+                        "debbie_brother_presence"
                     ],
                     "duration": 45,
-                    "start-location": "GroceryStore1",
-                    "end-location": "GroceryStore1",
+                    "start-location": "GroceryStore2",
+                    "end-location": "GroceryStore2",
                     "explicit_transport_task": false
                 },
                 {
                     "taskName": "drive_from_walmart",
                     "type": "executable",
                     "requiredCapabilities": [
-                        "personB_presence",
+                        "debbie_presence",
                         "transport"
                     ],
                     "duration": 15,
-                    "start-location": "GroceryStore1",
-                    "end-location": "PersonBHouse",
+                    "start-location": "GroceryStore2",
+                    "end-location": "DebbieHouse",
                     "explicit_transport_task": true
                 }
             ]
@@ -917,50 +916,50 @@
             "optional": false
         },
         {
-            "name": "BLunch_M",
+            "name": "DLunch_M",
             "quantity": 1,
             "earlieststartdate": "2025-05-19T12:00",
             "duedate": "2025-05-19T13:00",
             "start-location": "SeniorCenter",
             "end-location": "SeniorCenter",
             "tasks": [
-                "BLunch"
+                "DLunch"
             ],
             "optional": false
         },
         {
-            "name": "BLunch_T",
+            "name": "DLunch_T",
             "quantity": 1,
             "earlieststartdate": "2025-05-20T12:00",
             "duedate": "2025-05-20T13:00",
             "start-location": "SeniorCenter",
             "end-location": "SeniorCenter",
             "tasks": [
-                "BLunch"
+                "DLunch"
             ],
             "optional": false
         },
         {
-            "name": "BLunch_W",
+            "name": "DLunch_W",
             "quantity": 1,
             "earlieststartdate": "2025-05-21T12:00",
             "duedate": "2025-05-21T13:00",
             "start-location": "SeniorCenter",
             "end-location": "SeniorCenter",
             "tasks": [
-                "BLunch"
+                "DLunch"
             ],
             "optional": true
         },
         {
-            "name": "BLunch_Th",
+            "name": "DLunch_Th",
             "quantity": 1,
             "earlieststartdate": "2025-05-22T12:00",
             "duedate": "2025-05-22T13:00",
             "start-location": "SeniorCenter",
             "end-location": "SeniorCenter",
             "tasks": [
-                "BLunch"
+                "DLunch"
             ],
             "optional": false
         },
@@ -993,8 +992,8 @@
             "quantity": 1,
             "earlieststartdate": "2025-05-24T15:00",
             "duedate": "2025-05-24T19:00",
-            "start-location": "PersonAHouse",
-            "end-location": "PersonAHouse",
+            "start-location": "AnnieHouse",
+            "end-location": "AnnieHouse",
             "tasks": [
                 "CommunityDinner"
             ],
@@ -1013,7 +1012,7 @@
             "optional": false
         },
         {
-            "name": "ExerciseClass_Th",
+            "name": "ExerciseClass_F",
             "quantity": 1,
             "earlieststartdate": "2025-05-23T10:00",
             "duedate": "2025-05-23T11:00",
@@ -1049,118 +1048,118 @@
             "optional": false
         },
         {
-            "name": "FPPrescriptionPickup",
+            "name": "TomPrescriptionPickup",
             "quantity": 1,
             "earlieststartdate": "2025-05-20T08:00",
-            "duedate": "2025-05-25T23:00",
+            "duedate": "2025-05-21T23:00",
             "start-location": "GroceryStore1",
             "end-location": "GroceryStore1",
             "tasks": [
-                "FPPrescriptionPickup"
+                "TomPrescriptionPickup"
             ],
             "optional": false
         },
         {
-            "name": "FriendPEndBlock",
+            "name": "TomEndBlock",
             "quantity": 1,
             "earlieststartdate": "2025-05-25T22:59",
             "duedate": "2025-05-25T23:00",
-            "start-location": "PersonAHouse",
-            "end-location": "PersonAHouse",
+            "start-location": "AnnieHouse",
+            "end-location": "AnnieHouse",
             "tasks": [
-                "FriendPEndBlock"
+                "TomEndBlock"
             ],
             "optional": false
         },
         {
-            "name": "FriendPNightBlock_M",
+            "name": "TomNightBlock_M",
             "quantity": 1,
             "earlieststartdate": "2025-05-19T20:00",
             "duedate": "2025-05-20T08:00",
-            "start-location": "PersonAHouse",
-            "end-location": "PersonAHouse",
+            "start-location": "AnnieHouse",
+            "end-location": "AnnieHouse",
             "tasks": [
-                "FriendPNightBlock"
+                "TomNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "FriendPNightBlock_T",
+            "name": "TomNightBlock_T",
             "quantity": 1,
             "earlieststartdate": "2025-05-20T20:00",
             "duedate": "2025-05-21T08:00",
-            "start-location": "PersonAHouse",
-            "end-location": "PersonAHouse",
+            "start-location": "AnnieHouse",
+            "end-location": "AnnieHouse",
             "tasks": [
-                "FriendPNightBlock"
+                "TomNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "FriendPNightBlock_W",
+            "name": "TomNightBlock_W",
             "quantity": 1,
             "earlieststartdate": "2025-05-21T20:00",
             "duedate": "2025-05-22T08:00",
-            "start-location": "PersonAHouse",
-            "end-location": "PersonAHouse",
+            "start-location": "AnnieHouse",
+            "end-location": "AnnieHouse",
             "tasks": [
-                "FriendPNightBlock"
+                "TomNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "FriendPNightBlock_Th",
+            "name": "TomNightBlock_Th",
             "quantity": 1,
             "earlieststartdate": "2025-05-22T20:00",
             "duedate": "2025-05-23T08:00",
-            "start-location": "PersonAHouse",
-            "end-location": "PersonAHouse",
+            "start-location": "AnnieHouse",
+            "end-location": "AnnieHouse",
             "tasks": [
-                "FriendPNightBlock"
+                "TomNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "FriendPNightBlock_F",
+            "name": "TomNightBlock_F",
             "quantity": 1,
             "earlieststartdate": "2025-05-23T20:00",
             "duedate": "2025-05-24T08:00",
-            "start-location": "PersonAHouse",
-            "end-location": "PersonAHouse",
+            "start-location": "AnnieHouse",
+            "end-location": "AnnieHouse",
             "tasks": [
-                "FriendPNightBlock"
+                "TomNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "FriendPNightBlock_Sa",
+            "name": "TomNightBlock_Sa",
             "quantity": 1,
             "earlieststartdate": "2025-05-24T20:00",
             "duedate": "2025-05-25T08:00",
-            "start-location": "PersonAHouse",
-            "end-location": "PersonAHouse",
+            "start-location": "AnnieHouse",
+            "end-location": "AnnieHouse",
             "tasks": [
-                "FriendPNightBlock"
+                "TomNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "FriendPStartBlock",
+            "name": "TomStartBlock",
             "quantity": 1,
             "earlieststartdate": "2025-05-19T07:59",
             "duedate": "2025-05-19T08:00",
-            "start-location": "PersonAHouse",
-            "end-location": "PersonAHouse",
+            "start-location": "AnnieHouse",
+            "end-location": "AnnieHouse",
             "tasks": [
-                "FriendPStartBlock"
+                "TomStartBlock"
             ],
             "optional": false
         },
         {
             "name": "GroceryShopping",
             "quantity": 1,
-            "earlieststartdate": "2025-05-23T08:00",
-            "duedate": "2025-05-25T23:00",
+            "earlieststartdate": "2025-05-20T11:00",
+            "duedate": "2025-05-20T23:00",
             "start-location": "GroceryStore2",
             "end-location": "GroceryStore2",
             "tasks": [
@@ -1173,8 +1172,8 @@
             "quantity": 1,
             "earlieststartdate": "2025-05-19T08:00",
             "duedate": "2025-05-25T23:00",
-            "start-location": "PersonAHouse",
-            "end-location": "PersonAHouse",
+            "start-location": "AnnieHouse",
+            "end-location": "AnnieHouse",
             "tasks": [
                 "HouseworkHelp"
             ],
@@ -1197,34 +1196,34 @@
             "quantity": 1,
             "earlieststartdate": "2025-05-19T08:00",
             "duedate": "2025-05-25T23:00",
-            "start-location": "PersonAHouse",
-            "end-location": "PersonAHouse",
+            "start-location": "AnnieHouse",
+            "end-location": "AnnieHouse",
             "tasks": [
                 "MowLawn"
             ],
             "optional": false
         },
         {
-            "name": "PAPrescriptionPickup",
+            "name": "AnniePrescriptionPickup",
             "quantity": 1,
             "earlieststartdate": "2025-05-20T08:00",
-            "duedate": "2025-05-25T23:00",
+            "duedate": "2025-05-20T23:00",
             "start-location": "GroceryStore1",
             "end-location": "GroceryStore1",
             "tasks": [
-                "PAPrescriptionPickup"
+                "AnniePrescriptionPickup"
             ],
             "optional": false
         },
         {
-            "name": "PBPrescriptionPickup",
+            "name": "DebbiePrescriptionPickup",
             "quantity": 1,
             "earlieststartdate": "2025-05-20T08:00",
             "duedate": "2025-05-25T23:00",
             "start-location": "GroceryStore1",
             "end-location": "GroceryStore1",
             "tasks": [
-                "PBPrescriptionPickup"
+                "DebbiePrescriptionPickup"
             ],
             "optional": false
         },
@@ -1241,492 +1240,492 @@
             "optional": false
         },
         {
-            "name": "PersonABrotherEndBlock",
+            "name": "AnnieBrotherEndBlock",
             "quantity": 1,
             "earlieststartdate": "2025-05-25T22:59",
             "duedate": "2025-05-25T23:00",
-            "start-location": "PersonABrotherHouse",
-            "end-location": "PersonABrotherHouse",
+            "start-location": "AnnieBrotherHouse",
+            "end-location": "AnnieBrotherHouse",
             "tasks": [
-                "PersonABrotherEndBlock"
+                "AnnieBrotherEndBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonABrotherNightBlock_M",
+            "name": "AnnieBrotherNightBlock_M",
             "quantity": 1,
             "earlieststartdate": "2025-05-19T20:00",
             "duedate": "2025-05-20T08:00",
-            "start-location": "PersonABrotherHouse",
-            "end-location": "PersonABrotherHouse",
+            "start-location": "AnnieBrotherHouse",
+            "end-location": "AnnieBrotherHouse",
             "tasks": [
-                "PersonABrotherNightBlock"
+                "AnnieBrotherNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonABrotherNightBlock_T",
+            "name": "AnnieBrotherNightBlock_T",
             "quantity": 1,
             "earlieststartdate": "2025-05-20T20:00",
             "duedate": "2025-05-21T08:00",
-            "start-location": "PersonABrotherHouse",
-            "end-location": "PersonABrotherHouse",
+            "start-location": "AnnieBrotherHouse",
+            "end-location": "AnnieBrotherHouse",
             "tasks": [
-                "PersonABrotherNightBlock"
+                "AnnieBrotherNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonABrotherNightBlock_W",
+            "name": "AnnieBrotherNightBlock_W",
             "quantity": 1,
             "earlieststartdate": "2025-05-21T20:00",
             "duedate": "2025-05-22T08:00",
-            "start-location": "PersonABrotherHouse",
-            "end-location": "PersonABrotherHouse",
+            "start-location": "AnnieBrotherHouse",
+            "end-location": "AnnieBrotherHouse",
             "tasks": [
-                "PersonABrotherNightBlock"
+                "AnnieBrotherNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonABrotherNightBlock_Th",
+            "name": "AnnieBrotherNightBlock_Th",
             "quantity": 1,
             "earlieststartdate": "2025-05-22T20:00",
             "duedate": "2025-05-23T08:00",
-            "start-location": "PersonABrotherHouse",
-            "end-location": "PersonABrotherHouse",
+            "start-location": "AnnieBrotherHouse",
+            "end-location": "AnnieBrotherHouse",
             "tasks": [
-                "PersonABrotherNightBlock"
+                "AnnieBrotherNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonABrotherNightBlock_F",
+            "name": "AnnieBrotherNightBlock_F",
             "quantity": 1,
             "earlieststartdate": "2025-05-23T20:00",
             "duedate": "2025-05-24T08:00",
-            "start-location": "PersonABrotherHouse",
-            "end-location": "PersonABrotherHouse",
+            "start-location": "AnnieBrotherHouse",
+            "end-location": "AnnieBrotherHouse",
             "tasks": [
-                "PersonABrotherNightBlock"
+                "AnnieBrotherNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonABrotherNightBlock_Sa",
+            "name": "AnnieBrotherNightBlock_Sa",
             "quantity": 1,
             "earlieststartdate": "2025-05-24T20:00",
             "duedate": "2025-05-25T08:00",
-            "start-location": "PersonABrotherHouse",
-            "end-location": "PersonABrotherHouse",
+            "start-location": "AnnieBrotherHouse",
+            "end-location": "AnnieBrotherHouse",
             "tasks": [
-                "PersonABrotherNightBlock"
+                "AnnieBrotherNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonABrotherStartBlock",
+            "name": "AnnieBrotherStartBlock",
             "quantity": 1,
             "earlieststartdate": "2025-05-19T07:59",
             "duedate": "2025-05-19T08:00",
-            "start-location": "PersonABrotherHouse",
-            "end-location": "PersonABrotherHouse",
+            "start-location": "AnnieBrotherHouse",
+            "end-location": "AnnieBrotherHouse",
             "tasks": [
-                "PersonABrotherStartBlock"
+                "AnnieBrotherStartBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonAEndBlock",
+            "name": "AnnieEndBlock",
             "quantity": 1,
             "earlieststartdate": "2025-05-25T22:59",
             "duedate": "2025-05-25T23:00",
-            "start-location": "PersonAHouse",
-            "end-location": "PersonAHouse",
+            "start-location": "AnnieHouse",
+            "end-location": "AnnieHouse",
             "tasks": [
-                "PersonAEndBlock"
+                "AnnieEndBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonANightBlock_M",
+            "name": "AnnieNightBlock_M",
             "quantity": 1,
             "earlieststartdate": "2025-05-19T20:00",
             "duedate": "2025-05-20T08:00",
-            "start-location": "PersonAHouse",
-            "end-location": "PersonAHouse",
+            "start-location": "AnnieHouse",
+            "end-location": "AnnieHouse",
             "tasks": [
-                "PersonANightBlock"
+                "AnnieNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonANightBlock_T",
+            "name": "AnnieNightBlock_T",
             "quantity": 1,
             "earlieststartdate": "2025-05-20T20:00",
             "duedate": "2025-05-21T08:00",
-            "start-location": "PersonAHouse",
-            "end-location": "PersonAHouse",
+            "start-location": "AnnieHouse",
+            "end-location": "AnnieHouse",
             "tasks": [
-                "PersonANightBlock"
+                "AnnieNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonANightBlock_W",
+            "name": "AnnieNightBlock_W",
             "quantity": 1,
             "earlieststartdate": "2025-05-21T20:00",
             "duedate": "2025-05-22T08:00",
-            "start-location": "PersonAHouse",
-            "end-location": "PersonAHouse",
+            "start-location": "AnnieHouse",
+            "end-location": "AnnieHouse",
             "tasks": [
-                "PersonANightBlock"
+                "AnnieNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonANightBlock_Th",
+            "name": "AnnieNightBlock_Th",
             "quantity": 1,
             "earlieststartdate": "2025-05-22T20:00",
             "duedate": "2025-05-23T08:00",
-            "start-location": "PersonAHouse",
-            "end-location": "PersonAHouse",
+            "start-location": "AnnieHouse",
+            "end-location": "AnnieHouse",
             "tasks": [
-                "PersonANightBlock"
+                "AnnieNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonANightBlock_F",
+            "name": "AnnieNightBlock_F",
             "quantity": 1,
             "earlieststartdate": "2025-05-23T20:00",
             "duedate": "2025-05-24T08:00",
-            "start-location": "PersonAHouse",
-            "end-location": "PersonAHouse",
+            "start-location": "AnnieHouse",
+            "end-location": "AnnieHouse",
             "tasks": [
-                "PersonANightBlock"
+                "AnnieNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonANightBlock_Sa",
+            "name": "AnnieNightBlock_Sa",
             "quantity": 1,
             "earlieststartdate": "2025-05-24T20:00",
             "duedate": "2025-05-25T08:00",
-            "start-location": "PersonAHouse",
-            "end-location": "PersonAHouse",
+            "start-location": "AnnieHouse",
+            "end-location": "AnnieHouse",
             "tasks": [
-                "PersonANightBlock"
+                "AnnieNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonAStartBlock",
+            "name": "AnnieStartBlock",
             "quantity": 1,
             "earlieststartdate": "2025-05-19T07:59",
             "duedate": "2025-05-19T08:00",
-            "start-location": "PersonAHouse",
-            "end-location": "PersonAHouse",
+            "start-location": "AnnieHouse",
+            "end-location": "AnnieHouse",
             "tasks": [
-                "PersonAStartBlock"
+                "AnnieStartBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonBBrotherEndBlock",
+            "name": "DebbieBrotherEndBlock",
             "quantity": 1,
             "earlieststartdate": "2025-05-25T22:59",
             "duedate": "2025-05-25T23:00",
-            "start-location": "PersonBBrotherHouse",
-            "end-location": "PersonBBrotherHouse",
+            "start-location": "DebbieBrotherHouse",
+            "end-location": "DebbieBrotherHouse",
             "tasks": [
-                "PersonBBrotherEndBlock"
+                "DebbieBrotherEndBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonBBrotherNightBlock_M",
+            "name": "DebbieBrotherNightBlock_M",
             "quantity": 1,
             "earlieststartdate": "2025-05-19T20:00",
             "duedate": "2025-05-20T08:00",
-            "start-location": "PersonBBrotherHouse",
-            "end-location": "PersonBBrotherHouse",
+            "start-location": "DebbieBrotherHouse",
+            "end-location": "DebbieBrotherHouse",
             "tasks": [
-                "PersonBBrotherNightBlock"
+                "DebbieBrotherNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonBBrotherNightBlock_T",
+            "name": "DebbieBrotherNightBlock_T",
             "quantity": 1,
             "earlieststartdate": "2025-05-20T20:00",
             "duedate": "2025-05-21T08:00",
-            "start-location": "PersonBBrotherHouse",
-            "end-location": "PersonBBrotherHouse",
+            "start-location": "DebbieBrotherHouse",
+            "end-location": "DebbieBrotherHouse",
             "tasks": [
-                "PersonBBrotherNightBlock"
+                "DebbieBrotherNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonBBrotherNightBlock_W",
+            "name": "DebbieBrotherNightBlock_W",
             "quantity": 1,
             "earlieststartdate": "2025-05-21T20:00",
             "duedate": "2025-05-22T08:00",
-            "start-location": "PersonBBrotherHouse",
-            "end-location": "PersonBBrotherHouse",
+            "start-location": "DebbieBrotherHouse",
+            "end-location": "DebbieBrotherHouse",
             "tasks": [
-                "PersonBBrotherNightBlock"
+                "DebbieBrotherNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonBBrotherNightBlock_Th",
+            "name": "DebbieBrotherNightBlock_Th",
             "quantity": 1,
             "earlieststartdate": "2025-05-22T20:00",
             "duedate": "2025-05-23T08:00",
-            "start-location": "PersonBBrotherHouse",
-            "end-location": "PersonBBrotherHouse",
+            "start-location": "DebbieBrotherHouse",
+            "end-location": "DebbieBrotherHouse",
             "tasks": [
-                "PersonBBrotherNightBlock"
+                "DebbieBrotherNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonBBrotherNightBlock_F",
+            "name": "DebbieBrotherNightBlock_F",
             "quantity": 1,
             "earlieststartdate": "2025-05-23T20:00",
             "duedate": "2025-05-24T08:00",
-            "start-location": "PersonBBrotherHouse",
-            "end-location": "PersonBBrotherHouse",
+            "start-location": "DebbieBrotherHouse",
+            "end-location": "DebbieBrotherHouse",
             "tasks": [
-                "PersonBBrotherNightBlock"
+                "DebbieBrotherNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonBBrotherNightBlock_Sa",
+            "name": "DebbieBrotherNightBlock_Sa",
             "quantity": 1,
             "earlieststartdate": "2025-05-24T20:00",
             "duedate": "2025-05-25T08:00",
-            "start-location": "PersonBBrotherHouse",
-            "end-location": "PersonBBrotherHouse",
+            "start-location": "DebbieBrotherHouse",
+            "end-location": "DebbieBrotherHouse",
             "tasks": [
-                "PersonBBrotherNightBlock"
+                "DebbieBrotherNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonBBrotherStartBlock",
+            "name": "DebbieBrotherStartBlock",
             "quantity": 1,
             "earlieststartdate": "2025-05-19T07:59",
             "duedate": "2025-05-19T08:00",
-            "start-location": "PersonBBrotherHouse",
-            "end-location": "PersonBBrotherHouse",
+            "start-location": "DebbieBrotherHouse",
+            "end-location": "DebbieBrotherHouse",
             "tasks": [
-                "PersonBBrotherStartBlock"
+                "DebbieBrotherStartBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonBEndBlock",
+            "name": "DebbieEndBlock",
             "quantity": 1,
             "earlieststartdate": "2025-05-25T22:59",
             "duedate": "2025-05-25T23:00",
-            "start-location": "PersonBHouse",
-            "end-location": "PersonBHouse",
+            "start-location": "DebbieHouse",
+            "end-location": "DebbieHouse",
             "tasks": [
-                "PersonBEndBlock"
+                "DebbieEndBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonBNightBlock_M",
+            "name": "DebbieNightBlock_M",
             "quantity": 1,
             "earlieststartdate": "2025-05-19T20:00",
             "duedate": "2025-05-20T08:00",
-            "start-location": "PersonBHouse",
-            "end-location": "PersonBHouse",
+            "start-location": "DebbieHouse",
+            "end-location": "DebbieHouse",
             "tasks": [
-                "PersonBNightBlock"
+                "DebbieNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonBNightBlock_T",
+            "name": "DebbieNightBlock_T",
             "quantity": 1,
             "earlieststartdate": "2025-05-20T20:00",
             "duedate": "2025-05-21T08:00",
-            "start-location": "PersonBHouse",
-            "end-location": "PersonBHouse",
+            "start-location": "DebbieHouse",
+            "end-location": "DebbieHouse",
             "tasks": [
-                "PersonBNightBlock"
+                "DebbieNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonBNightBlock_W",
+            "name": "DebbieNightBlock_W",
             "quantity": 1,
             "earlieststartdate": "2025-05-21T20:00",
             "duedate": "2025-05-22T08:00",
-            "start-location": "PersonBHouse",
-            "end-location": "PersonBHouse",
+            "start-location": "DebbieHouse",
+            "end-location": "DebbieHouse",
             "tasks": [
-                "PersonBNightBlock"
+                "DebbieNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonBNightBlock_Th",
+            "name": "DebbieNightBlock_Th",
             "quantity": 1,
             "earlieststartdate": "2025-05-22T20:00",
             "duedate": "2025-05-23T08:00",
-            "start-location": "PersonBHouse",
-            "end-location": "PersonBHouse",
+            "start-location": "DebbieHouse",
+            "end-location": "DebbieHouse",
             "tasks": [
-                "PersonBNightBlock"
+                "DebbieNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonBNightBlock_F",
+            "name": "DebbieNightBlock_F",
             "quantity": 1,
             "earlieststartdate": "2025-05-23T20:00",
             "duedate": "2025-05-24T08:00",
-            "start-location": "PersonBHouse",
-            "end-location": "PersonBHouse",
+            "start-location": "DebbieHouse",
+            "end-location": "DebbieHouse",
             "tasks": [
-                "PersonBNightBlock"
+                "DebbieNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonBNightBlock_Sa",
+            "name": "DebbieNightBlock_Sa",
             "quantity": 1,
             "earlieststartdate": "2025-05-24T20:00",
             "duedate": "2025-05-25T08:00",
-            "start-location": "PersonBHouse",
-            "end-location": "PersonBHouse",
+            "start-location": "DebbieHouse",
+            "end-location": "DebbieHouse",
             "tasks": [
-                "PersonBNightBlock"
+                "DebbieNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonBSonEndBlock",
+            "name": "DebbieSonEndBlock",
             "quantity": 1,
             "earlieststartdate": "2025-05-25T22:59",
             "duedate": "2025-05-25T23:00",
             "start-location": "Downtown",
             "end-location": "Downtown",
             "tasks": [
-                "PersonBSonEndBlock"
+                "DebbieSonEndBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonBSonNightBlock_M",
+            "name": "DebbieSonNightBlock_M",
             "quantity": 1,
             "earlieststartdate": "2025-05-19T20:00",
             "duedate": "2025-05-20T08:00",
             "start-location": "Downtown",
             "end-location": "Downtown",
             "tasks": [
-                "PersonBSonNightBlock"
+                "DebbieSonNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonBSonNightBlock_T",
+            "name": "DebbieSonNightBlock_T",
             "quantity": 1,
             "earlieststartdate": "2025-05-20T20:00",
             "duedate": "2025-05-21T08:00",
             "start-location": "Downtown",
             "end-location": "Downtown",
             "tasks": [
-                "PersonBSonNightBlock"
+                "DebbieSonNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonBSonNightBlock_W",
+            "name": "DebbieSonNightBlock_W",
             "quantity": 1,
             "earlieststartdate": "2025-05-21T20:00",
             "duedate": "2025-05-22T08:00",
             "start-location": "Downtown",
             "end-location": "Downtown",
             "tasks": [
-                "PersonBSonNightBlock"
+                "DebbieSonNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonBSonNightBlock_Th",
+            "name": "DebbieSonNightBlock_Th",
             "quantity": 1,
             "earlieststartdate": "2025-05-22T20:00",
             "duedate": "2025-05-23T08:00",
             "start-location": "Downtown",
             "end-location": "Downtown",
             "tasks": [
-                "PersonBSonNightBlock"
+                "DebbieSonNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonBSonNightBlock_F",
+            "name": "DebbieSonNightBlock_F",
             "quantity": 1,
             "earlieststartdate": "2025-05-23T20:00",
             "duedate": "2025-05-24T08:00",
             "start-location": "Downtown",
             "end-location": "Downtown",
             "tasks": [
-                "PersonBSonNightBlock"
+                "DebbieSonNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonBSonNightBlock_Sa",
+            "name": "DebbieSonNightBlock_Sa",
             "quantity": 1,
             "earlieststartdate": "2025-05-24T20:00",
             "duedate": "2025-05-25T08:00",
             "start-location": "Downtown",
             "end-location": "Downtown",
             "tasks": [
-                "PersonBSonNightBlock"
+                "DebbieSonNightBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonBSonStartBlock",
+            "name": "DebbieSonStartBlock",
             "quantity": 1,
             "earlieststartdate": "2025-05-19T07:59",
             "duedate": "2025-05-19T08:00",
             "start-location": "Downtown",
             "end-location": "Downtown",
             "tasks": [
-                "PersonBSonStartBlock"
+                "DebbieSonStartBlock"
             ],
             "optional": false
         },
         {
-            "name": "PersonBStartBlock",
+            "name": "DebbieStartBlock",
             "quantity": 1,
             "earlieststartdate": "2025-05-19T07:59",
             "duedate": "2025-05-19T08:00",
-            "start-location": "PersonBHouse",
-            "end-location": "PersonBHouse",
+            "start-location": "DebbieHouse",
+            "end-location": "DebbieHouse",
             "tasks": [
-                "PersonBStartBlock"
+                "DebbieStartBlock"
             ],
             "optional": false
         },
         {
             "name": "PrepareFood",
             "quantity": 1,
-            "earlieststartdate": "2025-05-19T08:00",
+            "earlieststartdate": "2025-05-21T08:00",
             "duedate": "2025-05-25T23:00",
-            "start-location": "PersonAHouse",
-            "end-location": "PersonAHouse",
+            "start-location": "AnnieHouse",
+            "end-location": "AnnieHouse",
             "tasks": [
                 "PrepareFood"
             ],
@@ -1807,17 +1806,17 @@
         {
             "name": "Walmart",
             "quantity": 1,
-            "earlieststartdate": "2025-05-21T12:00",
-            "duedate": "2025-05-21T14:00",
-            "start-location": "PersonBHouse",
-            "end-location": "PersonBHouse",
+            "earlieststartdate": "2025-05-21T11:00",
+            "duedate": "2025-05-21T15:00",
+            "start-location": "DebbieHouse",
+            "end-location": "DebbieHouse",
             "tasks": [
                 "Walmart"
             ],
             "optional": false
         }
     ],
-        "order-constraints": [
+    "order-constraints": [
         {
             "relation": "BEFORE",
             "source": "BuyCakeIngredients",
@@ -1830,15 +1829,15 @@
         }
     ],
     "locations": [
-        "PersonAHouse",
-        "PersonBHouse",
+        "AnnieHouse",
+        "DebbieHouse",
         "DentistOffice",
         "GroceryStore1",
         "SeniorCenter",
         "DoctorOffice",
         "GroceryStore2",
         "Downtown",
-        "PersonBBrotherHouse",
-        "PersonABrotherHouse"
+        "DebbieBrotherHouse",
+        "AnnieBrotherHouse"
     ]
 }

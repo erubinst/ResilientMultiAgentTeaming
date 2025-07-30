@@ -1,122 +1,122 @@
 {
-    "PersonAHouse": {
-        "PersonAHouse": 0,
-        "PersonBHouse": 10,
+    "AnnieHouse": {
+        "AnnieHouse": 0,
+        "DebbieHouse": 10,
         "DentistOffice": 5,
         "GroceryStore1": 5,
         "SeniorCenter": 20,
         "DoctorOffice": 30,
         "GroceryStore2": 20,
         "Downtown": 30,
-        "PersonBBrotherHouse": 15,
-        "PersonABrotherHouse": 20
+        "DebbieBrotherHouse": 15,
+        "AnnieBrotherHouse": 20
     },
-    "PersonBHouse": {
-        "PersonAHouse": 10,
-        "PersonBHouse": 0,
+    "DebbieHouse": {
+        "AnnieHouse": 10,
+        "DebbieHouse": 0,
         "DentistOffice": 15,
         "GroceryStore1": 15,
         "SeniorCenter": 25,
         "DoctorOffice": 35,
         "GroceryStore2": 10,
         "Downtown": 40,
-        "PersonBBrotherHouse": 10,
-        "PersonABrotherHouse": 30
+        "DebbieBrotherHouse": 10,
+        "AnnieBrotherHouse": 30
     },
     "DentistOffice": {
-        "PersonAHouse": 5,
-        "PersonBHouse": 15,
+        "AnnieHouse": 5,
+        "DebbieHouse": 15,
         "DentistOffice": 0,
         "GroceryStore1": 10,
         "SeniorCenter": 25,
         "DoctorOffice": 30,
         "GroceryStore2": 15,
         "Downtown": 35,
-        "PersonBBrotherHouse": 20,
-        "PersonABrotherHouse": 25
+        "DebbieBrotherHouse": 20,
+        "AnnieBrotherHouse": 25
     },
     "GroceryStore1": {
-        "PersonAHouse": 5,
-        "PersonBHouse": 15,
+        "AnnieHouse": 5,
+        "DebbieHouse": 15,
         "DentistOffice": 10,
         "GroceryStore1": 0,
         "SeniorCenter": 30,
         "DoctorOffice": 30,
         "GroceryStore2": 25,
         "Downtown": 35,
-        "PersonBBrotherHouse": 20,
-        "PersonABrotherHouse": 25
+        "DebbieBrotherHouse": 20,
+        "AnnieBrotherHouse": 25
     },
     "SeniorCenter": {
-        "PersonAHouse": 20,
-        "PersonBHouse": 25,
+        "AnnieHouse": 20,
+        "DebbieHouse": 25,
         "DentistOffice": 25,
         "GroceryStore1": 30,
         "SeniorCenter": 0,
         "DoctorOffice": 15,
         "GroceryStore2": 30,
         "Downtown": 30,
-        "PersonBBrotherHouse": 25,
-        "PersonABrotherHouse": 40
+        "DebbieBrotherHouse": 25,
+        "AnnieBrotherHouse": 40
     },
     "DoctorOffice": {
-        "PersonAHouse": 30,
-        "PersonBHouse": 35,
+        "AnnieHouse": 30,
+        "DebbieHouse": 35,
         "DentistOffice": 30,
         "GroceryStore1": 30,
         "SeniorCenter": 15,
         "DoctorOffice": 0,
         "GroceryStore2": 45,
         "Downtown": 25,
-        "PersonBBrotherHouse": 30,
-        "PersonABrotherHouse": 50
+        "DebbieBrotherHouse": 30,
+        "AnnieBrotherHouse": 50
     },
     "GroceryStore2": {
-        "PersonAHouse": 20,
-        "PersonBHouse": 10,
+        "AnnieHouse": 20,
+        "DebbieHouse": 10,
         "DentistOffice": 15,
         "GroceryStore1": 25,
         "SeniorCenter": 30,
         "DoctorOffice": 45,
         "GroceryStore2": 0,
         "Downtown": 50,
-        "PersonBBrotherHouse": 15,
-        "PersonABrotherHouse": 40
+        "DebbieBrotherHouse": 15,
+        "AnnieBrotherHouse": 40
     },
     "Downtown": {
-        "PersonAHouse": 30,
-        "PersonBHouse": 40,
+        "AnnieHouse": 30,
+        "DebbieHouse": 40,
         "DentistOffice": 35,
         "GroceryStore1": 35,
         "SeniorCenter": 30,
         "DoctorOffice": 25,
         "GroceryStore2": 50,
         "Downtown": 0,
-        "PersonBBrotherHouse": 25,
-        "PersonABrotherHouse": 50
+        "DebbieBrotherHouse": 25,
+        "AnnieBrotherHouse": 50
     },
-    "PersonBBrotherHouse": {
-        "PersonAHouse": 15,
-        "PersonBHouse": 10,
+    "DebbieBrotherHouse": {
+        "AnnieHouse": 15,
+        "DebbieHouse": 10,
         "DentistOffice": 20,
         "GroceryStore1": 20,
         "SeniorCenter": 25,
         "DoctorOffice": 30,
         "GroceryStore2": 15,
         "Downtown": 25,
-        "PersonBBrotherHouse": 0,
-        "PersonABrotherHouse": 35
+        "DebbieBrotherHouse": 0,
+        "AnnieBrotherHouse": 35
     },
-    "PersonABrotherHouse": {
-        "PersonAHouse": 20,
-        "PersonBHouse": 30,
+    "AnnieBrotherHouse": {
+        "AnnieHouse": 20,
+        "DebbieHouse": 30,
         "DentistOffice": 25,
         "GroceryStore1": 25,
         "SeniorCenter": 40,
         "DoctorOffice": 50,
         "GroceryStore2": 40,
         "Downtown": 50,
-        "PersonBBrotherHouse": 35,
-        "PersonABrotherHouse": 0
+        "DebbieBrotherHouse": 35,
+        "AnnieBrotherHouse": 0
     }
 }
