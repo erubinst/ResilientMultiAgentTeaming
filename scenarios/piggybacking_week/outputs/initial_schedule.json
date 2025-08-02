@@ -27,8 +27,8 @@
                 {
                     "taskName": "buy_cake_ingredients",
                     "order": "BuyCakeIngredients",
-                    "start_time": 1925,
-                    "end_time": 1945,
+                    "start_time": 1935,
+                    "end_time": 1955,
                     "capability": "annie_shopping"
                 },
                 {
@@ -174,6 +174,67 @@
             ]
         },
         {
+            "resourceName": "AnnieBrother",
+            "timeline": [
+                {
+                    "taskName": "annie_brother_start_block",
+                    "order": "AnnieBrotherStartBlock",
+                    "start_time": 479,
+                    "end_time": 480,
+                    "capability": "annie_brother_presence"
+                },
+                {
+                    "taskName": "annie_brother_night_block",
+                    "order": "AnnieBrotherNightBlock_M",
+                    "start_time": 1200,
+                    "end_time": 1920,
+                    "capability": "annie_brother_presence"
+                },
+                {
+                    "taskName": "annie_brother_night_block",
+                    "order": "AnnieBrotherNightBlock_T",
+                    "start_time": 2640,
+                    "end_time": 3360,
+                    "capability": "annie_brother_presence"
+                },
+                {
+                    "taskName": "annie_brother_night_block",
+                    "order": "AnnieBrotherNightBlock_W",
+                    "start_time": 4080,
+                    "end_time": 4800,
+                    "capability": "annie_brother_presence"
+                },
+                {
+                    "taskName": "annie_brother_night_block",
+                    "order": "AnnieBrotherNightBlock_Th",
+                    "start_time": 5520,
+                    "end_time": 6240,
+                    "capability": "annie_brother_presence"
+                },
+                {
+                    "taskName": "annie_brother_night_block",
+                    "order": "AnnieBrotherNightBlock_F",
+                    "start_time": 6960,
+                    "end_time": 7680,
+                    "capability": "annie_brother_presence"
+                },
+                {
+                    "taskName": "annie_brother_night_block",
+                    "order": "AnnieBrotherNightBlock_Sa",
+                    "start_time": 8400,
+                    "end_time": 9120,
+                    "capability": "annie_brother_presence"
+                },
+                {
+                    "taskName": "annie_brother_end_block",
+                    "order": "AnnieBrotherEndBlock",
+                    "start_time": 10019,
+                    "end_time": 10020,
+                    "capability": "annie_brother_presence"
+                }
+            ]
+        },
+        {
             "resourceName": "AnnieSon",
             "timeline": [
                 {
@@ -191,25 +252,32 @@
                     "capability": "annie_son_presence"
                 },
                 {
-                    "taskName": "annie_prescription_pickup",
-                    "order": "AnniePrescriptionPickup",
-                    "start_time": 1945,
-                    "end_time": 1950,
-                    "capability": "annie_prescription"
-                },
-                {
                     "taskName": "debbie_prescription_pickup",
                     "order": "DebbiePrescriptionPickup",
-                    "start_time": 1950,
-                    "end_time": 1955,
+                    "start_time": 1925,
+                    "end_time": 1930,
                     "capability": "debbie_prescription"
+                },
+                {
+                    "taskName": "annie_prescription_pickup",
+                    "order": "AnniePrescriptionPickup",
+                    "start_time": 1930,
+                    "end_time": 1935,
+                    "capability": "annie_prescription"
                 },
                 {
                     "taskName": "tom_prescription_pickup",
                     "order": "TomPrescriptionPickup",
-                    "start_time": 1955,
-                    "end_time": 1960,
+                    "start_time": 1935,
+                    "end_time": 1940,
                     "capability": "tom_prescription"
+                },
+                {
+                    "taskName": "jane_prescription_pickup",
+                    "order": "JanePrescriptionPickup",
+                    "start_time": 1940,
+                    "end_time": 1945,
+                    "capability": "jane_prescription"
                 },
                 {
                     "taskName": "annie_son_night_block",
@@ -385,13 +453,6 @@
                     "capability": "volunteer"
                 },
                 {
-                    "taskName": "son_lunch",
-                    "order": "SonLunch",
-                    "start_time": 6570,
-                    "end_time": 6630,
-                    "capability": "debbie_presence"
-                },
-                {
                     "taskName": "casino_event",
                     "order": "CasinoEvent",
                     "start_time": 6660,
@@ -450,28 +511,28 @@
             ]
         },
         {
-            "resourceName": "DebbieBrother",
+            "resourceName": "Jane",
             "timeline": [
                 {
-                    "taskName": "debbie_brother_start_block",
-                    "order": "DebbieBrotherStartBlock",
+                    "taskName": "jane_start_block",
+                    "order": "JaneStartBlock",
                     "start_time": 479,
                     "end_time": 480,
-                    "capability": "debbie_brother_presence"
+                    "capability": "jane_presence"
                 },
                 {
-                    "taskName": "debbie_brother_night_block",
-                    "order": "DebbieBrotherNightBlock_M",
+                    "taskName": "jane_night_block",
+                    "order": "JaneNightBlock_M",
                     "start_time": 1200,
                     "end_time": 1920,
-                    "capability": "debbie_brother_presence"
+                    "capability": "jane_presence"
                 },
                 {
-                    "taskName": "debbie_brother_night_block",
-                    "order": "DebbieBrotherNightBlock_T",
+                    "taskName": "jane_night_block",
+                    "order": "JaneNightBlock_T",
                     "start_time": 2640,
                     "end_time": 3360,
-                    "capability": "debbie_brother_presence"
+                    "capability": "jane_presence"
                 },
                 {
                     "taskName": "drive_to_walmart",
@@ -485,7 +546,7 @@
                     "order": "Walmart",
                     "start_time": 3555,
                     "end_time": 3600,
-                    "capability": "debbie_brother_presence"
+                    "capability": "jane_presence"
                 },
                 {
                     "taskName": "drive_from_walmart",
@@ -495,107 +556,39 @@
                     "capability": "transport"
                 },
                 {
-                    "taskName": "debbie_brother_night_block",
-                    "order": "DebbieBrotherNightBlock_W",
+                    "taskName": "jane_night_block",
+                    "order": "JaneNightBlock_W",
                     "start_time": 4080,
                     "end_time": 4800,
-                    "capability": "debbie_brother_presence"
+                    "capability": "jane_presence"
                 },
                 {
-                    "taskName": "debbie_brother_night_block",
-                    "order": "DebbieBrotherNightBlock_Th",
+                    "taskName": "jane_night_block",
+                    "order": "JaneNightBlock_Th",
                     "start_time": 5520,
                     "end_time": 6240,
-                    "capability": "debbie_brother_presence"
+                    "capability": "jane_presence"
                 },
                 {
-                    "taskName": "debbie_brother_night_block",
-                    "order": "DebbieBrotherNightBlock_F",
+                    "taskName": "jane_night_block",
+                    "order": "JaneNightBlock_F",
                     "start_time": 6960,
                     "end_time": 7680,
-                    "capability": "debbie_brother_presence"
+                    "capability": "jane_presence"
                 },
                 {
-                    "taskName": "debbie_brother_night_block",
-                    "order": "DebbieBrotherNightBlock_Sa",
+                    "taskName": "jane_night_block",
+                    "order": "JaneNightBlock_Sa",
                     "start_time": 8400,
                     "end_time": 9120,
-                    "capability": "debbie_brother_presence"
+                    "capability": "jane_presence"
                 },
                 {
-                    "taskName": "debbie_brother_end_block",
-                    "order": "DebbieBrotherEndBlock",
+                    "taskName": "jane_end_block",
+                    "order": "JaneEndBlock",
                     "start_time": 10019,
                     "end_time": 10020,
-                    "capability": "debbie_brother_presence"
-                }
-            ]
-        },
-        {
-            "resourceName": "DebbieSon",
-            "timeline": [
-                {
-                    "taskName": "debbie_son_start_block",
-                    "order": "DebbieSonStartBlock",
-                    "start_time": 479,
-                    "end_time": 480,
-                    "capability": "debbie_son_presence"
-                },
-                {
-                    "taskName": "debbie_son_night_block",
-                    "order": "DebbieSonNightBlock_M",
-                    "start_time": 1200,
-                    "end_time": 1920,
-                    "capability": "debbie_son_presence"
-                },
-                {
-                    "taskName": "debbie_son_night_block",
-                    "order": "DebbieSonNightBlock_T",
-                    "start_time": 2640,
-                    "end_time": 3360,
-                    "capability": "debbie_son_presence"
-                },
-                {
-                    "taskName": "debbie_son_night_block",
-                    "order": "DebbieSonNightBlock_W",
-                    "start_time": 4080,
-                    "end_time": 4800,
-                    "capability": "debbie_son_presence"
-                },
-                {
-                    "taskName": "debbie_son_night_block",
-                    "order": "DebbieSonNightBlock_Th",
-                    "start_time": 5520,
-                    "end_time": 6240,
-                    "capability": "debbie_son_presence"
-                },
-                {
-                    "taskName": "son_lunch",
-                    "order": "SonLunch",
-                    "start_time": 6570,
-                    "end_time": 6630,
-                    "capability": "debbie_son_presence"
-                },
-                {
-                    "taskName": "debbie_son_night_block",
-                    "order": "DebbieSonNightBlock_F",
-                    "start_time": 6960,
-                    "end_time": 7680,
-                    "capability": "debbie_son_presence"
-                },
-                {
-                    "taskName": "debbie_son_night_block",
-                    "order": "DebbieSonNightBlock_Sa",
-                    "start_time": 8400,
-                    "end_time": 9120,
-                    "capability": "debbie_son_presence"
-                },
-                {
-                    "taskName": "debbie_son_end_block",
-                    "order": "DebbieSonEndBlock",
-                    "start_time": 10019,
-                    "end_time": 10020,
-                    "capability": "debbie_son_presence"
+                    "capability": "jane_presence"
                 }
             ]
         },
@@ -619,8 +612,8 @@
                 {
                     "taskName": "grocery_shopping",
                     "order": "GroceryShopping",
-                    "start_time": 2100,
-                    "end_time": 2130,
+                    "start_time": 1955,
+                    "end_time": 1985,
                     "capability": "tom_shopping"
                 },
                 {

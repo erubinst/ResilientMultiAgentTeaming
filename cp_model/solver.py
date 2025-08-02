@@ -12,7 +12,7 @@ def solve_model(model, explicit_task_intervals, transporter_travel_data, request
     preferences = data['preferences']
 
     max_travel_time = len(transporter_travel_data['transporter_travel_intervals'])
-    travel_times_sum = sum(presence_of(transporter_travel_data['transporter_travel_intervals'][i]) 
+    travel_times_sum = sum(size_of(transporter_travel_data['transporter_travel_intervals'][i]) 
                              for i in range(len(transporter_travel_data['transporter_travel_intervals'])))
     normalized_travel_times = travel_times_sum / max_travel_time 
     max_preferences = len(preferences)
@@ -23,9 +23,9 @@ def solve_model(model, explicit_task_intervals, transporter_travel_data, request
 
     # Solve the model
     # obj = model.minimize(max([end_of(explicit_task_intervals['requirement_times'][j]) for j in range(len(request_data['requirements']))]))
-    # obj = model.minimize(travel_times_sum)
+    obj = model.minimize(travel_times_sum)
     # obj = model.maximize(preferences_sum)
-    obj = model.minimize(0.9*normalized_travel_times + 0.1*normalized_preferences)
+    # obj = model.minimize(0.7*normalized_travel_times + 0.3*normalized_preferences)
     model.add(obj)
     solution = model.solve(TimeLimit=100, agent='local', execfile=CPLEX_PATH)
 

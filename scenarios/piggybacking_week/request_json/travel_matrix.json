@@ -3,13 +3,14 @@
         "AnnieHouse": 0,
         "DebbieHouse": 10,
         "DentistOffice": 5,
-        "GroceryStore1": 5,
+        "GroceryStore1": 15,
         "SeniorCenter": 20,
         "DoctorOffice": 30,
-        "GroceryStore2": 20,
+        "GroceryStore2": 35,
         "Downtown": 30,
-        "DebbieBrotherHouse": 15,
-        "AnnieSonHouse": 20
+        "AnnieBrotherHouse": 15,
+        "AnnieSonHouse": 20,
+        "Pharmacy": 40
     },
     "DebbieHouse": {
         "AnnieHouse": 10,
@@ -19,9 +20,10 @@
         "SeniorCenter": 25,
         "DoctorOffice": 35,
         "GroceryStore2": 10,
-        "Downtown": 40,
-        "DebbieBrotherHouse": 10,
-        "AnnieSonHouse": 30
+        "Downtown": 15,
+        "AnnieBrotherHouse": 10,
+        "AnnieSonHouse": 30,
+        "Pharmacy": 20
     },
     "DentistOffice": {
         "AnnieHouse": 5,
@@ -32,20 +34,22 @@
         "DoctorOffice": 30,
         "GroceryStore2": 15,
         "Downtown": 35,
-        "DebbieBrotherHouse": 20,
-        "AnnieSonHouse": 25
+        "AnnieBrotherHouse": 20,
+        "AnnieSonHouse": 25,
+        "Pharmacy": 25
     },
     "GroceryStore1": {
-        "AnnieHouse": 5,
+        "AnnieHouse": 15,
         "DebbieHouse": 15,
         "DentistOffice": 10,
         "GroceryStore1": 0,
         "SeniorCenter": 30,
         "DoctorOffice": 30,
-        "GroceryStore2": 25,
+        "GroceryStore2": 15,
         "Downtown": 35,
-        "DebbieBrotherHouse": 20,
-        "AnnieSonHouse": 25
+        "AnnieBrotherHouse": 20,
+        "AnnieSonHouse": 5,
+        "Pharmacy": 20
     },
     "SeniorCenter": {
         "AnnieHouse": 20,
@@ -56,8 +60,9 @@
         "DoctorOffice": 15,
         "GroceryStore2": 30,
         "Downtown": 30,
-        "DebbieBrotherHouse": 25,
-        "AnnieSonHouse": 40
+        "AnnieBrotherHouse": 25,
+        "AnnieSonHouse": 40,
+        "Pharmacy": 30
     },
     "DoctorOffice": {
         "AnnieHouse": 30,
@@ -68,34 +73,37 @@
         "DoctorOffice": 0,
         "GroceryStore2": 45,
         "Downtown": 25,
-        "DebbieBrotherHouse": 30,
-        "AnnieSonHouse": 50
+        "AnnieBrotherHouse": 30,
+        "AnnieSonHouse": 50,
+        "Pharmacy": 20
     },
     "GroceryStore2": {
-        "AnnieHouse": 20,
+        "AnnieHouse": 35,
         "DebbieHouse": 10,
         "DentistOffice": 15,
-        "GroceryStore1": 25,
+        "GroceryStore1": 15,
         "SeniorCenter": 30,
         "DoctorOffice": 45,
         "GroceryStore2": 0,
         "Downtown": 50,
-        "DebbieBrotherHouse": 15,
-        "AnnieSonHouse": 40
+        "AnnieBrotherHouse": 15,
+        "AnnieSonHouse": 40,
+        "Pharmacy": 7
     },
     "Downtown": {
         "AnnieHouse": 30,
-        "DebbieHouse": 40,
+        "DebbieHouse": 15,
         "DentistOffice": 35,
         "GroceryStore1": 35,
         "SeniorCenter": 30,
         "DoctorOffice": 25,
         "GroceryStore2": 50,
         "Downtown": 0,
-        "DebbieBrotherHouse": 25,
-        "AnnieSonHouse": 50
+        "AnnieBrotherHouse": 25,
+        "AnnieSonHouse": 50,
+        "Pharmacy": 20
     },
-    "DebbieBrotherHouse": {
+    "AnnieBrotherHouse": {
         "AnnieHouse": 15,
         "DebbieHouse": 10,
         "DentistOffice": 20,
@@ -104,19 +112,34 @@
         "DoctorOffice": 30,
         "GroceryStore2": 15,
         "Downtown": 25,
-        "DebbieBrotherHouse": 0,
-        "AnnieSonHouse": 35
+        "AnnieBrotherHouse": 0,
+        "AnnieSonHouse": 35,
+        "Pharmacy": 30
     },
     "AnnieSonHouse": {
         "AnnieHouse": 20,
         "DebbieHouse": 30,
         "DentistOffice": 25,
-        "GroceryStore1": 25,
+        "GroceryStore1": 5,
         "SeniorCenter": 40,
         "DoctorOffice": 50,
         "GroceryStore2": 40,
         "Downtown": 50,
-        "DebbieBrotherHouse": 35,
-        "AnnieSonHouse": 0
+        "AnnieBrotherHouse": 35,
+        "AnnieSonHouse": 5,
+        "Pharmacy": 5
+    },
+    "Pharmacy": {
+        "AnnieHouse": 40,
+        "DebbieHouse": 20,
+        "DentistOffice": 25,
+        "GroceryStore1": 20,
+        "SeniorCenter": 30,
+        "DoctorOffice": 20,
+        "GroceryStore2": 7,
+        "Downtown": 20,
+        "AnnieBrotherHouse": 30,
+        "AnnieSonHouse": 5,
+        "Pharmacy": 0
     }
 }
