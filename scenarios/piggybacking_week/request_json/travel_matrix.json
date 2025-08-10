@@ -126,7 +126,7 @@
         "GroceryStore2": 40,
         "Downtown": 50,
         "AnnieBrotherHouse": 35,
-        "AnnieSonHouse": 5,
+        "AnnieSonHouse": 0,
         "Pharmacy": 5
     },
     "Pharmacy": {

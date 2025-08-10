@@ -25,10 +25,10 @@
                     "capability": "annie_presence"
                 },
                 {
-                    "taskName": "buy_cake_ingredients",
-                    "order": "BuyCakeIngredients",
-                    "start_time": 1935,
-                    "end_time": 1955,
+                    "taskName": "prepare_cake_ingredients",
+                    "order": "PrepareCakeIngredients",
+                    "start_time": 1920,
+                    "end_time": 2040,
                     "capability": "annie_shopping"
                 },
                 {
@@ -253,31 +253,31 @@
                 },
                 {
                     "taskName": "debbie_prescription_pickup",
-                    "order": "DebbiePrescriptionPickup",
+                    "order": "DPrescriptionPickup",
                     "start_time": 1925,
                     "end_time": 1930,
                     "capability": "debbie_prescription"
                 },
                 {
-                    "taskName": "annie_prescription_pickup",
-                    "order": "AnniePrescriptionPickup",
+                    "taskName": "jane_prescription_pickup",
+                    "order": "JPrescriptionPickup",
                     "start_time": 1930,
                     "end_time": 1935,
+                    "capability": "jane_prescription"
+                },
+                {
+                    "taskName": "annie_prescription_pickup",
+                    "order": "APrescriptionPickup",
+                    "start_time": 1935,
+                    "end_time": 1940,
                     "capability": "annie_prescription"
                 },
                 {
                     "taskName": "tom_prescription_pickup",
-                    "order": "TomPrescriptionPickup",
-                    "start_time": 1935,
-                    "end_time": 1940,
-                    "capability": "tom_prescription"
-                },
-                {
-                    "taskName": "jane_prescription_pickup",
-                    "order": "JanePrescriptionPickup",
+                    "order": "TPrescriptionPickup",
                     "start_time": 1940,
                     "end_time": 1945,
-                    "capability": "jane_prescription"
+                    "capability": "tom_prescription"
                 },
                 {
                     "taskName": "annie_son_night_block",
@@ -334,16 +334,16 @@
                     "capability": "debbie_presence"
                 },
                 {
-                    "taskName": "housework_help",
-                    "order": "HouseworkHelp",
+                    "taskName": "mow_lawn",
+                    "order": "MowLawn",
                     "start_time": 490,
-                    "end_time": 550,
+                    "end_time": 535,
                     "capability": "handywork"
                 },
                 {
-                    "taskName": "mow_lawn",
-                    "order": "MowLawn",
-                    "start_time": 550,
+                    "taskName": "housework_help",
+                    "order": "HouseworkHelp",
+                    "start_time": 535,
                     "end_time": 595,
                     "capability": "handywork"
                 },
@@ -451,6 +451,13 @@
                     "start_time": 6420,
                     "end_time": 6480,
                     "capability": "volunteer"
+                },
+                {
+                    "taskName": "lunch_meeting",
+                    "order": "LunchMeeting",
+                    "start_time": 6570,
+                    "end_time": 6630,
+                    "capability": "debbie_presence"
                 },
                 {
                     "taskName": "casino_event",
@@ -567,6 +574,13 @@
                     "order": "JaneNightBlock_Th",
                     "start_time": 5520,
                     "end_time": 6240,
+                    "capability": "jane_presence"
+                },
+                {
+                    "taskName": "lunch_meeting",
+                    "order": "LunchMeeting",
+                    "start_time": 6570,
+                    "end_time": 6630,
                     "capability": "jane_presence"
                 },
                 {

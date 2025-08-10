@@ -32,10 +32,6 @@
             "type": "resusable",
             "capabilities": [
                 "annie_brother_presence",
-                "annie_prescription",
-                "debbie_prescription",
-                "tom_prescription",
-                "jane_prescription",
                 "traveler",
                 "transport"
             ]
@@ -160,17 +156,17 @@
             ]
         },
         {
-            "name": "BuyCakeIngredients",
+            "name": "PrepareCakeIngredients",
             "type": "meets",
             "requiredCapabilities": [],
             "subtasks": [
                 {
-                    "taskName": "buy_cake_ingredients",
+                    "taskName": "prepare_cake_ingredients",
                     "type": "executable",
                     "requiredCapabilities": [
                         "annie_shopping"
                     ],
-                    "duration": 20,
+                    "duration": 120,
                     "start-location": "@start-location",
                     "end-location": "@end-location",
                     "explicit_transport_task": false
@@ -289,7 +285,7 @@
             ]
         },
         {
-            "name": "TomPrescriptionPickup",
+            "name": "TPrescriptionPickup",
             "type": "meets",
             "requiredCapabilities": [],
             "subtasks": [
@@ -433,7 +429,7 @@
             ]
         },
         {
-            "name": "AnniePrescriptionPickup",
+            "name": "APrescriptionPickup",
             "type": "meets",
             "requiredCapabilities": [],
             "subtasks": [
@@ -451,7 +447,7 @@
             ]
         },
         {
-            "name": "DebbiePrescriptionPickup",
+            "name": "DPrescriptionPickup",
             "type": "meets",
             "requiredCapabilities": [],
             "subtasks": [
@@ -469,7 +465,7 @@
             ]
         },
                 {
-            "name": "JanePrescriptionPickup",
+            "name": "JPrescriptionPickup",
             "type": "meets",
             "requiredCapabilities": [],
             "subtasks": [
@@ -989,14 +985,14 @@
             "optional": false
         },
         {
-            "name": "BuyCakeIngredients",
+            "name": "PrepareCakeIngredients",
             "quantity": 1,
             "earlieststartdate": "2025-05-20T08:00",
             "duedate": "2025-05-25T23:00",
-            "start-location": "GroceryStore1",
-            "end-location": "GroceryStore1",
+            "start-location": "AnnieHouse",
+            "end-location": "AnnieHouse",
             "tasks": [
-                "BuyCakeIngredients"
+                "PrepareCakeIngredients"
             ],
             "optional": false
         },
@@ -1073,14 +1069,14 @@
             "optional": false
         },
         {
-            "name": "TomPrescriptionPickup",
+            "name": "TPrescriptionPickup",
             "quantity": 1,
             "earlieststartdate": "2025-05-20T08:00",
             "duedate": "2025-05-20T23:00",
             "start-location": "Pharmacy",
             "end-location": "Pharmacy",
             "tasks": [
-                "TomPrescriptionPickup"
+                "TPrescriptionPickup"
             ],
             "optional": false
         },
@@ -1229,38 +1225,38 @@
             "optional": false
         },
         {
-            "name": "AnniePrescriptionPickup",
+            "name": "APrescriptionPickup",
             "quantity": 1,
             "earlieststartdate": "2025-05-20T08:00",
             "duedate": "2025-05-20T17:00",
             "start-location": "Pharmacy",
             "end-location": "Pharmacy",
             "tasks": [
-                "AnniePrescriptionPickup"
+                "APrescriptionPickup"
             ],
             "optional": false
         },
         {
-            "name": "DebbiePrescriptionPickup",
+            "name": "DPrescriptionPickup",
             "quantity": 1,
             "earlieststartdate": "2025-05-20T08:00",
             "duedate": "2025-05-20T17:00",
             "start-location": "Pharmacy",
             "end-location": "Pharmacy",
             "tasks": [
-                "DebbiePrescriptionPickup"
+                "DPrescriptionPickup"
             ],
             "optional": false
         },
         {
-            "name": "JanePrescriptionPickup",
+            "name": "JPrescriptionPickup",
             "quantity": 1,
             "earlieststartdate": "2025-05-20T08:00",
             "duedate": "2025-05-20T17:00",
             "start-location": "Pharmacy",
             "end-location": "Pharmacy",
             "tasks": [
-                "JanePrescriptionPickup"
+                "JPrescriptionPickup"
             ],
             "optional": false
         },
@@ -1769,14 +1765,14 @@
             "optional": false
         },
         {
-            "name": "SonLunch",
+            "name": "LunchMeeting",
             "quantity": 1,
             "earlieststartdate": "2025-05-23T13:30",
             "duedate": "2025-05-23T15:00",
             "start-location": "Downtown",
             "end-location": "Downtown",
             "tasks": [
-                "SonLunch"
+                "LunchMeeting"
             ],
             "optional": false
         },
@@ -1856,7 +1852,7 @@
     "order-constraints": [
         {
             "relation": "BEFORE",
-            "source": "BuyCakeIngredients",
+            "source": "PrepareCakeIngredients",
             "destination": "PrepareFood"
         },
         {
